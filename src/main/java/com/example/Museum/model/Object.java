@@ -16,7 +16,8 @@ public abstract class Object {
     private Long id;
 
     private String title;
-    private String artist;
+    @ManyToOne
+    private Artist artist;
     private String yearOf;
     private String medium;
     private String description;

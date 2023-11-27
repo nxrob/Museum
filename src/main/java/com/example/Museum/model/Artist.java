@@ -1,21 +1,24 @@
 package com.example.Museum.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Data
 public class Artist {
 
     @Id
-    @GeneratedValue
     private Long id;
 
     private String name;
     private String dobAndDod;
     private String birthplace;
+    @Column(length = 1000)
     private String bio;
+
+    @OneToMany(mappedBy = "artist")
+    private List<Object> repertoire;
 
 }

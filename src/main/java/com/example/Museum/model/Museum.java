@@ -13,7 +13,6 @@ import java.util.List;
 public class Museum {
 
     @Id
-    @GeneratedValue
     private Long id;
 
     private String name;

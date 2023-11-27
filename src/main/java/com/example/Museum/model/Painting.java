@@ -7,7 +7,6 @@ import lombok.Data;
 @Data
 public class Painting extends Object {
 
-    private boolean inPrivateCollection;
     private String style;
 
 }
