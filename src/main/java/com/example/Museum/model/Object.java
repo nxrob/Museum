@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 public abstract class Object {
 
     @Id
-    @GeneratedValue
     private Long id;
 
     private String title;
@@ -20,6 +19,7 @@ public abstract class Object {
     private Artist artist;
     private String yearOf;
     private String medium;
+    @Column(length = 1000)
     private String description;
 
     private String format;
