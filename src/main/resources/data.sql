@@ -9,8 +9,12 @@ INSERT INTO MUSEUM (id, name, location) VALUES
 (100007, 'Art Institute of Chicago', 'Chicago, USA'),
 (100008, 'Hermitage Museum', 'St. Petersburg, Russia'),
 (100009, 'Van Gogh Museum', 'Amsterdam, Netherlands'),
-(100012, 'National Gallery of Art', 'Washington D.C., USA'),
-(100013, 'Museum of Modern Art', 'New York City, USA')
+(100010, 'National Gallery of Art', 'Washington D.C., USA'),
+(100011, 'Museum of Modern Art', 'New York City, USA'),
+(100012, 'Guggenheim Museum', 'New York City, USA'),
+(100013, 'Centre Pompidou', 'Paris, France'),
+(100014, 'Uffizi Gallery', 'Florence, Italy'),
+(100015, 'Vatican Museums', 'Florence, Italy')
 ;
 
 
@@ -43,3 +47,63 @@ INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, d
 (210, 100005, 200002, 'Bacchus', '1510-1515', 'Oil on panel', 'Renaissance', 'This painting attributed to Leonardo da Vinci depicts Bacchus, the Roman god of wine, in a contemplative mood, reflecting the artist''s interest in mythology and the human form.')
 ;
 
+-- VAN GOGH --
+INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200003, 'Vincent Van Gogh', '1853 - 1890', 'Zundert, Netherlands', 'Vincent Van Gogh was a Dutch post-impressionist painter renowned for his vivid and emotional artworks. His unique style, characterized by bold colors and dramatic brushwork, had a profound impact on the art world. Despite struggles with mental health, he created an extensive body of work, including masterpieces like "Starry Night" and "Sunflowers." He passed away in 1890, leaving a legacy of innovation and artistic brilliance.');
+INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+(301, 100009, 200003, 'Starry Night', '1889', 'Oil on canvas', 'Post-Impressionism', 'One of Van Gogh''s most famous works, "Starry Night" depicts a swirling night sky over a village, showcasing the artist''s unique brushwork and use of color to convey emotion.'),
+(302, 100011, 200003, 'Sunflowers', '1888', 'Oil on canvas', 'Post-Impressionism', 'This series of still-life paintings of sunflowers highlights Van Gogh''s use of vibrant colors and textured brushstrokes, symbolizing happiness and vitality.'),
+(303, 100009, 200003, 'The Bedroom', '1888', 'Oil on canvas', 'Post-Impressionism', 'Van Gogh''s "The Bedroom" portrays his bedroom in Arles, France, with vivid colors and expressive lines, reflecting the artist''s emotional state.'),
+(304, 100009, 200003, 'Irises', '1889', 'Oil on canvas', 'Post-Impressionism', 'This vibrant depiction of irises in a garden showcases Van Gogh''s mastery of color and texture, exuding a sense of vitality and movement.'),
+(305, 100009, 200003, 'Café Terrace at Night', '1888', 'Oil on canvas', 'Post-Impressionism', 'Van Gogh''s "Café Terrace at Night" captures a vibrant café scene, with bold colors and swirling patterns, inviting viewers into the lively atmosphere of the night.'),
+(306, 100011, 200003, 'Wheatfield with Crows', '1890', 'Oil on canvas', 'Post-Impressionism', 'This haunting landscape of a wheatfield with crows showcases Van Gogh''s emotional intensity and turbulent brushwork, often interpreted as reflective of his inner turmoil.'),
+(307, 100009, 200003, 'The Starry Night Over the Rhône', '1888', 'Oil on canvas', 'Post-Impressionism', 'Similar to "Starry Night," this painting portrays the night sky, this time over the Rhône River, showcasing Van Gogh''s fascination with celestial elements and their emotional impact.')
+;
+
+
+-- FRANCIS BACON --
+INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200004, 'Francis Bacon', '1909 - 1992', 'Dublin, Ireland', 'Francis Bacon was an Irish-born figurative painter known for his emotionally charged and raw imagery. His works often depicted the human form in distressing and haunting ways, exploring themes of existentialism, violence, and the human condition. Bacon''s unique style and powerful compositions made him a leading figure in contemporary art.');
+INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+(400, 100003, 200004, 'Three Studies for Figures at the Base of a Crucifixion', '1944', 'Oil and pastel on board', 'Surrealism', 'Bacon''s "Three Studies for Figures at the Base of a Crucifixion" is a powerful and unsettling triptych that marked a turning point in the artist''s career, with distorted figures reflecting the anguish of the post-war era.'),
+(401, 100014, 200004, 'Study after Velázquez''s Portrait of Pope Innocent X', '1953', 'Oil on canvas', 'Surrealism', 'Bacon''s "Study after Velázquez''s Portrait of Pope Innocent X" reinterprets the classic painting with distorted forms and intense emotional impact.'),
+(402, 100003, 200004, 'Painting 1946', '1946', 'Oil and pastel on linen', 'Surrealism', 'This work showcases Bacon''s use of bold colors and abstracted forms, capturing the existential anxiety prevalent in post-war Europe.'),
+(403, 100015, 200004, 'Figure with Meat', '1954', 'Oil on canvas', 'Surrealism', 'A haunting and visceral depiction of a distorted figure surrounded by hanging carcasses, symbolizing the brutality of existence.');
+
+-- ROY LICHTENSTEIN --
+INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200005, 'Roy Lichtenstein', '1923 - 1997', 'New York City, USA', 'Roy Lichtenstein was an American pop artist, known for his comic strip-inspired artwork. His iconic pieces often featured bold colors, Ben-Day dots, and thick outlines, challenging the boundaries of high and low art. Lichtenstein''s work became synonymous with the Pop Art movement of the 1960s.');
+INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+(500, 100003, 200005, 'Whaam!', '1963', 'Oil and acrylic paint on canvas', 'Pop Art', 'Lichtenstein''s "Whaam!" is an iconic diptych representing a fighter aircraft firing a rocket during combat, inspired by comic book imagery.'),
+(501, 100013, 200005, 'Drowning Girl', '1963', 'Oil and synthetic polymer paint on canvas', 'Pop Art', 'This painting showcases Lichtenstein''s signature Ben-Day dots and bold lines, portraying a distressed woman in a melodramatic scene.'),
+(502, 100012, 200005, 'Look Mickey', '1961', 'Oil on canvas', 'Pop Art', 'One of Lichtenstein''s earliest and most famous works, "Look Mickey" marks his transition to Pop Art, depicting Mickey Mouse and Donald Duck fishing, capturing the essence of popular culture.')
+;
+
+-- PICASSO --
+INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200006, 'Pablo Picasso', '1881 - 1973', 'Málaga, Spain', 'Pablo Picasso was a Spanish painter, sculptor, and printmaker, considered one of the most influential artists of the 20th century. He co-founded the Cubist movement and created iconic works across various styles and mediums, showcasing unparalleled creativity and innovation in art.');
+INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+(600, 100001, 200006, 'Las Meninas Series', '1957', 'Oil on canvas', 'Cubism', 'Picasso''s "Las Meninas Series" reinterprets Velázquez''s masterpiece in a series of 58 paintings, exploring perspective and form.'),
+(601, 100004, 200006, 'Guernica', '1937', 'Oil on canvas', 'Cubism', 'A powerful anti-war statement, "Guernica" is one of Picasso''s most famous works, depicting the horrors of the Spanish Civil War.'),
+(602, 100006, 200006, 'Les Demoiselles d''Avignon', '1907', 'Oil on canvas', 'Cubism', 'This groundbreaking painting is a key early work in the development of Cubism, depicting five nude female figures in a fragmented style.'),
+(603, 100008, 200006, 'The Old Guitarist', '1903', 'Oil on panel', 'Blue Period', 'Part of Picasso''s Blue Period, "The Old Guitarist" portrays a blind musician in blue tones, reflecting themes of melancholy and poverty.'),
+(604, 100012, 200006, 'Portrait of Dora Maar', '1937', 'Oil on canvas', 'Surrealism', 'Picasso''s portrait of Dora Maar, his lover and muse, showcases his exploration of Surrealist techniques and distorted forms.'),
+(605, 100013, 200006, 'Les Femmes d''Alger', '1955', 'Oil on canvas', 'Cubism', 'Inspired by Delacroix''s painting, Picasso''s "Les Femmes d''Alger" series features 15 variations, showcasing his mastery of form and color.');
+
+
+-- MATISSE --
+INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200007, 'Henri Matisse', '1869 - 1954', 'Le Cateau-Cambrésis, France', 'Henri Matisse was a French artist known for his use of color and fluid forms. A leading figure of modern art, he explored various styles, from Fauvism to abstraction. Matisse''s vibrant and expressive works continue to influence art and inspire artists worldwide.');
+INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+(700, 100001, 200007, 'The Dance', '1910', 'Oil on canvas', 'Fauvism', 'Matisse''s "The Dance" is a vibrant depiction of joyful, dancing figures, showcasing bold colors and simplified forms characteristic of Fauvism.'),
+(701, 100002, 200007, 'Woman with a Hat', '1905', 'Oil on canvas', 'Fauvism', 'Considered a masterpiece of Fauvism, "Woman with a Hat" displays Matisse''s bold use of color and expressive brushwork.'),
+(702, 100004, 200007, 'The Red Studio', '1911', 'Oil on canvas', 'Fauvism', 'In "The Red Studio," Matisse explores the boundaries between interior and exterior space, using vivid red tones to emphasize the studio''s elements.'),
+(703, 100006, 200007, 'La Danse II', '1932', 'Oil on canvas', 'Modernism', 'As a later rendition of "The Dance," "La Danse II" reflects Matisse''s evolving style, emphasizing a more simplified and abstracted form.'),
+(704, 100009, 200007, 'Goldfish', '1912', 'Oil on canvas', 'Fauvism', 'Matisse''s "Goldfish" captures the tranquility of a bowl of fish through a vivid palette and loose brushstrokes, highlighting his interest in decorative elements.'),
+(705, 100012, 200007, 'The Joy of Life', '1905', 'Oil on canvas', 'Fauvism', 'This masterpiece embodies the essence of Fauvism, depicting a serene scene of nude figures in a landscape filled with vibrant colors and fluid forms.');
+
+
+-- RUFINO TAMAYO --
+INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200008, 'Rufino Tamayo', '1899 - 1991', 'Oaxaca, Mexico', 'Rufino Tamayo was a Mexican painter known for his distinct style that merged European modernist elements with Mexican folk art. His paintings often showcased strong colors and indigenous themes, reflecting a unique blend of cultures. Tamayo''qs work contributed significantly to Mexican art and gained international recognition.');
+INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+(800, 100001, 200008, 'Trovador', '1945', 'Oil on canvas', 'Surrealism', 'In "Trovador," Tamayo combines elements of surrealism with Mexican folk art, depicting a troubadour playing music amidst dreamlike imagery.'),
+(801, 100003, 200008, 'Mujer con Collar', '1943', 'Oil on canvas', 'Surrealism', 'This painting portrays a woman with a necklace, showcasing Tamayo''s use of bold colors and simplified forms, characteristic of his style.'),
+(802, 100004, 200008, 'Perro aullando a la luna', '1942', 'Oil on canvas', 'Surrealism', 'Tamayo''s "Perro aullando a la luna" captures a dog howling at the moon in a surreal and symbolic representation.'),
+(803, 100007, 200008, 'Sandías', '1954', 'Oil on canvas', 'Modernism', 'In "Sandías," Tamayo depicts watermelons in a composition that merges elements of abstraction and Mexican cultural motifs.'),
+(804, 100009, 200008, 'Hombre en Fuego', '1963', 'Oil on canvas', 'Surrealism', 'Tamayo''s "Hombre en Fuego" portrays a figure engulfed in flames, exploring themes of passion and intensity.'),
+(805, 100013, 200008, 'Dos Personajes Atacados por Perros', '1983', 'Mix media on canvas', 'Surrealism', 'This artwork depicts two characters under attack by dogs, showcasing Tamayo''s later surrealistic explorations.');
