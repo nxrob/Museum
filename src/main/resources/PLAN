@@ -8,9 +8,11 @@
 
 - List all museums
     --> /museum
+    (DONE)
 
 - List all works by a certain artist
     --> /artist/{name}
+    (DONE)
 
 - List all works by a certain artist at a certain museum
     --> /museum/{museumName}/all?filter=artistName
@@ -20,7 +22,8 @@
     --> /sculpture?filter=name/location
 
 - Find the museum with the most works of art by a given artist
-    --> /artist/{name}/musemwithmostworks
+    --> /artist/{name}/mostworks
+    (DONE BUT WOULD LIKE TO DISPLAY COUNT ALSO)
 
 - Find the first (last) sculpture created by a given artist
     --> /artist/{name}/first
