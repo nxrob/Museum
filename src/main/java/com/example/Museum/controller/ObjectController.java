@@ -4,7 +4,6 @@ import com.example.Museum.model.Object;
 import com.example.Museum.service.ObjectService;
 import io.micrometer.common.util.StringUtils;
 import jakarta.websocket.server.PathParam;
-import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +24,8 @@ public class ObjectController {
         List<Object> allObjects = Collections.emptyList();
 
         if(StringUtils.isNotBlank(filter)) {
-            allObjects = objectService.findByTitleContains(filter);
+            allObjects = objectService.findByTitleContainsIgnoreCase(filter);
+            allObjects.addAll(objectService.findByArtistNameContainsIgnoreCase(filter));
         }
         else {
             allObjects = objectService.findAll();

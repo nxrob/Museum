@@ -23,7 +23,12 @@ public class ObjectServiceImpl implements ObjectService {
     }
 
     @Override
-    public List<Object> findByTitleContains(String filter) {
-        return objectRepository.findByTitleContains(filter);
+    public List<Object> findByTitleContainsIgnoreCase(String filter) {
+        return objectRepository.findByTitleContainsIgnoreCase(filter);
+    }
+
+    @Override
+    public List<Object> findByArtistNameContainsIgnoreCase(String filter) {
+        return objectRepository.findByArtistNameContainsIgnoreCase(filter);
     }
 }

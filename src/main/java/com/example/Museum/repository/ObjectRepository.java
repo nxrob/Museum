@@ -9,6 +9,7 @@ import java.util.List;
 @Repository
 public interface ObjectRepository extends CrudRepository<Object, Integer> {
 
-    List<Object> findByTitleContains(String filter);
+    List<Object> findByTitleContainsIgnoreCase(String filter);
+    List<Object> findByArtistNameContainsIgnoreCase(String filter);
 
 }

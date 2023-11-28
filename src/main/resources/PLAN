@@ -1,8 +1,10 @@
 - List all art in database
     --> /all
+    (DONE)
 
 - List all works containing a filter word
     --> /all?filter=word
+    (DONE)
 
 - List all museums
     --> /museum
