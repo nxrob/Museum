@@ -12,4 +12,6 @@ public interface ArtistService {
     List<Object> findObjectsByArtist(String name);
     Museum getMuseumWithMostWorksByArtist(String name);
 
+    List<Object> findFirstAndLastObject(String name);
+
 }

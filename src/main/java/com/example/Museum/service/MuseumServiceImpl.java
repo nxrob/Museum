@@ -1,6 +1,9 @@
 package com.example.Museum.service;
 
+import com.example.Museum.model.Artist;
 import com.example.Museum.model.Museum;
+import com.example.Museum.model.Object;
+import com.example.Museum.repository.ArtistRepository;
 import com.example.Museum.repository.MuseumRepository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -14,7 +17,8 @@ import java.util.List;
 @AllArgsConstructor
 public class MuseumServiceImpl implements MuseumService {
 
-    private final MuseumRepository museumRepository;
+    private MuseumRepository museumRepository;
+    private ArtistRepository artistRepository;
 
     @Override
     public List<Museum> findAll() {
@@ -22,6 +26,20 @@ public class MuseumServiceImpl implements MuseumService {
         Iterable<Museum> museumsItr = museumRepository.findAll();
         museumsItr.forEach(museums::add);
         return museums;
+    }
+
+    @Override
+    public List<Object> getWorksByArtistInMuseum(String museumName, String artistName) {
+        Artist artist = artistRepository.findByName(artistName);
+        Museum museum = museumRepository.findByName(museumName);
+        List<Object> worksByArtistInMuseum = new ArrayList<>();
+        List<Object> collection = museum.getCollection();
+        for(Object object : collection) {
+            if(object.getArtist().equals(artist)) {
+                worksByArtistInMuseum.add(object);
+            }
+        }
+        return worksByArtistInMuseum;
     }
 
 }

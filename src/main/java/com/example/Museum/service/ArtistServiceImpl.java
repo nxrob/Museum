@@ -53,4 +53,33 @@ public class ArtistServiceImpl implements ArtistService {
         }
         return museumWithMostWorks;
     }
+
+    @Override
+    public List<Object> findFirstAndLastObject(String name) {
+        Artist artist = artistRepository.findByName(name);
+        List<Object> repertoire = artist.getRepertoire();
+
+        Object oldestObject = new Object();
+        oldestObject.setYearOf("9999");
+        for(Object object : repertoire) {
+            int yearMade = Integer.parseInt(object.getYearOf());
+            if(yearMade < Integer.parseInt(oldestObject.getYearOf())) {
+                oldestObject = object;
+            }
+        }
+
+        Object newestObject = new Object();
+        newestObject.setYearOf("0");
+        for(Object object : repertoire) {
+            int yearMade = Integer.parseInt(object.getYearOf());
+            if(yearMade > Integer.parseInt(newestObject.getYearOf())) {
+                newestObject = object;
+            }
+        }
+
+        List<Object> oldestNewest = new ArrayList<>();
+        oldestNewest.add(oldestObject);
+        oldestNewest.add(newestObject);
+        return oldestNewest;
+    }
 }

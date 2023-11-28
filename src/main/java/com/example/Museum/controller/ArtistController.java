@@ -37,4 +37,8 @@ public class ArtistController {
         return artistService.getMuseumWithMostWorksByArtist(name);
     }
 
+    @GetMapping("/artist/{name}/oldestnewest")
+    public List<Object> findFirstAndLastObject(@PathVariable String name) {
+        return artistService.findFirstAndLastObject(name);
+    }
 }

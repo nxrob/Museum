@@ -10,12 +10,15 @@
     --> /museum
     (DONE)
 
+- List all works in a museum
+    --> /museum/{museumName}
+
 - List all works by a certain artist
     --> /artist/{name}
     (DONE)
 
 - List all works by a certain artist at a certain museum
-    --> /museum/{museumName}/all?filter=artistName
+    --> /museum/{museumName}?filter=artistName
 
 - Find the location of a work of art by name
     --> /painting?filter=name/location      OR      /painting/{name}/location       OR      /painting/{id}/location
@@ -28,6 +31,7 @@
 - Find the first (last) sculpture created by a given artist
     --> /artist/{name}/first
     --> /artist/{name}/last
+    (DONE)
 
 - Find all paintings in a certain style
     --> /painting/style?filter=surrealism

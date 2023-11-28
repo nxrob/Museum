@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MuseumRepository extends CrudRepository<Museum, Integer> {
+
+    Museum findByName(String name);
+
 }
