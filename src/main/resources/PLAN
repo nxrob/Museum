@@ -1,0 +1,28 @@
+- List all art in database
+    --> /all
+
+- List all works containing a filter word
+    --> /all?filter=word
+
+- List all museums
+    --> /museum
+
+- List all works by a certain artist
+    --> /artist/{name}
+
+- List all works by a certain artist at a certain museum
+    --> /museum/{museumName}/all?filter=artistName
+
+- Find the location of a work of art by name
+    --> /painting?filter=name/location      OR      /painting/{name}/location       OR      /painting/{id}/location
+    --> /sculpture?filter=name/location
+
+- Find the museum with the most works of art by a given artist
+    --> /artist/{name}/musemwithmostworks
+
+- Find the first (last) sculpture created by a given artist
+    --> /artist/{name}/first
+    --> /artist/{name}/last
+
+- Find all paintings in a certain style
+    --> /painting/style?filter=surrealism
