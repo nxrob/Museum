@@ -1,6 +1,7 @@
 package com.example.Museum.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,7 +21,7 @@ public class Artist {
     private String bio;
 
     @OneToMany(mappedBy = "artist")
-    @JsonBackReference
+    @JsonManagedReference(value = "repertoireReference")
     private List<Object> repertoire;
 
 }

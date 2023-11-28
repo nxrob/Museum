@@ -1,8 +1,11 @@
 package com.example.Museum.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,14 +13,16 @@ import lombok.NoArgsConstructor;
 @Data
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @NoArgsConstructor
-public abstract class Object {
+@AllArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Object {
 
     @Id
     private Long id;
 
     private String title;
     @ManyToOne
-    @JsonManagedReference
+    @JsonBackReference(value = "repertoireReference")
     private Artist artist;
     private String yearOf;
     private String medium;
@@ -25,8 +30,8 @@ public abstract class Object {
     private String description;
 
     @Nonnull
+    @JsonBackReference(value = "collectionReference")
     @ManyToOne
-    @JsonManagedReference
     private Museum museum;
 
 }

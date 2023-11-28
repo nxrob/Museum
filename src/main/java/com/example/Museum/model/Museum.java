@@ -1,6 +1,9 @@
 package com.example.Museum.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -19,8 +22,9 @@ public class Museum {
     private String name;
     private String location;
 
+    @JsonManagedReference(value = "collectionReference")
     @OneToMany(mappedBy = "museum")
-    @JsonBackReference
+    @JsonIgnore
     private List<Object> collection;
 
 }
