@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ObjectServiceImpl implements ObjectService {
 
-    private final ObjectRepository objectRepository;
+    private ObjectRepository objectRepository;
 
     @Override
     public List<Object> findAll() {
@@ -20,6 +20,11 @@ public class ObjectServiceImpl implements ObjectService {
         Iterable<Object> objectsItr = objectRepository.findAll();
         objectsItr.forEach(objects::add);
         return objects;
+    }
+
+    @Override
+    public Object findByTitleIs(String title) {
+        return objectRepository.findByTitleIs(title);
     }
 
     @Override
@@ -31,4 +36,5 @@ public class ObjectServiceImpl implements ObjectService {
     public List<Object> findByArtistNameContainsIgnoreCase(String filter) {
         return objectRepository.findByArtistNameContainsIgnoreCase(filter);
     }
+
 }

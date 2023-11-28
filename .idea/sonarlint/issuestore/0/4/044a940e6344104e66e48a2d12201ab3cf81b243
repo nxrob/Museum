@@ -1,2 +1,6 @@
 
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Á—é˜ÿÿÿÿÿ
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Á—é˜ÿÿÿÿÿ8¼ýá±Á1
+^
+java:S1128"<Remove this unused import 'com.example.Museum.model.Object'.(þ Øøÿÿÿÿ8Ù¦æ±Á1
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Ù¦æ±Á1

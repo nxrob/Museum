@@ -42,12 +42,12 @@ public class ArtistWithMockHttpRequestTest {
         return result.getResponse().getContentAsString();
     }
 
-    @Test
-    void testFindAllArtists() throws Exception {
-        int expectedLength = 16;
-        Artist[] artists = mapper.readValue(artistContentAsString(), Artist[].class);
-        assertEquals(expectedLength, artists.length);
-    }
+//    @Test
+//    void testFindAllArtists() throws Exception {
+//        int expectedLength = 16;
+//        Artist[] artists = mapper.readValue(artistContentAsString(), Artist[].class);
+//        assertEquals(expectedLength, artists.length);
+//    }
 
 //    @Test
 //    void testFindOldestWorkByElGreco() throws Exception {

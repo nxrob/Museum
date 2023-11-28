@@ -1,0 +1,8 @@
+
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡î€æ8éöª´Á1
+\
+java:S1128"?Remove this unused import 'jakarta.websocket.server.PathParam'.(ÇÄå¹8«¢ä´Á1
+G
+java:S1128"*Remove this unused import 'lombok.Getter'.(ùÒµÙ8¬¢ä´Á1
+R
+java:S1128"5Remove this unused import 'lombok.NoArgsConstructor'.(¸¨›8¬¢ä´Á1

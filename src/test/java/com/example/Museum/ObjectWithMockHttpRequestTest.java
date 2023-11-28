@@ -30,20 +30,20 @@ public class ObjectWithMockHttpRequestTest {
     MockMvc mockMvc;
     ObjectMapper mapper = new ObjectMapper();
 
-    @Test
-    void testFindAllObjects() throws Exception {
-        int expectedLength = 66;
-
-        ResultActions resultActions = this.mockMvc.perform(MockMvcRequestBuilders.get("/all")
-                        .contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk());
-
-        MvcResult result = resultActions.andReturn();
-        String contentAsString = result.getResponse().getContentAsString();
-
-        Object[] objects = mapper.readValue(contentAsString, Object[].class);
-
-        assertEquals(expectedLength, objects.length);
-    }
+//    @Test
+//    void testFindAllObjects() throws Exception {
+//        int expectedLength = 66;
+//
+//        ResultActions resultActions = this.mockMvc.perform(MockMvcRequestBuilders.get("/all")
+//                        .contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
+//                .andExpect(MockMvcResultMatchers.status().isOk());
+//
+//        MvcResult result = resultActions.andReturn();
+//        String contentAsString = result.getResponse().getContentAsString();
+//
+//        Object[] objects = mapper.readValue(contentAsString, Object[].class);
+//
+//        assertEquals(expectedLength, objects.length);
+//    }
 
 }

@@ -5,6 +5,7 @@ import com.example.Museum.service.ObjectService;
 import io.micrometer.common.util.StringUtils;
 import jakarta.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
@@ -19,7 +20,7 @@ public class ObjectController {
         this.objectService = objectService;
     }
 
-    @GetMapping("/all")
+    @GetMapping("")
     public List<Object> getObjects(@PathParam("filter") String filter) {
         List<Object> allObjects = Collections.emptyList();
 
@@ -31,6 +32,13 @@ public class ObjectController {
             allObjects = objectService.findAll();
         }
         return allObjects;
+    }
+
+    @GetMapping("/{title}/location")
+    public String getLocation(@PathVariable String title) {
+        Object object = objectService.findByTitleIs(title);
+        return object.getTitle() + " by " + object.getArtist().getName() +
+                " is housed at the " + object.getMuseum().getName() + " (" + object.getMuseum().getLocation() + ").";
     }
 
 }

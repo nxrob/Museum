@@ -30,14 +30,14 @@ public class MuseumServiceImpl implements MuseumService {
 
     @Override
     public List<Object> getWorksInMuseum(String museumName) {
-        Museum museum = museumRepository.findByName(museumName);
+        Museum museum = museumRepository.findByNameContains(museumName);
         return museum.getCollection();
     }
 
     @Override
     public List<Object> getWorksByArtistInMuseum(String museumName, String artistName) {
         Artist artist = artistRepository.findByName(artistName);
-        Museum museum = museumRepository.findByName(museumName);
+        Museum museum = museumRepository.findByNameContains(museumName);
         List<Object> worksByArtistInMuseum = new ArrayList<>();
         List<Object> collection = museum.getCollection();
         for(Object object : collection) {

@@ -7,6 +7,7 @@ import java.util.List;
 public interface ObjectService {
 
     List<Object> findAll();
+    Object findByTitleIs(String title);
     List<Object> findByTitleContainsIgnoreCase(String filter);
     List<Object> findByArtistNameContainsIgnoreCase(String filter);
 

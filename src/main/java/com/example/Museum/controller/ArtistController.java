@@ -29,9 +29,6 @@ public class ArtistController {
         return artistService.findObjectsByArtist(name);
     }
 
-
-
-
     @GetMapping("/artist/{name}/mostworks")
     public Museum getMuseumWithMostWorksByArtist(@PathVariable String name) {
         return artistService.getMuseumWithMostWorksByArtist(name);
