@@ -1,4 +1,5 @@
 -- MUSEUMS --
+
 INSERT INTO MUSEUM (id, name, location) VALUES
 (100001, 'Museo Nacional del Prado', 'Madrid, Spain'),
 (100002, 'National Gallery', 'London, UK'),
@@ -17,6 +18,10 @@ INSERT INTO MUSEUM (id, name, location) VALUES
 (100015, 'Vatican Museums', 'Florence, Italy')
 ;
 
+
+
+
+-- PAINTINGS --
 
 -- EL GRECO --
 INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200001, 'El Greco', '1541 - 1614', 'Crete, Greece', 'El Greco was a renowned Greek painter known for his distinct style of elongated figures and vibrant colors. He blended Byzantine traditions with Western art techniques and gained fame in Spain, particularly in Toledo. His work emphasized spiritual depth and emotion in religious subjects. He passed away in 1614, leaving a lasting legacy as a visionary artist.');
@@ -107,3 +112,65 @@ INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, d
 (803, 100007, 200008, 'Sandías', '1954', 'Oil on canvas', 'Modernism', 'In "Sandías," Tamayo depicts watermelons in a composition that merges elements of abstraction and Mexican cultural motifs.'),
 (804, 100009, 200008, 'Hombre en Fuego', '1963', 'Oil on canvas', 'Surrealism', 'Tamayo''s "Hombre en Fuego" portrays a figure engulfed in flames, exploring themes of passion and intensity.'),
 (805, 100013, 200008, 'Dos Personajes Atacados por Perros', '1983', 'Mix media on canvas', 'Surrealism', 'This artwork depicts two characters under attack by dogs, showcasing Tamayo''s later surrealistic explorations.');
+
+
+
+
+
+
+-- SCULPTURES --
+
+-- AUGUSTE RODIN --
+INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200009, 'Auguste Rodin', '1840 - 1917', 'Paris, France', 'Auguste Rodin was a French sculptor known for his groundbreaking work in sculpture, notably "The Thinker" and "The Kiss." His innovative approach to form and expression revolutionized the art of sculpting, earning him worldwide acclaim.');
+INSERT INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+(900, 100006, 200009, 'The Thinker', '1902', 'Bronze', 'Realism', 'Auguste Rodin''s "The Thinker" depicts a seated man lost in contemplation, symbolizing philosophical thinking and intellect.'),
+(901, 100006, 200009, 'The Kiss', '1889', 'Marble', 'Neoclassical', 'Rodin''s "The Kiss" captures an intimate moment between lovers, illustrating passion and affection in a classical style.'),
+(902, 100006, 200009, 'The Burghers of Calais', '1889', 'Bronze', 'Realism', 'This sculpture commemorates the bravery of six citizens of Calais who offered their lives during the Hundred Years'' War, displaying emotional depth and sacrifice.'),
+(903, 100006, 200009, 'Balzac', '1898', 'Bronze', 'Realism', 'Rodin''s portrayal of the French writer Balzac, emphasizing the author''s intellectual and visionary qualities with a powerful and contemplative stance.')
+;
+
+-- MICHELANGELO  --
+INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200010, 'Michelangelo', '1475 - 1564', 'Caprese Michelangelo, Italy', 'Michelangelo Buonarroti, an Italian sculptor, painter, and architect, is one of the most influential figures in Western art. He created masterpieces like "David" and the ceiling of the Sistine Chapel, showcasing unparalleled skill and artistic vision.');
+INSERT INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+(1001, 100001, 200010, 'David', '1504', 'Marble', 'High Renaissance', 'Michelangelo''s "David" is an iconic sculpture depicting the biblical hero, renowned for its detailed anatomy and powerful expression.')
+;
+
+-- CONSTANTIN BRANCUSI --
+INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200011, 'Constantin Brancusi', '1876 - 1957', 'Hobița, Romania', 'Constantin Brancusi was a Romanian sculptor known for his abstract works that pushed the boundaries of traditional sculpture. His pieces like "Bird in Space" and "The Kiss" redefined form and medium, inspiring modernist sculptors worldwide.');
+INSERT INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+(1101, 100006, 200011, 'Bird in Space', '1928', 'Bronze', 'Modernism', 'Brancusi''s "Bird in Space" represents the essence of flight, showcasing sleek, elongated forms that evoke a sense of movement and freedom.'),
+(1102, 100013, 200011, 'The Kiss', '1916', 'Marble', 'Modernism', 'Another interpretation of "The Kiss" by Brancusi, this sculpture captures the harmony and unity between two lovers with simplified, abstract forms.')
+;
+
+-- HENRY MOORE --
+INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200012, 'Henry Moore', '1898 - 1986', 'Castleford, UK', 'Henry Moore, a British sculptor, revolutionized modern sculpture with his organic, abstract forms. His monumental works, such as "Reclining Figure" and "Large Two Forms," became landmarks in contemporary art.');
+INSERT INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+(1201, 100007, 200012, 'Reclining Figure', '1951', 'Bronze', 'Modernism', 'Henry Moore''s "Reclining Figure" explores the human form in repose, showcasing abstract, organic shapes and negative space.'),
+(1202, 100012, 200012, 'Large Two Forms', '1966', 'Bronze', 'Modernism', 'This sculpture emphasizes Moore''s interest in the relationship between forms, portraying two abstract, interlocking shapes.')
+;
+
+-- LOUISE BOURGEOIS --
+INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200013, 'Louise Bourgeois', '1911 - 2010', 'Paris, France', 'Louise Bourgeois, a French-American artist, was known for her emotionally charged sculptures. "Maman," her giant spider sculpture, and her exploration of themes like motherhood and sexuality made her a leading figure in contemporary art.');
+INSERT INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+(1301, 100014, 200013, 'Maman', '1999', 'Bronze', 'Contemporary', 'Louise Bourgeois''s "Maman" is a giant spider sculpture, symbolizing maternity and protection, while also evoking fear and anxiety.')
+;
+
+-- ISAMU NOGUCHI --
+INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200014, 'Isamu Noguchi', '1904 - 1988', 'Los Angeles, USA', 'Isamu Noguchi was a Japanese-American artist known for his sculptures and landscape architecture. His abstract works, including "Red Cube," embodied a unique blend of Eastern and Western aesthetics.');
+INSERT INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+(1401, 100015, 200014, 'Red Cube', '1968', 'Steel', 'Abstract', 'Isamu Noguchi''s "Red Cube" is a geometric sculpture exploring space and form, standing as a symbol of strength and vitality.')
+;
+
+-- BARBARA HEPWORTH --
+INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200015, 'Barbara Hepworth', '1903 - 1975', 'Wakefield, UK', 'Barbara Hepworth, a British artist, was a prominent figure in modern sculpture. Her abstract, organic forms, seen in works like "Single Form," emphasized the relationship between sculpture and landscape.');
+INSERT INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+(1501, 100011, 200015, 'Single Form', '1961', 'Bronze', 'Modernism', 'Barbara Hepworth''s "Single Form" is a monumental abstract sculpture symbolizing unity and the human spirit.')
+;
+
+-- JACQUES LIPCHITZ --
+INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200016, 'Jacques Lipchitz', '1891 - 1973', 'Druskininkai, Lithuania', 'Jacques Lipchitz was a Lithuanian-born French sculptor known for his Surrealist sculptures. Pieces like "Prometheus Strangling the Vulture II" and "Birth of the Muses" showcased his mastery of form and symbolism.');
+INSERT INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+(1601, 100010, 200016, 'Prometheus Strangling the Vulture II', '1944', 'Bronze', 'Surrealism', 'Jacques Lipchitz''s sculpture portrays the mythological figure Prometheus engaged in a struggle against adversity.'),
+(1602, 100004, 200016, 'Birth of the Muses', '1944', 'Bronze', 'Surrealism', 'This sculpture by Lipchitz depicts the mythical birth of the Muses, symbolizing creativity and inspiration.'),
+(1603, 100002, 200016, 'Bather with a Shell', '1930', 'Bronze', 'Surrealism', 'Another work by Lipchitz, this sculpture captures a bather in a serene moment, holding a shell.')
+;
