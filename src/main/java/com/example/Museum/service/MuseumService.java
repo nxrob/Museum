@@ -9,6 +9,7 @@ import java.util.List;
 public interface MuseumService {
 
     List<Museum> findAll();
+    List<Object> getWorksInMuseum(String museumName);
     List<Object> getWorksByArtistInMuseum(String museumName, String artistName);
 
 

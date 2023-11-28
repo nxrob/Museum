@@ -21,7 +21,7 @@ public class Artist {
     private String bio;
 
     @OneToMany(mappedBy = "artist")
-    @JsonManagedReference(value = "repertoireReference")
+    @JsonBackReference(value = "repertoireReference")
     private List<Object> repertoire;
 
 }

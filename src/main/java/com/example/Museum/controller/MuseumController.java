@@ -26,6 +26,11 @@ public class MuseumController {
         return museumService.findAll();
     }
 
+    @GetMapping("/museum/{museumName}")
+    public List<Object> getWorksInMuseum(@PathVariable String museumName) {
+        return museumService.getWorksInMuseum(museumName);
+    }
+
     @GetMapping("/museum/{museumName}/{artistName}")
     public List<Object> getWorksByArtistInMuseum(@PathVariable String museumName, @PathVariable String artistName) {
         return museumService.getWorksByArtistInMuseum(museumName, artistName);

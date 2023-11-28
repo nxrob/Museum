@@ -22,7 +22,7 @@ public class Object {
 
     private String title;
     @ManyToOne
-    @JsonBackReference(value = "repertoireReference")
+    @JsonManagedReference(value = "repertoireReference")
     private Artist artist;
     private String yearOf;
     private String medium;
