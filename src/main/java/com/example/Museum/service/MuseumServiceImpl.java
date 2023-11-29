@@ -1,16 +1,18 @@
 package com.example.Museum.service;
 
+import com.example.Museum.dto.MuseumDto;
+import com.example.Museum.dto.ObjectDto;
 import com.example.Museum.model.Artist;
 import com.example.Museum.model.Museum;
 import com.example.Museum.model.Object;
 import com.example.Museum.repository.ArtistRepository;
 import com.example.Museum.repository.MuseumRepository;
+import com.example.Museum.util.MuseumDtoConverter;
+import com.example.Museum.util.ObjectDtoConverter;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 @Service
@@ -21,17 +23,36 @@ public class MuseumServiceImpl implements MuseumService {
     private ArtistRepository artistRepository;
 
     @Override
-    public List<Museum> findAll() {
-        List<Museum> museums = new ArrayList<>();
-        Iterable<Museum> museumsItr = museumRepository.findAll();
-        museumsItr.forEach(museums::add);
+    public List<MuseumDto> findAllDto() {
+        MuseumDtoConverter converter = new MuseumDtoConverter();
+
+        List<Museum> tempList = museumRepository.findAll();
+        List<MuseumDto> museums = new ArrayList<>();
+
+        for(Museum museum : tempList) {
+            museums.add(converter.convertToMuseumStandardDto(museum));
+        }
         return museums;
     }
 
     @Override
-    public List<Object> getWorksInMuseum(String museumName) {
+    public List<Museum> findAll() {
+        return museumRepository.findAll();
+    }
+
+    @Override
+    public List<ObjectDto> getWorksInMuseum(String museumName) {
+        ObjectDtoConverter converter = new ObjectDtoConverter();
+
         Museum museum = museumRepository.findByNameContains(museumName);
-        return museum.getCollection();
+
+        List<Object> collectionTemp = museum.getCollection();
+        List<ObjectDto> collectionInDto = new ArrayList<>();
+
+        for(Object object : collectionTemp) {
+            collectionInDto.add(converter.convertObjectToStandardDto(object));
+        }
+        return collectionInDto;
     }
 
     @Override

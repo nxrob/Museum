@@ -9,6 +9,6 @@ import org.hibernate.annotations.CascadeType;
 @Data
 public class Painting extends Object {
 
-    private String style;
+
 
 }

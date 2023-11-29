@@ -1,7 +1,6 @@
 package com.example.Museum.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -9,6 +8,9 @@ import java.util.List;
 
 @Entity
 @Data
+//@JsonIdentityInfo(
+//        generator = ObjectIdGenerators.PropertyGenerator.class,
+//        property = "id")
 public class Artist {
 
     @Id
@@ -21,7 +23,7 @@ public class Artist {
     private String bio;
 
     @OneToMany(mappedBy = "artist")
-    @JsonBackReference(value = "repertoireReference")
+    @JsonManagedReference(value = "repertoireReference")
     private List<Object> repertoire;
 
 }

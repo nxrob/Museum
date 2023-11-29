@@ -1,10 +1,12 @@
 package com.example.Museum.service;
 
+import com.example.Museum.dto.ArtistDto;
+import com.example.Museum.dto.MuseumDto;
 import com.example.Museum.model.Artist;
 import com.example.Museum.model.Museum;
 import com.example.Museum.model.Object;
 import com.example.Museum.repository.ArtistRepository;
-import com.example.Museum.repository.MuseumRepository;
+import com.example.Museum.util.MuseumDtoConverter;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -27,13 +29,29 @@ public class ArtistServiceImpl implements ArtistService {
     }
 
     @Override
+    public List<ArtistDto> findAllArtistsDto() {
+        return artistRepository.findAllArtistsDtoNameId();
+    }
+
+    @Override
+    public List<ArtistDto> findAllArtistsDtoNoRepertoire() {
+        return artistRepository.findAllArtistsDtoNoRepertoire();
+    }
+
+    @Override
     public List<Object> findObjectsByArtist(String name) {
         Artist artist = artistRepository.findByName(name);
         return artist.getRepertoire();
     }
 
     @Override
-    public Museum getMuseumWithMostWorksByArtist(String name) {
+    public List<ArtistDto> findArtistDtoByName(String name) {
+        return artistRepository.findArtistDtoByName(name);
+    }
+
+    @Override
+    public String getMuseumWithMostWorksByArtist(String name) {
+        MuseumDtoConverter converter = new MuseumDtoConverter();
         Artist artist = artistRepository.findByName(name);
         List<Museum> museums = museumService.findAll();
         int count = 0;
@@ -51,7 +69,10 @@ public class ArtistServiceImpl implements ArtistService {
                 museumWithMostWorks = museum;
             }
         }
-        return museumWithMostWorks;
+        //MuseumDto convertedMuseum = converter.convertToMuseumDtoWithNumberOfSpecificPaintings(museumWithMostWorks, count);
+        //return convertedMuseum;
+        return "Currently, the " + museumWithMostWorks.getName() + " holds the most paintings by "
+                + artist.getName() + " at a total of " + count + " work(s).";
     }
 
     @Override

@@ -15,10 +15,5 @@ import java.util.List;
 @AllArgsConstructor
 public class PaintingController {
 
-    private PaintingService paintingService;
 
-    @GetMapping("/{style}")
-    public List<Painting> getPaintingsInStyleOf(@PathVariable String style) {
-        return paintingService.findByStyleContains(style);
-    }
 }

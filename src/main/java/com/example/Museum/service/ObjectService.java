@@ -1,14 +1,17 @@
 package com.example.Museum.service;
 
+import com.example.Museum.dto.ObjectDto;
 import com.example.Museum.model.Object;
+import com.example.Museum.model.Painting;
 
 import java.util.List;
 
 public interface ObjectService {
 
-    List<Object> findAll();
+    List<ObjectDto> findAllDto();
     Object findByTitleIs(String title);
-    List<Object> findByTitleContainsIgnoreCase(String filter);
-    List<Object> findByArtistNameContainsIgnoreCase(String filter);
+    List<ObjectDto> findByTitleContainsIgnoreCase(String filter);
+    List<ObjectDto> findByArtistNameContainsIgnoreCase(String filter);
+    List<ObjectDto> findByStyleContains(String style);
 
 }
