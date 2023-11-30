@@ -1,7 +1,6 @@
 package com.example.Museum;
 
 import com.example.Museum.model.Object;
-import com.example.Museum.model.Painting;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,10 +47,26 @@ public class ObjectWithMockHttpRequestTest {
     }
 
     @Test
-    void testFilterInAll() throws Exception {
+    void testFilterInAllForTitle() throws Exception {
         int expectedLength = 2;
 
         ResultActions resultActions = this.mockMvc.perform(MockMvcRequestBuilders.get("/?filter=dan")
+                        .contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+
+        MvcResult result = resultActions.andReturn();
+        String contentAsString = result.getResponse().getContentAsString();
+
+        Object[] objects = mapper.readValue(contentAsString, Object[].class);
+
+        assertEquals(expectedLength, objects.length);
+    }
+
+    @Test
+    void testFilterInAllForArtistName() throws Exception {
+        int expectedLength = 11;
+
+        ResultActions resultActions = this.mockMvc.perform(MockMvcRequestBuilders.get("/?filter=vinci")
                         .contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
@@ -79,18 +94,19 @@ public class ObjectWithMockHttpRequestTest {
     }
 
     @Test
-    void testFindPaintingsInSpecificStyle() throws Exception {
+    void testObjectsInStyleOf() throws Exception {
+        int expectedLength = 13;
+
         ResultActions resultActions = this.mockMvc.perform(MockMvcRequestBuilders.get("/Surrealism")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .accept(MediaType.APPLICATION_JSON))
+                        .contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
         MvcResult result = resultActions.andReturn();
         String contentAsString = result.getResponse().getContentAsString();
 
-        Painting[] paintings = mapper.readValue(contentAsString, Painting[].class);
+        Object[] objects = mapper.readValue(contentAsString, Object[].class);
 
-        assertEquals(10, paintings.length);
+        assertEquals(expectedLength, objects.length);
     }
 
 }

@@ -2,7 +2,6 @@ package com.example.Museum.util;
 
 import com.example.Museum.dto.MuseumDto;
 import com.example.Museum.model.Museum;
-import org.springframework.context.annotation.Bean;
 
 public class MuseumDtoConverter {
 

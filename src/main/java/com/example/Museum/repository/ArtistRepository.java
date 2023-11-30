@@ -11,8 +11,6 @@ import java.util.List;
 @Repository
 public interface ArtistRepository extends CrudRepository<Artist, Integer> {
 
-    @Query("SELECT new com.example.Museum.dto.ArtistDto(a.id, a.name) FROM Artist a")
-    List<ArtistDto> findAllArtistsDtoNameId();
     @Query("SELECT new com.example.Museum.dto.ArtistDto(a.id, a.name, a.dobAndDod, a.birthplace, a.bio) FROM Artist a")
     List<ArtistDto> findAllArtistsDtoNoRepertoire();
     List<Artist> findAll();

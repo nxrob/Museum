@@ -1,4 +1,6 @@
 
 v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡î€æ8ÁîÍµÁ1
-[
-java:S1854">Remove this useless assignment to local variable "allObjects".(¿×ìŞ8ÊîÍµÁ1
+`
+java:S1854">Remove this useless assignment to local variable "allObjects".(Âš¾²ûÿÿÿÿ8Í¼ÏÙÁ1
+P
+java:S1068"3Remove this unused "paintingService" private field.(Å…À8Ï¶öİÁ1

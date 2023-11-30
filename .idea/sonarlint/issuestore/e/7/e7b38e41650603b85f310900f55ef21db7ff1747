@@ -1,2 +1,9 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Á—é˜ÿÿÿÿÿ8‘—Ë¬Á1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Á—é˜ÿÿÿÿÿ8ñ¹ÓÖÁ1
+X	java:S125"<This block of commented-out lines of code should be removed.(˜°é8š•×Á1
+Z
+java:S1128"=Remove this unused import 'com.example.Museum.dto.ObjectDto'.(¼éœï8ƒš•×Á1
+`
+java:S1128">Remove this unused import 'com.example.Museum.model.Painting'.(é¾ÑÒÿÿÿÿÿ8µúİÁ1
+l
+java:S1128"JRemove this unused import 'org.springframework.data.jpa.repository.Query'.(Äºöïşÿÿÿÿ8²ò”×Á1

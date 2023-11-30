@@ -1,2 +1,16 @@
 
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡î€æ
+^
+java:S1128"<Remove this unused import 'com.example.Museum.model.Object'.(ş Øøÿÿÿÿ8¨¾¹ÓÁ1
+`
+java:S1128">Remove this unused import 'com.example.Museum.model.Painting'.(é¾ÑÒÿÿÿÿÿ8³ığİÁ1
+b
+java:S1128"ERemove this unused import 'com.example.Museum.service.ObjectService'.(¼Öœ«8¨¾¹ÓÁ1
+i
+java:S1128"GRemove this unused import 'com.example.Museum.service.PaintingService'.(—ãÕíøÿÿÿÿ8ûèñİÁ1
+l
+java:S1128"ORemove this unused import 'org.springframework.web.bind.annotation.GetMapping'.(‡¡‰Ø8³ığİÁ1
+s
+java:S1128	"QRemove this unused import 'org.springframework.web.bind.annotation.PathVariable'.(¹ûñÅşÿÿÿÿ8³ığİÁ1
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8´ığİÁ1

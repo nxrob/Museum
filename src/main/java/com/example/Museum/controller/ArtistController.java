@@ -1,9 +1,6 @@
 package com.example.Museum.controller;
 
 import com.example.Museum.dto.ArtistDto;
-import com.example.Museum.dto.MuseumDto;
-import com.example.Museum.model.Artist;
-import com.example.Museum.model.Museum;
 import com.example.Museum.model.Object;
 import com.example.Museum.service.ArtistService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,11 +26,6 @@ public class ArtistController {
     @GetMapping("/artist/{name}")
     public List<Object> getObjectsByArtist(@PathVariable String name) {
         return artistService.findObjectsByArtist(name);
-    }
-
-    @GetMapping("/artist/limited/{name}")
-    public List<ArtistDto> getArtistDto(@PathVariable String name) {
-        return artistService.findArtistDtoByName(name);
     }
 
     @GetMapping("/artist/{name}/mostworks")

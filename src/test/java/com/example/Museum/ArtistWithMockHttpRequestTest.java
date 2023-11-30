@@ -1,7 +1,6 @@
 package com.example.Museum;
 
 import com.example.Museum.model.Artist;
-import com.example.Museum.model.Museum;
 import com.example.Museum.model.Object;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -93,9 +92,8 @@ public class ArtistWithMockHttpRequestTest {
         MvcResult result = resultActions.andReturn();
         String contentAsString = result.getResponse().getContentAsString();
 
-        Museum museum = mapper.readValue(contentAsString, Museum.class);
-
-        assertEquals("Museo Nacional del Prado", museum.getName());
+        assertEquals("Currently, the Museo Nacional del Prado holds the most paintings by El Greco " +
+                "at a total of 5 work(s).", contentAsString);
 
     }
 

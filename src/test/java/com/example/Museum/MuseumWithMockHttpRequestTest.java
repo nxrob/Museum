@@ -1,6 +1,6 @@
 package com.example.Museum;
 
-import com.example.Museum.model.Museum;
+import com.example.Museum.dto.MuseumDto;
 import com.example.Museum.model.Object;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -43,7 +43,7 @@ public class MuseumWithMockHttpRequestTest {
         MvcResult result = resultActions.andReturn();
         String contentAsString = result.getResponse().getContentAsString();
 
-        Museum[] museums = mapper.readValue(contentAsString, Museum[].class);
+        MuseumDto[] museums = mapper.readValue(contentAsString, MuseumDto[].class);
 
         assertEquals(expectedLength, museums.length);
     }

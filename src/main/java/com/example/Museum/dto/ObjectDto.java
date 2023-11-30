@@ -31,7 +31,7 @@ public class ObjectDto {
         this.location = location;
     }
 
-    //Constructor for paintings
+    //Constructor for paintings & sculptures
     public ObjectDto(Long id, String title, String artistName, String yearOf, String medium, String location, String description, String style) {
         this.id = id;
         this.title = title;

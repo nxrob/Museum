@@ -54,3 +54,17 @@ s
 Csrc/test/java/com/example/Museum/ObjectWithMockHttpRequestTest.java,6/e/6eab9bd6e2928f9eb11a7f1c5fdd84f143d938bd
 s
 Csrc/test/java/com/example/Museum/ArtistWithMockHttpRequestTest.java,2/9/2934cd8f956880dedf0a7e66f64d8e42bbdcefe0
+s
+Csrc/test/java/com/example/Museum/MuseumWithMockHttpRequestTest.java,1/5/15530f10917d2dc09b4f6462fd54b37e9f6b7d2c
+m
+=src/main/java/com/example/Museum/util/ArtistDtoConverter.java,3/8/38ca74c41f17c2d6ab945389a0351010f3eee680
+c
+3src/main/java/com/example/Museum/dto/ArtistDto.java,7/1/716a41d45514fbfd7bdf543e4d21dc3189f190c6
+c
+3src/main/java/com/example/Museum/dto/MuseumDto.java,1/9/1913279573200000302a15c5f2aa6e1418091906
+c
+3src/main/java/com/example/Museum/dto/ObjectDto.java,f/3/f34597d715c0cc8c0bd8bad79690e83d1e267774
+m
+=src/main/java/com/example/Museum/util/ObjectDtoConverter.java,3/c/3cd5993be3f95b8b2c564a6ec566e30baf73ea94
+m
+=src/main/java/com/example/Museum/util/MuseumDtoConverter.java,9/d/9d402afcc167a289c18c48866867825647f50827

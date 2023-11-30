@@ -1,9 +1,6 @@
 package com.example.Museum.repository;
 
-import com.example.Museum.dto.ObjectDto;
 import com.example.Museum.model.Object;
-import com.example.Museum.model.Painting;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

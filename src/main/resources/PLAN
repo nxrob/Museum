@@ -47,7 +47,7 @@
     --> /artist/{name}/oldestnewest
     (DONE)
     (TESTED)
-
+p
 - Find all paintings in a certain style
     --> /{style}}
     (DONE)

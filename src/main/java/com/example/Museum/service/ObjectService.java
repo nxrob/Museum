@@ -2,7 +2,6 @@ package com.example.Museum.service;
 
 import com.example.Museum.dto.ObjectDto;
 import com.example.Museum.model.Object;
-import com.example.Museum.model.Painting;
 
 import java.util.List;
 

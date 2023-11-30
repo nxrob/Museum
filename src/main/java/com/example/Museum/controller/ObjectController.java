@@ -2,9 +2,7 @@ package com.example.Museum.controller;
 
 import com.example.Museum.dto.ObjectDto;
 import com.example.Museum.model.Object;
-import com.example.Museum.model.Painting;
 import com.example.Museum.service.ObjectService;
-import com.example.Museum.service.PaintingService;
 import io.micrometer.common.util.StringUtils;
 import jakarta.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,11 +16,10 @@ import java.util.List;
 public class ObjectController {
 
     private ObjectService objectService;
-    private PaintingService paintingService;
 
-    public ObjectController(ObjectService objectService, PaintingService paintingService) {
+
+    public ObjectController(ObjectService objectService) {
         this.objectService = objectService;
-        this.paintingService = paintingService;
     }
 
     @GetMapping("")
