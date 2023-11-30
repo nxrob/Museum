@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Painting extends Object {
+public class Painting extends Art {
 
 }

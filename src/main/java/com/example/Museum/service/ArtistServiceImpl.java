@@ -3,7 +3,7 @@ package com.example.Museum.service;
 import com.example.Museum.dto.ArtistDto;
 import com.example.Museum.model.Artist;
 import com.example.Museum.model.Museum;
-import com.example.Museum.model.Object;
+import com.example.Museum.model.Art;
 import com.example.Museum.repository.ArtistRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,11 +21,11 @@ public class ArtistServiceImpl implements ArtistService {
 
     @Override
     public List<ArtistDto> findAllArtistsDtoNoRepertoire() {
-        return artistRepository.findAllArtistsDtoNoRepertoire();
+        return artistRepository.findAllArtistsDto();
     }
 
     @Override
-    public List<Object> findObjectsByArtist(String name) {
+    public List<Art> findObjectsByArtist(String name) {
         Artist artist = artistRepository.findByName(name);
         return artist.getRepertoire();
     }
@@ -36,13 +36,13 @@ public class ArtistServiceImpl implements ArtistService {
         Artist artist = artistRepository.findByName(name);
         List<Museum> museums = museumService.findAll();
         int count = 0;
-        Museum museumWithMostWorks = null;
+        Museum museumWithMostWorks = new Museum();
 
         for(Museum museum : museums) {
             int localCount = 0;
-            List<Object> museumCollection = museum.getCollection();
-            for(Object object : museumCollection) {
-                if(object.getArtist().equals(artist)) {
+            List<Art> museumCollection = museum.getCollection();
+            for(Art art : museumCollection) {
+                if(art.getArtist().equals(artist)) {
                     localCount++;
                 }
             }
@@ -57,31 +57,31 @@ public class ArtistServiceImpl implements ArtistService {
     }
 
     @Override
-    public List<Object> findFirstAndLastObject(String name) {
+    public List<Art> findFirstAndLastObject(String name) {
         Artist artist = artistRepository.findByName(name);
-        List<Object> repertoire = artist.getRepertoire();
+        List<Art> repertoire = artist.getRepertoire();
 
-        Object oldestObject = new Object();
-        oldestObject.setYearOf("9999");
-        for(Object object : repertoire) {
-            int yearMade = Integer.parseInt(object.getYearOf());
-            if(yearMade < Integer.parseInt(oldestObject.getYearOf())) {
-                oldestObject = object;
+        Art oldestArt = new Art();
+        oldestArt.setYearOf("9999");
+        for(Art art : repertoire) {
+            int yearMade = Integer.parseInt(art.getYearOf());
+            if(yearMade < Integer.parseInt(oldestArt.getYearOf())) {
+                oldestArt = art;
             }
         }
 
-        Object newestObject = new Object();
-        newestObject.setYearOf("0");
-        for(Object object : repertoire) {
-            int yearMade = Integer.parseInt(object.getYearOf());
-            if(yearMade > Integer.parseInt(newestObject.getYearOf())) {
-                newestObject = object;
+        Art newestArt = new Art();
+        newestArt.setYearOf("0");
+        for(Art art : repertoire) {
+            int yearMade = Integer.parseInt(art.getYearOf());
+            if(yearMade > Integer.parseInt(newestArt.getYearOf())) {
+                newestArt = art;
             }
         }
 
-        List<Object> oldestNewest = new ArrayList<>();
-        oldestNewest.add(oldestObject);
-        oldestNewest.add(newestObject);
+        List<Art> oldestNewest = new ArrayList<>();
+        oldestNewest.add(oldestArt);
+        oldestNewest.add(newestArt);
         return oldestNewest;
     }
 }

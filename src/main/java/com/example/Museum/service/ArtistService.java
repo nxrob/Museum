@@ -1,17 +1,17 @@
 package com.example.Museum.service;
 
 import com.example.Museum.dto.ArtistDto;
-import com.example.Museum.model.Object;
+import com.example.Museum.model.Art;
 
 import java.util.List;
 
 public interface ArtistService {
 
     List<ArtistDto> findAllArtistsDtoNoRepertoire();
-    List<Object> findObjectsByArtist(String name);
+    List<Art> findObjectsByArtist(String name);
 
     String getMuseumWithMostWorksByArtist(String name);
 
-    List<Object> findFirstAndLastObject(String name);
+    List<Art> findFirstAndLastObject(String name);
 
 }

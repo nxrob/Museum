@@ -8,7 +8,7 @@
     (DONE)
     (TESTED)
 
-- List all works containing a filter word (filters only through artist name and title of object)
+- List all works containing a filter word (filters only through artist name and title of art)
     --> /?filter=word
     (DONE)
     (TESTED)
@@ -47,7 +47,13 @@
     --> /artist/{name}/oldestnewest
     (DONE)
     (TESTED)
-p
+
 - Find all paintings in a certain style
     --> /{style}}
     (DONE)
+
+PRESENTATATION
+--> Use of ChatGPT for data collection
+--> Use of @Query to get data in a specific format out of the database
+--> @Column(length)
+--> List<Artist> findAll method in repository obviates the need for Iterable foreach mapping

@@ -11,12 +11,8 @@ import lombok.NoArgsConstructor;
 @Data
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @NoArgsConstructor
-@AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-//@JsonIdentityInfo(
-//        generator = ObjectIdGenerators.PropertyGenerator.class,
-//        property = "id")
-public class Object {
+public class Art {
 
     @Id
     private Long id;

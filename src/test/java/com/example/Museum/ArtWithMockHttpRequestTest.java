@@ -1,6 +1,6 @@
 package com.example.Museum;
 
-import com.example.Museum.model.Object;
+import com.example.Museum.model.Art;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @AutoConfigureMockMvc
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @TestPropertySource(properties = {"spring.sql.init.mode=never"})
-public class ObjectWithMockHttpRequestTest {
+public class ArtWithMockHttpRequestTest {
 
     @Autowired
     MockMvc mockMvc;
@@ -41,9 +41,9 @@ public class ObjectWithMockHttpRequestTest {
         MvcResult result = resultActions.andReturn();
         String contentAsString = result.getResponse().getContentAsString();
 
-        Object[] objects = mapper.readValue(contentAsString, Object[].class);
+        Art[] arts = mapper.readValue(contentAsString, Art[].class);
 
-        assertEquals(expectedLength, objects.length);
+        assertEquals(expectedLength, arts.length);
     }
 
     @Test
@@ -57,9 +57,9 @@ public class ObjectWithMockHttpRequestTest {
         MvcResult result = resultActions.andReturn();
         String contentAsString = result.getResponse().getContentAsString();
 
-        Object[] objects = mapper.readValue(contentAsString, Object[].class);
+        Art[] arts = mapper.readValue(contentAsString, Art[].class);
 
-        assertEquals(expectedLength, objects.length);
+        assertEquals(expectedLength, arts.length);
     }
 
     @Test
@@ -73,9 +73,9 @@ public class ObjectWithMockHttpRequestTest {
         MvcResult result = resultActions.andReturn();
         String contentAsString = result.getResponse().getContentAsString();
 
-        Object[] objects = mapper.readValue(contentAsString, Object[].class);
+        Art[] arts = mapper.readValue(contentAsString, Art[].class);
 
-        assertEquals(expectedLength, objects.length);
+        assertEquals(expectedLength, arts.length);
     }
 
     @Test
@@ -104,9 +104,9 @@ public class ObjectWithMockHttpRequestTest {
         MvcResult result = resultActions.andReturn();
         String contentAsString = result.getResponse().getContentAsString();
 
-        Object[] objects = mapper.readValue(contentAsString, Object[].class);
+        Art[] arts = mapper.readValue(contentAsString, Art[].class);
 
-        assertEquals(expectedLength, objects.length);
+        assertEquals(expectedLength, arts.length);
     }
 
 }

@@ -11,5 +11,5 @@ public interface MuseumRepository extends CrudRepository<Museum, Integer> {
 
     List<Museum> findAll();
     Museum findByNameContains(String name);
-
+    Museum findById(int id);
 }

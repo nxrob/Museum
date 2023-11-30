@@ -8,9 +8,6 @@ import java.util.List;
 
 @Entity
 @Data
-//@JsonIdentityInfo(
-//        generator = ObjectIdGenerators.PropertyGenerator.class,
-//        property = "id")
 public class Artist {
 
     @Id
@@ -24,6 +21,6 @@ public class Artist {
 
     @OneToMany(mappedBy = "artist")
     @JsonManagedReference(value = "repertoireReference")
-    private List<Object> repertoire;
+    private List<Art> repertoire;
 
 }

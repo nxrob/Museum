@@ -1,12 +1,11 @@
 package com.example.Museum.controller;
 
 import com.example.Museum.dto.MuseumDto;
-import com.example.Museum.dto.ObjectDto;
-import com.example.Museum.model.Object;
+import com.example.Museum.dto.ArtDto;
+import com.example.Museum.model.Art;
+import com.example.Museum.model.Museum;
 import com.example.Museum.service.MuseumService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,13 +24,23 @@ public class MuseumController {
     }
 
     @GetMapping("/museum/{museumName}")
-    public List<ObjectDto> getWorksInMuseum(@PathVariable String museumName) {
+    public List<ArtDto> getWorksInMuseum(@PathVariable String museumName) {
         return museumService.getWorksInMuseum(museumName);
     }
 
     @GetMapping("/museum/{museumName}/{artistName}")
-    public List<Object> getWorksByArtistInMuseum(@PathVariable String museumName, @PathVariable String artistName) {
+    public List<Art> getWorksByArtistInMuseum(@PathVariable String museumName, @PathVariable String artistName) {
         return museumService.getWorksByArtistInMuseum(museumName, artistName);
+    }
+
+    @PostMapping("/museum")
+    public Museum createMuseum(@RequestBody Museum museum) {
+        return museumService.saveMuseum(museum);
+    }
+
+    @PutMapping("/museum")
+    public Museum editMuseum(@RequestBody Museum museum) {
+        return museumService.saveMuseum(museum);
     }
 
 }

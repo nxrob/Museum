@@ -1,7 +1,8 @@
 package com.example.Museum;
 
 import com.example.Museum.dto.MuseumDto;
-import com.example.Museum.model.Object;
+import com.example.Museum.model.Art;
+import com.example.Museum.model.Museum;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -59,9 +60,9 @@ public class MuseumWithMockHttpRequestTest {
         MvcResult result = resultActions.andReturn();
         String contentAsString = result.getResponse().getContentAsString();
 
-        Object[] objects = mapper.readValue(contentAsString, Object[].class);
+        Art[] arts = mapper.readValue(contentAsString, Art[].class);
 
-        assertEquals(expectedLength, objects.length);
+        assertEquals(expectedLength, arts.length);
     }
 
     @Test
@@ -74,9 +75,49 @@ public class MuseumWithMockHttpRequestTest {
         MvcResult result = resultActions.andReturn();
         String contentAsString = result.getResponse().getContentAsString();
 
-        Object[] objects = mapper.readValue(contentAsString, Object[].class);
+        Art[] arts = mapper.readValue(contentAsString, Art[].class);
 
-        assertEquals("Madonna of the Carnation", objects[0].getTitle());
+        assertEquals("Madonna of the Carnation", arts[0].getTitle());
+    }
+
+    @Test
+    public void testPost() throws Exception {
+        Museum museum = new Museum();
+        museum.setName("Museum of Coding");
+        museum.setLocation("Javalopolis, I.D.E.");
+
+        ResultActions resultActions = this.mockMvc.perform(MockMvcRequestBuilders.post("/museum")
+                        .content(mapper.writeValueAsString(museum))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+
+        MvcResult result = resultActions.andReturn();
+        String contentAsString = result.getResponse().getContentAsString();
+
+        museum = mapper.readValue(contentAsString, Museum.class);
+
+        assertEquals("Museum of Coding", museum.getName());
+    }
+
+    @Test
+    void testPut() throws Exception {
+        Museum museum = new Museum();
+        museum.setName("Museum of Coding");
+        museum.setLocation("Javalopolis, I.D.E.");
+
+        ResultActions resultActions = this.mockMvc.perform(MockMvcRequestBuilders.put("/museum")
+                        .content(mapper.writeValueAsString(museum))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+
+        MvcResult result = resultActions.andReturn();
+        String contentAsString = result.getResponse().getContentAsString();
+
+        museum = mapper.readValue(contentAsString, Museum.class);
+
+        assertEquals("Museum of Coding", museum.getName());
     }
 
 

@@ -11,10 +11,12 @@ import java.util.List;
 @Repository
 public interface ArtistRepository extends CrudRepository<Artist, Integer> {
 
-    @Query("SELECT new com.example.Museum.dto.ArtistDto(a.id, a.name, a.dobAndDod, a.birthplace, a.bio) FROM Artist a")
-    List<ArtistDto> findAllArtistsDtoNoRepertoire();
     List<Artist> findAll();
     Artist findByName(String name);     //Returns the Artist object for specific name
+
+    //The following two methods are entirely independent of the CrudRepository as they take in their own queries
+    @Query("SELECT new com.example.Museum.dto.ArtistDto(a) FROM Artist a")
+    List<ArtistDto> findAllArtistsDto();
     @Query("SELECT new com.example.Museum.dto.ArtistDto(a.id, a.name) FROM Artist a WHERE a.name LIKE %:name%")
     List<ArtistDto> findArtistDtoByName(String name);   //Returns the ArtistDto object for a specific artist, with fields specified above
 

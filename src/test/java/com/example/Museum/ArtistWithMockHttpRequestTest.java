@@ -1,7 +1,7 @@
 package com.example.Museum;
 
+import com.example.Museum.model.Art;
 import com.example.Museum.model.Artist;
-import com.example.Museum.model.Object;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -60,9 +60,9 @@ public class ArtistWithMockHttpRequestTest {
         MvcResult result = resultActions.andReturn();
         String contentAsString = result.getResponse().getContentAsString();
 
-        Object[] objects = mapper.readValue(contentAsString, Object[].class);
+        Art[] arts = mapper.readValue(contentAsString, Art[].class);
 
-        assertEquals(expectedLength, objects.length);
+        assertEquals(expectedLength, arts.length);
     }
 
     @Test
@@ -76,7 +76,7 @@ public class ArtistWithMockHttpRequestTest {
         MvcResult result = resultActions.andReturn();
         String contentAsString = result.getResponse().getContentAsString();
 
-        Object[] oldestNewest = mapper.readValue(contentAsString, Object[].class);
+        Art[] oldestNewest = mapper.readValue(contentAsString, Art[].class);
         log.debug("In test: " + contentAsString);
 
         assertEquals("1577", oldestNewest[0].getYearOf());
