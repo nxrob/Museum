@@ -7,6 +7,12 @@ import lombok.Data;
 import java.util.List;
 
 @Entity
+@NamedQuery(
+        name="findArtistWithMostWorks",
+        query="SELECT a.name, counter.count FROM Artist a " +
+                "JOIN (SELECT art.artist.id, COUNT(art.artist.id) AS count FROM Art art GROUP BY art.artist.id) AS counter ON counter.a.artist.id=artist.id " +
+                "ORDER BY counter.COUNT(a.artist.id) DESC LIMIT 1"
+)
 @Data
 public class Artist {
 

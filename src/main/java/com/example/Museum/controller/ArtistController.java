@@ -2,6 +2,7 @@ package com.example.Museum.controller;
 
 import com.example.Museum.dto.ArtistDto;
 import com.example.Museum.model.Art;
+import com.example.Museum.model.Artist;
 import com.example.Museum.service.ArtistService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,5 +37,10 @@ public class ArtistController {
     @GetMapping("/artist/{name}/oldestnewest")
     public List<Art> findFirstAndLastObject(@PathVariable String name) {
         return artistService.findFirstAndLastObject(name);
+    }
+
+    @GetMapping("/artist/mostworks")
+    public Artist findArtistWithMostWorks() {
+        return artistService.findArtistWithMostWorks();
     }
 }

@@ -1,6 +1,7 @@
 package com.example.Museum.repository;
 
 import com.example.Museum.dto.ArtistDto;
+import com.example.Museum.model.Art;
 import com.example.Museum.model.Artist;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -19,5 +20,8 @@ public interface ArtistRepository extends CrudRepository<Artist, Integer> {
     List<ArtistDto> findAllArtistsDto();
     @Query("SELECT new com.example.Museum.dto.ArtistDto(a.id, a.name) FROM Artist a WHERE a.name LIKE %:name%")
     List<ArtistDto> findArtistDtoByName(String name);   //Returns the ArtistDto object for a specific artist, with fields specified above
+
+    @Query(name="findArtistWithMostWorks")
+    Artist findArtistWithMostWorks();
 
 }
