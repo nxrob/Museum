@@ -12,5 +12,7 @@ public interface ArtService {
     List<ArtDto> findByTitleContainsIgnoreCase(String filter);
     List<ArtDto> findByArtistNameContainsIgnoreCase(String filter);
     List<ArtDto> findByStyleContains(String style);
+    Art findOldestArtwork();
+    List<Art> sortArtworksByShortestTitle();
 
 }

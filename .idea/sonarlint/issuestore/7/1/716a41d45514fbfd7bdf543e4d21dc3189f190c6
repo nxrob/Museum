@@ -1,19 +1,15 @@
 
-u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(öÌ¡b8‰ÍŒÖÁ1
-^
-java:S1128"<Remove this unused import 'com.example.Museum.model.Object'.(ş Øøÿÿÿÿ8ùÖÁ1
-o
-java:S1128"RRemove this unused import 'com.fasterxml.jackson.annotation.JsonIgnoreProperties'.(ô’ˆî8”Õ¨ÖÁ1
-o
-java:S1128"RRemove this unused import 'com.fasterxml.jackson.annotation.JsonManagedReference'.(Æ˜µ8ÍŒÖÁ1
-S
-java:S1128"7Remove this unused import 'jakarta.persistence.Column'.(Ó‰ÙE8ÍŒÖÁ1
+J
+java:S1128"(Remove this unused import 'lombok.Data'.(÷í«ÿÿÿÿÿ8ÄÜ–†Â1
+R
+java:S1128"5Remove this unused import 'lombok.NoArgsConstructor'.(¸¨›8ÄÜ–†Â1
+H
+java:S1068"&Remove this unused "id" private field.(şÓî«şÿÿÿÿ8ÄÜ–†Â1
+E
+java:S1068"(Remove this unused "name" private field.(Ë¥¼8ÅÜ–†Â1
+O
+java:S1068"-Remove this unused "dobAndDod" private field.(éµÌÕúÿÿÿÿ8ÅÜ–†Â1
 P
-java:S1128"3Remove this unused import 'jakarta.persistence.Id'.(š¨ô 8ÍŒÖÁ1
-\
-java:S1128	":Remove this unused import 'jakarta.persistence.OneToMany'.( ëîéúÿÿÿÿ8ÍŒÖÁ1
-X
-java:S1128
-"6Remove this unused import 'lombok.AllArgsConstructor'.(´œ¾öùÿÿÿÿ8ÍŒÖÁ1
-M
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ùÖÁ1
+java:S1068".Remove this unused "birthplace" private field.(‹¾í»ùÿÿÿÿ8ÅÜ–†Â1
+D
+java:S1068"'Remove this unused "bio" private field.(·ğôß8ÅÜ–†Â1

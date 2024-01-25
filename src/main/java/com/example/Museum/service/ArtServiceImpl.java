@@ -65,4 +65,14 @@ public class ArtServiceImpl implements ArtService {
         return objectsDto;
     }
 
+    @Override
+    public Art findOldestArtwork() {
+        return artRepository.findOldestArtwork();
+    }
+
+    @Override
+    public List<Art> sortArtworksByShortestTitle() {
+        return artRepository.sortArtworksByShortestTitle();
+    }
+
 }

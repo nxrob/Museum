@@ -48,4 +48,14 @@ public class ArtController {
         return artService.findByStyleContains(style);
     }
 
+    // GET REQUESTS USING NAMED QUERIES
+    @GetMapping("/oldestartwork")
+    public Art getOldestArtwork() {
+        return artService.findOldestArtwork();
+    }
+
+    @GetMapping("/artbyshortesttitle")
+    public List<Art> sortArtworksByShortestTitle() {
+        return artService.sortArtworksByShortestTitle();
+    }
 }

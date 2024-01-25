@@ -8,6 +8,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@NamedQuery(
+        name="findOldestArtwork",
+        query="SELECT a from Art a ORDER BY a.yearOf ASC LIMIT 1"
+)
+@NamedQuery(
+        name="sortArtworksByShortestTitle",
+        query="SELECT a FROM Art a ORDER BY LENGTH(a.title) ASC"
+)
 @Data
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @NoArgsConstructor
