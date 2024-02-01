@@ -19,8 +19,6 @@ public class ArtDto {
     private String description;
     private String style;
 
-    private Art art;
-
     public ArtDto(Art art) {
         this.id = art.getId();
         this.title = art.getTitle();
