@@ -5,6 +5,7 @@ import com.example.Museum.model.Art;
 import com.example.Museum.repository.ArtRepository;
 import com.example.Museum.util.ArtDtoConverter;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class ArtServiceImpl implements ArtService {
 
     private ArtRepository artRepository;
@@ -19,11 +21,16 @@ public class ArtServiceImpl implements ArtService {
     @Override
     public List<ArtDto> findAllDto() {
         List<Art> objectsTemp = artRepository.findAll();
+        log.debug("objectsTemp size: " + objectsTemp.size());
         List<ArtDto> objectsDto = new ArrayList<>();
         ArtDtoConverter artDtoConverter = new ArtDtoConverter();
+        int i = 0;
         for(Art art : objectsTemp) {
             objectsDto.add(artDtoConverter.convertArtToStandardDto(art));
+            log.debug("CONVERTED to Art DTO: " + i);
+            i++;
         }
+        i = 0;
         return objectsDto;
     }
 

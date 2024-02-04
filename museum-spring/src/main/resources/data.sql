@@ -1,6 +1,6 @@
 -- MUSEUMS --
 
-INSERT INTO MUSEUM (id, name, location) VALUES
+INSERT IGNORE INTO MUSEUM (id, name, location) VALUES
 (100001, 'Museo Nacional del Prado', 'Madrid, Spain'),
 (100002, 'National Gallery', 'London, UK'),
 (100003, 'Tate Modern', 'London, UK'),
@@ -24,8 +24,8 @@ INSERT INTO MUSEUM (id, name, location) VALUES
 -- PAINTINGS --
 
 -- EL GRECO --
-INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200001, 'El Greco', '1541 - 1614', 'Crete, Greece', 'El Greco was a renowned Greek painter known for his distinct style of elongated figures and vibrant colors. He blended Byzantine traditions with Western art techniques and gained fame in Spain, particularly in Toledo. His work emphasized spiritual depth and emotion in religious subjects. He passed away in 1614, leaving a lasting legacy as a visionary artist.');
-INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+INSERT IGNORE INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200001, 'El Greco', '1541 - 1614', 'Crete, Greece', 'El Greco was a renowned Greek painter known for his distinct style of elongated figures and vibrant colors. He blended Byzantine traditions with Western art techniques and gained fame in Spain, particularly in Toledo. His work emphasized spiritual depth and emotion in religious subjects. He passed away in 1614, leaving a lasting legacy as a visionary artist.');
+INSERT IGNORE INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
 (101, 100001, 200001, 'The Nobleman with his Hand on his Chest', '1580', 'Oil on canvas', 'Spanish Renaissance', 'This portrait by El Greco, along with five others, was donated to the Museo Del Prado by the widow of the Duke of Arco, Master of the Horse to King Philip the fifth of Spain. One of the first El Greco paintings to be shown at the Prado, this gentleman has become famous for his melancholy gaze and mysterious identity.'),
 (102, 100001, 200001, 'Christ carrying the Cross', '1602', 'Oil on canvas', 'Spanish Renaissance', 'El Greco''s `Christ Carrying the Cross` showcases Jesus'' burdened journey to crucifixion. The painting''s elongated forms and vibrant colors amplify the emotional weight, depicting both agony and divine resilience, creating a poignant representation of Christian conviction and the human condition.'),
 (103, 100004, 200001, 'View of Toledo', '1596', 'Oil on canvas', 'Spanish Renaissance', 'El Greco portrays Toledo with an otherworldly essence, employing dramatic lighting to evoke a spiritual atmosphere. The cityscape''s distorted perspectives and bold contrasts between light and shadow reflect the artist''s innovative and expressive style.'),
@@ -37,8 +37,8 @@ INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, d
 ;
 
 -- LEONARDO DA VINCI --
-INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200002, 'Leonardo da Vinci', '1452 - 1519', 'Vinci, Italy', 'Leonardo da Vinci was a polymath of the Italian Renaissance, renowned for his achievements as a painter, sculptor, architect, scientist, and inventor. His artistry and intellect influenced generations, creating iconic works and pioneering advancements in various fields.');
-INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+INSERT IGNORE INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200002, 'Leonardo da Vinci', '1452 - 1519', 'Vinci, Italy', 'Leonardo da Vinci was a polymath of the Italian Renaissance, renowned for his achievements as a painter, sculptor, architect, scientist, and inventor. His artistry and intellect influenced generations, creating iconic works and pioneering advancements in various fields.');
+INSERT IGNORE INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
 (200, 100006, 200002, 'Mona Lisa', '1503', 'Oil on poplar panel', 'Renaissance', 'The enigmatic smile of the `Mona Lisa` remains one of the most famous and debated aspects of this portrait. Leonardo da Vinci''s masterful technique and intricate details continue to captivate viewers around the world.'),
 (201, 100006, 200002, 'The Last Supper', '1495', 'Tempera on gesso, pitch, and mastic', 'Renaissance', 'Leonardo da Vinci''s `The Last Supper` depicts the moment Jesus announces that one of his disciples will betray him. The painting''s composition and emotional depth have made it a masterpiece of religious art.'),
 (202, 100006, 200002, 'Virgin of the Rocks', '1483', 'Oil on panel', 'Renaissance', 'This depiction of the Madonna and Child with angels reflects Leonardo da Vinci''s mastery of light and shadow. The painting''s mystical atmosphere and intricate details showcase the artist''s exceptional skill.'),
@@ -53,8 +53,8 @@ INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, d
 ;
 
 -- VAN GOGH --
-INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200003, 'Vincent Van Gogh', '1853 - 1890', 'Zundert, Netherlands', 'Vincent Van Gogh was a Dutch post-impressionist painter renowned for his vivid and emotional artworks. His unique style, characterized by bold colors and dramatic brushwork, had a profound impact on the art world. Despite struggles with mental health, he created an extensive body of work, including masterpieces like `Starry Night` and `Sunflowers.` He passed away in 1890, leaving a legacy of innovation and artistic brilliance.');
-INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+INSERT IGNORE INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200003, 'Vincent Van Gogh', '1853 - 1890', 'Zundert, Netherlands', 'Vincent Van Gogh was a Dutch post-impressionist painter renowned for his vivid and emotional artworks. His unique style, characterized by bold colors and dramatic brushwork, had a profound impact on the art world. Despite struggles with mental health, he created an extensive body of work, including masterpieces like `Starry Night` and `Sunflowers.` He passed away in 1890, leaving a legacy of innovation and artistic brilliance.');
+INSERT IGNORE INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
 (301, 100009, 200003, 'Starry Night', '1889', 'Oil on canvas', 'Post-Impressionism', 'One of Van Gogh''s most famous works, `Starry Night` depicts a swirling night sky over a village, showcasing the artist''s unique brushwork and use of color to convey emotion.'),
 (302, 100011, 200003, 'Sunflowers', '1888', 'Oil on canvas', 'Post-Impressionism', 'This series of still-life paintings of sunflowers highlights Van Gogh''s use of vibrant colors and textured brushstrokes, symbolizing happiness and vitality.'),
 (303, 100009, 200003, 'The Bedroom', '1888', 'Oil on canvas', 'Post-Impressionism', 'Van Gogh''s `The Bedroom` portrays his bedroom in Arles, France, with vivid colors and expressive lines, reflecting the artist''s emotional state.'),
@@ -66,24 +66,24 @@ INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, d
 
 
 -- FRANCIS BACON --
-INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200004, 'Francis Bacon', '1909 - 1992', 'Dublin, Ireland', 'Francis Bacon was an Irish-born figurative painter known for his emotionally charged and raw imagery. His works often depicted the human form in distressing and haunting ways, exploring themes of existentialism, violence, and the human condition. Bacon''s unique style and powerful compositions made him a leading figure in contemporary art.');
-INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+INSERT IGNORE INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200004, 'Francis Bacon', '1909 - 1992', 'Dublin, Ireland', 'Francis Bacon was an Irish-born figurative painter known for his emotionally charged and raw imagery. His works often depicted the human form in distressing and haunting ways, exploring themes of existentialism, violence, and the human condition. Bacon''s unique style and powerful compositions made him a leading figure in contemporary art.');
+INSERT IGNORE INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
 (400, 100003, 200004, 'Three Studies for Figures at the Base of a Crucifixion', '1944', 'Oil and pastel on board', 'Surrealism', 'Bacon''s `Three Studies for Figures at the Base of a Crucifixion` is a powerful and unsettling triptych that marked a turning point in the artist''s career, with distorted figures reflecting the anguish of the post-war era.'),
 (401, 100014, 200004, 'Study after Velázquez''s Portrait of Pope Innocent X', '1953', 'Oil on canvas', 'Surrealism', 'Bacon''s `Study after Velázquez''s Portrait of Pope Innocent X` reinterprets the classic painting with distorted forms and intense emotional impact.'),
 (402, 100003, 200004, 'Painting 1946', '1946', 'Oil and pastel on linen', 'Surrealism', 'This work showcases Bacon''s use of bold colors and abstracted forms, capturing the existential anxiety prevalent in post-war Europe.'),
 (403, 100015, 200004, 'Figure with Meat', '1954', 'Oil on canvas', 'Surrealism', 'A haunting and visceral depiction of a distorted figure surrounded by hanging carcasses, symbolizing the brutality of existence.');
 
 -- ROY LICHTENSTEIN --
-INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200005, 'Roy Lichtenstein', '1923 - 1997', 'New York City, USA', 'Roy Lichtenstein was an American pop artist, known for his comic strip-inspired artwork. His iconic pieces often featured bold colors, Ben-Day dots, and thick outlines, challenging the boundaries of high and low art. Lichtenstein''s work became synonymous with the Pop Art movement of the 1960s.');
-INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+INSERT IGNORE INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200005, 'Roy Lichtenstein', '1923 - 1997', 'New York City, USA', 'Roy Lichtenstein was an American pop artist, known for his comic strip-inspired artwork. His iconic pieces often featured bold colors, Ben-Day dots, and thick outlines, challenging the boundaries of high and low art. Lichtenstein''s work became synonymous with the Pop Art movement of the 1960s.');
+INSERT IGNORE INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
 (500, 100003, 200005, 'Whaam!', '1963', 'Oil and acrylic paint on canvas', 'Pop Art', 'Lichtenstein''s `Whaam!` is an iconic diptych representing a fighter aircraft firing a rocket during combat, inspired by comic book imagery.'),
 (501, 100013, 200005, 'Drowning Girl', '1963', 'Oil and synthetic polymer paint on canvas', 'Pop Art', 'This painting showcases Lichtenstein''s signature Ben-Day dots and bold lines, portraying a distressed woman in a melodramatic scene.'),
 (502, 100012, 200005, 'Look Mickey', '1961', 'Oil on canvas', 'Pop Art', 'One of Lichtenstein''s earliest and most famous works, `Look Mickey` marks his transition to Pop Art, depicting Mickey Mouse and Donald Duck fishing, capturing the essence of popular culture.')
 ;
 
 -- PICASSO --
-INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200006, 'Pablo Picasso', '1881 - 1973', 'Málaga, Spain', 'Pablo Picasso was a Spanish painter, sculptor, and printmaker, considered one of the most influential artists of the 20th century. He co-founded the Cubist movement and created iconic works across various styles and mediums, showcasing unparalleled creativity and innovation in art.');
-INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+INSERT IGNORE INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200006, 'Pablo Picasso', '1881 - 1973', 'Málaga, Spain', 'Pablo Picasso was a Spanish painter, sculptor, and printmaker, considered one of the most influential artists of the 20th century. He co-founded the Cubist movement and created iconic works across various styles and mediums, showcasing unparalleled creativity and innovation in art.');
+INSERT IGNORE INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
 (600, 100001, 200006, 'Las Meninas Series', '1957', 'Oil on canvas', 'Cubism', 'Picasso''s `Las Meninas Series` reinterprets Velázquez''s masterpiece in a series of 58 paintings, exploring perspective and form.'),
 (601, 100004, 200006, 'Guernica', '1937', 'Oil on canvas', 'Cubism', 'A powerful anti-war statement, `Guernica` is one of Picasso''s most famous works, depicting the horrors of the Spanish Civil War.'),
 (602, 100006, 200006, 'Les Demoiselles d''Avignon', '1907', 'Oil on canvas', 'Cubism', 'This groundbreaking painting is a key early work in the development of Cubism, depicting five nude female figures in a fragmented style.'),
@@ -93,8 +93,8 @@ INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, d
 
 
 -- MATISSE --
-INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200007, 'Henri Matisse', '1869 - 1954', 'Le Cateau-Cambrésis, France', 'Henri Matisse was a French artist known for his use of color and fluid forms. A leading figure of modern art, he explored various styles, from Fauvism to abstraction. Matisse''s vibrant and expressive works continue to influence art and inspire artists worldwide.');
-INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+INSERT IGNORE INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200007, 'Henri Matisse', '1869 - 1954', 'Le Cateau-Cambrésis, France', 'Henri Matisse was a French artist known for his use of color and fluid forms. A leading figure of modern art, he explored various styles, from Fauvism to abstraction. Matisse''s vibrant and expressive works continue to influence art and inspire artists worldwide.');
+INSERT IGNORE INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
 (700, 100001, 200007, 'The Dance', '1910', 'Oil on canvas', 'Fauvism', 'Matisse''s `The Dance` is a vibrant depiction of joyful, dancing figures, showcasing bold colors and simplified forms characteristic of Fauvism.'),
 (701, 100002, 200007, 'Woman with a Hat', '1905', 'Oil on canvas', 'Fauvism', 'Considered a masterpiece of Fauvism, `Woman with a Hat` displays Matisse''s bold use of color and expressive brushwork.'),
 (702, 100004, 200007, 'The Red Studio', '1911', 'Oil on canvas', 'Fauvism', 'In `The Red Studio,` Matisse explores the boundaries between interior and exterior space, using vivid red tones to emphasize the studio''s elements.'),
@@ -104,8 +104,8 @@ INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, d
 
 
 -- RUFINO TAMAYO --
-INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200008, 'Rufino Tamayo', '1899 - 1991', 'Oaxaca, Mexico', 'Rufino Tamayo was a Mexican painter known for his distinct style that merged European modernist elements with Mexican folk art. His paintings often showcased strong colors and indigenous themes, reflecting a unique blend of cultures. Tamayo''qs work contributed significantly to Mexican art and gained international recognition.');
-INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+INSERT IGNORE INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200008, 'Rufino Tamayo', '1899 - 1991', 'Oaxaca, Mexico', 'Rufino Tamayo was a Mexican painter known for his distinct style that merged European modernist elements with Mexican folk art. His paintings often showcased strong colors and indigenous themes, reflecting a unique blend of cultures. Tamayo''qs work contributed significantly to Mexican art and gained international recognition.');
+INSERT IGNORE INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
 (800, 100001, 200008, 'Trovador', '1945', 'Oil on canvas', 'Surrealism', 'In `Trovador,` Tamayo combines elements of surrealism with Mexican folk art, depicting a troubadour playing music amidst dreamlike imagery.'),
 (801, 100003, 200008, 'Mujer con Collar', '1943', 'Oil on canvas', 'Surrealism', 'This painting portrays a woman with a necklace, showcasing Tamayo''s use of bold colors and simplified forms, characteristic of his style.'),
 (802, 100004, 200008, 'Perro aullando a la luna', '1942', 'Oil on canvas', 'Surrealism', 'Tamayo''s `Perro aullando a la luna` captures a dog howling at the moon in a surreal and symbolic representation.'),
@@ -121,8 +121,8 @@ INSERT INTO PAINTING (id, museum_id, artist_id, title, year_of, medium, style, d
 -- SCULPTURES --
 
 -- AUGUSTE RODIN --
-INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200009, 'Auguste Rodin', '1840 - 1917', 'Paris, France', 'Auguste Rodin was a French sculptor known for his groundbreaking work in sculpture, notably `The Thinker` and `The Kiss.` His innovative approach to form and expression revolutionized the art of sculpting, earning him worldwide acclaim.');
-INSERT INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+INSERT IGNORE INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200009, 'Auguste Rodin', '1840 - 1917', 'Paris, France', 'Auguste Rodin was a French sculptor known for his groundbreaking work in sculpture, notably `The Thinker` and `The Kiss.` His innovative approach to form and expression revolutionized the art of sculpting, earning him worldwide acclaim.');
+INSERT IGNORE INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
 (900, 100006, 200009, 'The Thinker', '1902', 'Bronze', 'Realism', 'Auguste Rodin''s `The Thinker` depicts a seated man lost in contemplation, symbolizing philosophical thinking and intellect.'),
 (901, 100006, 200009, 'The Kiss', '1889', 'Marble', 'Neoclassical', 'Rodin''s `The Kiss` captures an intimate moment between lovers, illustrating passion and affection in a classical style.'),
 (902, 100006, 200009, 'The Burghers of Calais', '1889', 'Bronze', 'Realism', 'This sculpture commemorates the bravery of six citizens of Calais who offered their lives during the Hundred Years'' War, displaying emotional depth and sacrifice.'),
@@ -130,47 +130,50 @@ INSERT INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, 
 ;
 
 -- MICHELANGELO  --
-INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200010, 'Michelangelo', '1475 - 1564', 'Caprese Michelangelo, Italy', 'Michelangelo Buonarroti, an Italian sculptor, painter, and architect, is one of the most influential figures in Western art. He created masterpieces like `David` and the ceiling of the Sistine Chapel, showcasing unparalleled skill and artistic vision.');
-INSERT INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+INSERT IGNORE INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200010, 'Michelangelo', '1475 - 1564', 'Caprese Michelangelo, Italy', 'Michelangelo Buonarroti, an Italian sculptor, painter, and architect, is one of the most influential figures in Western art. He created masterpieces like `David` and the ceiling of the Sistine Chapel, showcasing unparalleled skill and artistic vision.');
+INSERT IGNORE INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
 (1001, 100001, 200010, 'David', '1504', 'Marble', 'High Renaissance', 'Michelangelo''s `David` is an iconic sculpture depicting the biblical hero, renowned for its detailed anatomy and powerful expression.')
 ;
 
 -- CONSTANTIN BRANCUSI --
-INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200011, 'Constantin Brancusi', '1876 - 1957', 'Hobița, Romania', 'Constantin Brancusi was a Romanian sculptor known for his abstract works that pushed the boundaries of traditional sculpture. His pieces like `Bird in Space` and `The Kiss` redefined form and medium, inspiring modernist sculptors worldwide.');
-INSERT INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+INSERT IGNORE INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200011, 'Constantin Brancusi', '1876 - 1957', 'Hobița, Romania', 'Constantin Brancusi was a Romanian sculptor known for his abstract works that pushed the boundaries of traditional sculpture. His pieces like `Bird in Space` and `The Kiss` redefined form and medium, inspiring modernist sculptors worldwide.');
+INSERT IGNORE INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
 (1101, 100006, 200011, 'Bird in Space', '1928', 'Bronze', 'Modernism', 'Brancusi''s `Bird in Space` represents the essence of flight, showcasing sleek, elongated forms that evoke a sense of movement and freedom.'),
 (1102, 100013, 200011, 'The Kiss', '1916', 'Marble', 'Modernism', 'Another interpretation of `The Kiss` by Brancusi, this sculpture captures the harmony and unity between two lovers with simplified, abstract forms.')
 ;
 
 -- HENRY MOORE --
-INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200012, 'Henry Moore', '1898 - 1986', 'Castleford, UK', 'Henry Moore, a British sculptor, revolutionized modern sculpture with his organic, abstract forms. His monumental works, such as `Reclining Figure` and `Large Two Forms,` became landmarks in contemporary art.');
-INSERT INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+INSERT IGNORE INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200012, 'Henry Moore', '1898 - 1986', 'Castleford, UK', 'Henry Moore, a British sculptor, revolutionized modern sculpture with his organic, abstract forms. His monumental works, such as `Reclining Figure` and `Large Two Forms,` became landmarks in contemporary art.');
+INSERT IGNORE INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
 (1201, 100007, 200012, 'Reclining Figure', '1951', 'Bronze', 'Modernism', 'Henry Moore''s `Reclining Figure` explores the human form in repose, showcasing abstract, organic shapes and negative space.'),
 (1202, 100012, 200012, 'Large Two Forms', '1966', 'Bronze', 'Modernism', 'This sculpture emphasizes Moore''s interest in the relationship between forms, portraying two abstract, interlocking shapes.')
 ;
 
 -- LOUISE BOURGEOIS --
-INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200013, 'Louise Bourgeois', '1911 - 2010', 'Paris, France', 'Louise Bourgeois, a French-American artist, was known for her emotionally charged sculptures. `Maman,` her giant spider sculpture, and her exploration of themes like motherhood and sexuality made her a leading figure in contemporary art.');
-INSERT INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+INSERT IGNORE INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200013, 'Louise Bourgeois', '1911 - 2010', 'Paris, France', 'Louise Bourgeois, a French-American artist, was known for her emotionally charged sculptures. `Maman,` her giant spider sculpture, and her exploration of themes like motherhood and sexuality made her a leading figure in contemporary art.');
+INSERT IGNORE INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
 (1301, 100014, 200013, 'Maman', '1999', 'Bronze', 'Contemporary', 'Louise Bourgeois''s `Maman` is a giant spider sculpture, symbolizing maternity and protection, while also evoking fear and anxiety.')
 ;
 
 -- ISAMU NOGUCHI --
-INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200014, 'Isamu Noguchi', '1904 - 1988', 'Los Angeles, USA', 'Isamu Noguchi was a Japanese-American artist known for his sculptures and landscape architecture. His abstract works, including `Red Cube,` embodied a unique blend of Eastern and Western aesthetics.');
-INSERT INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+INSERT IGNORE INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200014, 'Isamu Noguchi', '1904 - 1988', 'Los Angeles, USA', 'Isamu Noguchi was a Japanese-American artist known for his sculptures and landscape architecture. His abstract works, including `Red Cube,` embodied a unique blend of Eastern and Western aesthetics.');
+INSERT IGNORE INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
 (1401, 100015, 200014, 'Red Cube', '1968', 'Steel', 'Abstract', 'Isamu Noguchi''s `Red Cube` is a geometric sculpture exploring space and form, standing as a symbol of strength and vitality.')
 ;
 
 -- BARBARA HEPWORTH --
-INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200015, 'Barbara Hepworth', '1903 - 1975', 'Wakefield, UK', 'Barbara Hepworth, a British artist, was a prominent figure in modern sculpture. Her abstract, organic forms, seen in works like `Single Form,` emphasized the relationship between sculpture and landscape.');
-INSERT INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+INSERT IGNORE INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200015, 'Barbara Hepworth', '1903 - 1975', 'Wakefield, UK', 'Barbara Hepworth, a British artist, was a prominent figure in modern sculpture. Her abstract, organic forms, seen in works like `Single Form,` emphasized the relationship between sculpture and landscape.');
+INSERT IGNORE INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
 (1501, 100011, 200015, 'Single Form', '1961', 'Bronze', 'Modernism', 'Barbara Hepworth''s `Single Form` is a monumental abstract sculpture symbolizing unity and the human spirit.')
 ;
 
 -- JACQUES LIPCHITZ --
-INSERT INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200016, 'Jacques Lipchitz', '1891 - 1973', 'Druskininkai, Lithuania', 'Jacques Lipchitz was a Lithuanian-born French sculptor known for his Surrealist sculptures. Pieces like `Prometheus Strangling the Vulture II` and `Birth of the Muses` showcased his mastery of form and symbolism.');
-INSERT INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
+INSERT IGNORE INTO ARTIST (id, name, dob_and_dod, birthplace, bio) VALUES (200016, 'Jacques Lipchitz', '1891 - 1973', 'Druskininkai, Lithuania', 'Jacques Lipchitz was a Lithuanian-born French sculptor known for his Surrealist sculptures. Pieces like `Prometheus Strangling the Vulture II` and `Birth of the Muses` showcased his mastery of form and symbolism.');
+INSERT IGNORE INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, style, description) VALUES
 (1601, 100010, 200016, 'Prometheus Strangling the Vulture II', '1944', 'Bronze', 'Surrealism', 'Jacques Lipchitz''s sculpture portrays the mythological figure Prometheus engaged in a struggle against adversity.'),
 (1602, 100004, 200016, 'Birth of the Muses', '1944', 'Bronze', 'Surrealism', 'This sculpture by Lipchitz depicts the mythical birth of the Muses, symbolizing creativity and inspiration.'),
 (1603, 100002, 200016, 'Bather with a Shell', '1930', 'Bronze', 'Surrealism', 'Another work by Lipchitz, this sculpture captures a bather in a serene moment, holding a shell.')
 ;
+
+--INSERT IGNORE INTO ART SELECT * FROM PAINTING;
+--INSERT IGNORE INTO ART SELECT * FROM SCULPTURE;

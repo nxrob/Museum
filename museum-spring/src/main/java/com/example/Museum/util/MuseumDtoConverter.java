@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 public class MuseumDtoConverter {
 
     public MuseumDto convertToMuseumStandardDto(Museum museum) {
-        log.debug("... converting <Museum> object to <MusemDto> ...");
         return new MuseumDto(museum);
     }
 
