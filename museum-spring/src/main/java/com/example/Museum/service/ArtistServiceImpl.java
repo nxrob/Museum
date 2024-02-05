@@ -84,4 +84,9 @@ public class ArtistServiceImpl implements ArtistService {
         oldestNewest.add(newestArt);
         return oldestNewest;
     }
+
+    @Override
+    public List<ArtistDto> getArtistsByName(String name) {
+        return artistRepository.getArtistsByName(name);
+    }
 }

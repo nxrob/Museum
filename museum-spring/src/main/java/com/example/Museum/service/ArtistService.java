@@ -14,4 +14,5 @@ public interface ArtistService {
 
     List<Art> findFirstAndLastObject(String name);
 
+    List<ArtistDto> getArtistsByName(String name);
 }
