@@ -5,7 +5,7 @@ const AdminDelete = () => {
     const [submitClicked, setSubmitClicked] = useState(0)
     const [id, setId] = useState();
     const [artist,  setArtist] = useState(null)
-    const [chosenId, setChosenId] = useState()
+    const [chosenId, setChosenId] = useState(1)
 
     const fetchData = async () => {
         try{
