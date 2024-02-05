@@ -56,19 +56,25 @@ public class MuseumServiceImpl implements MuseumService {
     }
 
     @Override
-    public List<ArtDto> getWorksInMuseum(String museumName) {
-        ArtDtoConverter converter = new ArtDtoConverter();
-
-        Museum museum = museumRepository.findByNameContains(museumName);
-
-        List<Art> collectionTemp = museum.getCollection();
-        List<ArtDto> collectionInDto = new ArrayList<>();
-
-        for(Art art : collectionTemp) {
-            collectionInDto.add(converter.convertArtToStandardDto(art));
-        }
-        return collectionInDto;
+    public Museum getMuseum(String museumName) {
+        return museumRepository.findByNameContains(museumName);
     }
+
+    /* Get works in museum */
+    //    @Override
+    //    public Museum getMuseum(String museumName) {
+    //        ArtDtoConverter converter = new ArtDtoConverter();
+    //
+    //        Museum museum = museumRepository.findByNameContains(museumName);
+    //
+    //        List<Art> collectionTemp = museum.getCollection();
+    //        List<ArtDto> collectionInDto = new ArrayList<>();
+    //
+    //        for(Art art : collectionTemp) {
+    //            collectionInDto.add(converter.convertArtToStandardDto(art));
+    //        }
+    //        return collectionInDto;
+    //    }
 
     @Override
     public List<Art> getWorksByArtistInMuseum(String museumName, String artistName) {

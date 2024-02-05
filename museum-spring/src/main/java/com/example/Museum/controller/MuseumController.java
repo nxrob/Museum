@@ -25,8 +25,8 @@ public class MuseumController {
     }
 
     @GetMapping("/museum/{museumName}")
-    public List<ArtDto> getWorksInMuseum(@PathVariable String museumName) {
-        return museumService.getWorksInMuseum(museumName);
+    public Museum getMuseum(@PathVariable String museumName) {
+        return museumService.getMuseum(museumName);
     }
 
     @GetMapping("/museum/{museumName}/{artistName}")

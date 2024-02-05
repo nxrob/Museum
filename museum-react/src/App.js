@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Museum from './Museum';
+import Museum from './MuseumAll';
 
 function App() {
   return (
