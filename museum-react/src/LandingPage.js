@@ -61,7 +61,7 @@ const LandingPage = () => {
         <Link to="/museums">Museums</Link>
         <Link to="/artists">Artists</Link>
         <Link to="/guides">Guides</Link>
-        <Link to="/admin">Administrator Access</Link>
+        <Link to="/Admin">Administrator Access</Link>
       </div>
     </div>
   );

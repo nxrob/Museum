@@ -7,8 +7,6 @@ import AdminUpdate from "./AdminUpdate";
 const Admin = () => {
     
     return (
-       
-    
         <div className="AdminHome">
             <h1>Welcome Admin, how are we altering the catalog today?</h1>
          <div>
@@ -17,23 +15,21 @@ const Admin = () => {
             <ul>
               
               <li>
-                 <Link to = "/Create">AdminCreate</Link> 
+                 <Link to = "/Admin/Create">Create</Link> 
               </li>
               
               <li>
-                <Link to = "/Update">AdminUpdate</Link>
+                <Link to = "/Admin/update">Update</Link>
               </li>
               <li>
-                <Link to = "/Delete">AdminDelete</Link>
+                <Link to = "/Admin/delete">Delete</Link>
               </li>
              
             </ul>
           </nav>
-          <Routes>
-            <Route path = "/admin/create" element = {<AdminCreate />}/>
-            <Route path = "/admin/update" element = {<AdminUpdate/>}/>
-            <Route path = "/admin/delete" element = {<AdminDelete/>}/>
-          </Routes>
+          {/* <Routes>
+            
+          </Routes> */}
          </div>
           
         </div>
