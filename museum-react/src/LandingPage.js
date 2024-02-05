@@ -58,12 +58,14 @@ const LandingPage = () => {
         <button type="submit">Search</button>
       </form>
       <div>
-        <Link to="/museums">Museums</Link>
-        <Link to="/artists">Artists</Link>
-        <Link to="/guides">Guides</Link>
-        <Link to="/admin">Administrator Access</Link>
-      </div>
-    </div>
+      <Link to="/museums">Museums </Link>
+    <Link to="/artists">Artists </Link>
+    <Link to="/guides">Guides </Link>
+  </div>
+  <div className="admin-access-link">
+    <Link to="/admin">Administrator Access</Link>
+  </div>
+</div>
   );
 };
 
