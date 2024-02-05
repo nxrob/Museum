@@ -1,3 +1,37 @@
+#!/bin/bash
+
+version: '3'
+
+services:
+  react-app:
+    build:
+      context: ./museum-react
+    volumes:
+      - ./museum-react:/app
+    ports:
+      - "3000:3000"
+
+  spring-app:
+    image: maven:3.8.5-openjdk
+    working_dir: /app
+    volumes:
+      - ./museum-spring:/app
+    ports:
+      - "8080:8080"
+    # command: java -jar Museum-0.0.1-SNAPSHOT.jar
+    command: mvn spring-boot:run
+
+  mysql-db:
+    image: mysql:latest
+    command: --lower_case_table_names=1
+    environment:
+      MYSQL_ROOT_PASSWORD: some_pass
+      MYSQL_DATABASE: dockerdb
+      MYSQL_USER: springuser
+      MYSQL_PASSWORD: springuser
+    ports:
+      - "3307:3306"
+=======
 version: '3.8'
 
 networks:
@@ -16,3 +50,4 @@ services:
       MYSQL_DATABASE: museum_sql
       MYSQL_USER: springuser
       MYSQL_PASSWORD: springuser
+>>>>>>> 7ac09248ac128980e886e649eb0267d5dc1b9cbe
