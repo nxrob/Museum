@@ -17,7 +17,7 @@ import java.util.List;
 @CrossOrigin()
 public class ArtController {
 
-    private ArtService artService;
+    private final ArtService artService;
 
 
     public ArtController(ArtService artService) {

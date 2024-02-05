@@ -20,6 +20,9 @@ public interface MuseumService {
 
     List<MuseumDto> findAllDto();
     Museum getMuseum(String museumName);
+
+    List<ArtDto> getMuseumWorks(String museumName);
+
     List<Art> getWorksByArtistInMuseum(String museumName, String artistName);
 
 

@@ -13,7 +13,7 @@ import java.util.List;
 @CrossOrigin()
 public class MuseumController {
 
-    private MuseumService museumService;
+    private final MuseumService museumService;
 
     public MuseumController(MuseumService museumService) {
         this.museumService = museumService;
@@ -27,6 +27,11 @@ public class MuseumController {
     @GetMapping("/museum/{museumName}")
     public Museum getMuseum(@PathVariable String museumName) {
         return museumService.getMuseum(museumName);
+    }
+
+    @GetMapping("/museum/{museumName}/works")
+    public List<ArtDto> getMuseumWorks(@PathVariable String museumName) {
+        return museumService.getMuseumWorks(museumName);
     }
 
     @GetMapping("/museum/{museumName}/{artistName}")

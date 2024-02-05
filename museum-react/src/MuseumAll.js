@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link, Route, Routes, useParams } from 'react-router-dom';
+import Museum from './Museum';
 
 const MuseumAll = () => {
 
@@ -8,6 +10,7 @@ const MuseumAll = () => {
     const fetchData = async () => {
       try {
         const response = await fetch('http://localhost:8080/museum');
+        console.log(response);
         const data = await response.json();
         setMuseums(data);
       } catch (error) {
@@ -19,24 +22,33 @@ const MuseumAll = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Museum Information</h2>
+    <div class="container-fluid text-center">
+      <h1>Museum Information</h1><br />
       {museums ? (
-        <div>
-          {museums.map((museum) => (
-            <div>
-              <b>Name: </b> {museum.name} <br />
-              <b>Location: </b> {museum.location} <br />
-              <b>Link: </b> <a id="museumLink" href="">Click me</a>
-              ---------------------------------------------
-            </div>
-          ))}
-        </div>
+        <table class="table table-striped" style={{ width: "30%", marginLeft: "auto", marginRight: "auto" }}>
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {museums.map((museum) => (
+              <tr>
+                <td>
+                  <Link to={museum.name}>{museum.name}</Link>
+                </td>
+                <td>{museum.location}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       ) : (
         <p>Loading...</p>
       )}
     </div>
   );
+
 };
 
 export default MuseumAll;

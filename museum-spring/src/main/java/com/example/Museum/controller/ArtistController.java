@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 public class ArtistController {
 
-    private ArtistService artistService;
+    private final ArtistService artistService;
 
     public ArtistController(ArtistService artistService) {
         this.artistService = artistService;
