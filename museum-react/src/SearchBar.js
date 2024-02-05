@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Autocomplete from '@mui/material/Autocomplete';
+import { TextField } from "@mui/material";
 
 const SearchBar = () => {
     const [input, setInput] = useState("");
@@ -6,8 +8,45 @@ const SearchBar = () => {
     const [artists, setArtists] = useState("");
     const [arts, setArts] = useState("");
     const [display, setDisplay] = useState("");
+    const [allNames, setAllNames ]= useState("");
+    const [allArtworkNames, setAllArtworkNames] = useState("");
 
-    
+    const fetchAllNames = async () => {
+        let names = new Array;
+        let tempArtists = new Array;
+        try {
+            const response = await fetch("http://localhost:8080/artist");
+            const data = await response.json();
+            tempArtists = data;
+        }
+        catch (error) {
+            console.error('Error fetching data: ', error);
+        }
+        tempArtists.forEach(element => {
+            names.push(element.name);
+            console.log(element.name);
+        });
+
+        let tempArtworks = new Array;
+
+        try {
+            const response = await fetch("http://localhost:8080");
+            const data = await response.json();
+            tempArtworks = data;
+        } catch (error) {
+            console.error('Error fetching data: ', error);
+        }
+        tempArtworks.forEach(element => {
+            names.push(element.title);
+            console.log(element.title);
+        });
+
+        var uniqNames = [...new Set(names)];
+        setAllNames(uniqNames);
+
+    }
+   
+
     
 
     
@@ -15,6 +54,8 @@ const SearchBar = () => {
     function updateInput(e) {
         e.preventDefault()
         setInput(e.target.value);
+        fetchAllNames();
+        console.log('updating input');
         
         
     }
@@ -43,13 +84,21 @@ const SearchBar = () => {
     return (
         <h1>
             <div>
+               inpyt dsadsad {input}
+                <Autocomplete
+                disablePortal
+                id="auto-search"
+                sx={{ width: 300}}
+                options={allNames}
+                freeSolo
+                value={input}
                 
-                <input
-                    type="text"
-                    placeholder="Search Artist/Art"
-                    onChange={updateInput}
-                    value={input}
+                onMouseOver={updateInput}
+                onChange={updateInput}
+                
+                renderInput={(params) => <TextField {...params} label="Search Art/Artist"/>}
                 />
+               
                 <button
                     onClick={search}
                 >Search</button>
