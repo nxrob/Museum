@@ -13,7 +13,7 @@ d
 _
 /src/main/java/com/example/Museum/model/Art.java,7/2/727aa731c366117a6654f264429f66c88819024e
 B
-docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
+docker-compose.yml,3/5/35b8c13cf2eb2a194eada000eb310d65aed53b2a
 s
 Csrc/test/java/com/example/Museum/ArtistWithMockHttpRequestTest.java,2/9/2934cd8f956880dedf0a7e66f64d8e42bbdcefe0
 p
