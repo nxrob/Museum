@@ -21,6 +21,7 @@ services:
     # command: java -jar Museum-0.0.1-SNAPSHOT.jar
     command: mvn spring-boot:run
 
+
   mysql-db:
     image: mysql:latest
     command: --lower_case_table_names=1
