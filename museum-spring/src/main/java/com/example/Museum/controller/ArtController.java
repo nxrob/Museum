@@ -24,7 +24,7 @@ public class ArtController {
         this.artService = artService;
     }
 
-    @GetMapping("")
+    @GetMapping("/art")
     public List<ArtDto> getAllArt(@PathParam("filter") String filter) {
         List<ArtDto> allArt = Collections.emptyList();
 
