@@ -1,18 +1,18 @@
-# version: '3.8'
+version: '3.8'
 
-# networks:
-#   default:
+networks:
+  default:
 
-# services:
-#   db:
-#     image: mysql:8.0.36
-#     container_name: museum_sql_container
-#     ports:
-#       - 3306:3306
-#     volumes:
-#       - "./.data/db:/var/lib/mysql"
-#     environment:
-#       MYSQL_ROOT_PASSWORD: some_pass
-#       MYSQL_DATABASE: museum_sql
-#       MYSQL_USER: springuser
-#       MYSQL_PASSWORD: springuser
+services:
+  db:
+    image: mysql:8.0.36
+    container_name: museum_sql_container
+    ports:
+      - 3306:3306
+    volumes:
+      - "./.data/db:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: some_pass
+      MYSQL_DATABASE: museum_sql
+      MYSQL_USER: springuser
+      MYSQL_PASSWORD: springuser
