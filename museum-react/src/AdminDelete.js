@@ -52,10 +52,13 @@ const AdminDelete = () => {
         value={chosenId}
         onChange={(e) => setChosenId(e.target.value)}
       />
-        <button>
-            onClick={() => setSubmitClicked(submitClicked + 1)}
+      <p>
+      <button
+            onClick={() => setSubmitClicked(submitClicked + 1)}>
             Submit
         </button>
+      </p>
+      
        </div>
     )
 }
