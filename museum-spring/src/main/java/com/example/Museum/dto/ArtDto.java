@@ -1,6 +1,7 @@
 package com.example.Museum.dto;
 
 import com.example.Museum.model.Art;
+import com.example.Museum.model.Museum;
 import jakarta.persistence.Column;
 import lombok.Data;
 import lombok.NoArgsConstructor;
