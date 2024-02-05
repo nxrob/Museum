@@ -50,4 +50,3 @@ services:
       MYSQL_DATABASE: museum_sql
       MYSQL_USER: springuser
       MYSQL_PASSWORD: springuser
->>>>>>> 7ac09248ac128980e886e649eb0267d5dc1b9cbe
