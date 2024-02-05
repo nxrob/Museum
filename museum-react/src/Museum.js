@@ -20,16 +20,28 @@ const Museum = () => {
 
   return (
     <div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+          <label class="form-check-label" for="flexRadioDefault1">
+            Default radio
+          </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
+          <label class="form-check-label" for="flexRadioDefault2">
+            Default checked radio
+          </label>
+      </div>
       <h2>Museum Information</h2>
-      { museums ? (
+      {museums ? (
         <div>
-            { museums.map((museum) => (
-                <div>
-                  <b>Name: </b> { museum.name } <br/>
-                  <b>Location: </b> { museum.location } <br/>
-                  ---------------------------------------------
-                </div>
-              )) }
+          {museums.map((museum) => (
+            <div>
+              <b>Name: </b> {museum.name} <br />
+              <b>Location: </b> {museum.location} <br />
+              ---------------------------------------------
+            </div>
+          ))}
         </div>
       ) : (
         <p>Loading...</p>
