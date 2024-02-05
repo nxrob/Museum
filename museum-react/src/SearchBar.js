@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Autocomplete from '@mui/material/Autocomplete';
 import { TextField } from "@mui/material";
 
@@ -47,7 +47,9 @@ const SearchBar = () => {
     }
    
 
-    
+    useEffect(() => {
+        fetchAllNames();
+    }, []);
 
     
 
@@ -92,15 +94,22 @@ const SearchBar = () => {
                 options={allNames}
                 freeSolo
                 value={input}
-                
-                onMouseOver={updateInput}
-                onChange={updateInput}
+                onInput={updateInput}
+                onSelect={updateInput}
+                onKeyDown={(e) =>
+                   { if(e.key==='Enter'){
+                        search();
+                    }
+                }
+                }
                 
                 renderInput={(params) => <TextField {...params} label="Search Art/Artist"/>}
                 />
                
                 <button
+                    
                     onClick={search}
+                    
                 >Search</button>
                 
             </div>
