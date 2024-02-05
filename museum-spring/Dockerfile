@@ -3,4 +3,4 @@ VOLUME /tmp
 ARG JAR_FILE
 COPY ${JAR_FILE} app.jar
 RUN mvn install
-ENTRYPOINT ["java","-jar","target/Museum-0.0.1-SNAPSHOT.jar"]
+# ENTRYPOINT ["java","-jar","/Museum-0.0.1-SNAPSHOT.jar"]
