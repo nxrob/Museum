@@ -42,7 +42,7 @@ const Artist = () => {
         <div class="container w-50">
             <div class="rounded-1 row mx-auto mt-2 border" style={{ backgroundColor: "#EFF6F9" }}>
                 <span class="col my-2 align-self-center">
-                    <span class="display-3">𝐓𝐡𝐞 𝐆𝐢𝐭𝐠𝐨𝐨𝐝 𝐌𝐮𝐬𝐞𝐮𝐦</span>
+                    <span class="display-3">𝐀𝐫𝐭𝐢𝐬𝐭𝐬</span>
                 </span>
                 <div class="col d-flex flex-row-reverse h-50 align-self-center">
                     <button class="btn btn-primary" type="button" style={{ maxWidth: "50px" }} onClick={() => navigate(-1)}>Back</button>
@@ -64,10 +64,8 @@ const Artist = () => {
                 </div>
                 <div class="col my-3">
                     <img src={artistImage} class="img-fluid float-end" />
-
                 </div>
             </div>
-
 
             {artistWorks ? (
                 <div>

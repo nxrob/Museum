@@ -23,38 +23,44 @@ const MuseumAll = () => {
 	}, []);
 
 	return (
-		<div class="container text-center w-50">
+		<div class="container w-50">
 			<div class="rounded-1 row mx-auto mt-2 border" style={{ backgroundColor: "#EFF6F9" }}>
 				<span class="col my-2 align-self-center">
-					<span class="display-3">𝐓𝐡𝐞 𝐆𝐢𝐭𝐠𝐨𝐨𝐝 𝐌𝐮𝐬𝐞𝐮𝐦</span>
+					<span class="display-3">𝐌𝐮𝐬𝐞𝐮𝐦𝐬</span>
 				</span>
 				<div class="col d-flex flex-row-reverse h-50 align-self-center">
 					<button class="btn btn-primary" type="button" style={{ maxWidth: "50px" }} onClick={() => navigate(-1)}>Back</button>
 				</div>
 			</div>
-			<h1>Museums</h1><br />
-			{museums ? (
-				<table class="table table-striped" style={{ marginLeft: "auto", marginRight: "auto" }}>
-					<thead>
-						<tr>
-							<th scope="col">Name</th>
-							<th scope="col">Location</th>
-						</tr>
-					</thead>
-					<tbody>
-						{museums.map((museum) => (
+			<div class="text-left">
+				<div class="container my-3 py-3" style={{ backgroundColor: "#EFF9F1" }}>
+					<h1>Museums in our Catalogue</h1>
+				</div>
+				<br />
+				{museums ? (
+					<table class="table table-striped" style={{ marginLeft: "auto", marginRight: "auto" }}>
+						<thead>
 							<tr>
-								<td>
-									<Link to={museum.name}>{museum.name}</Link>
-								</td>
-								<td>{museum.location}</td>
+								<th scope="col">Name</th>
+								<th scope="col">Location</th>
 							</tr>
-						))}
-					</tbody>
-				</table>
-			) : (
-				<p>Loading...</p>
-			)}
+						</thead>
+						<tbody>
+							{museums.map((museum) => (
+								<tr>
+									<td>
+										<Link to={museum.name}>{museum.name}</Link>
+									</td>
+									<td>{museum.location}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+
+				) : (
+					<p>Loading...</p>
+				)}
+			</div>
 		</div>
 	);
 
