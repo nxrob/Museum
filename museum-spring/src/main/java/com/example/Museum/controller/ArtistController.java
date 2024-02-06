@@ -3,12 +3,26 @@ package com.example.Museum.controller;
 import com.example.Museum.dto.ArtistDto;
 import com.example.Museum.model.Art;
 import com.example.Museum.service.ArtistService;
+
 import org.springframework.web.bind.annotation.*;
 
+import io.micrometer.common.util.StringUtils;
+import jakarta.websocket.server.PathParam;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+
+
+@CrossOrigin()
+
 public class ArtistController {
 
     private final ArtistService artistService;
@@ -18,9 +32,17 @@ public class ArtistController {
     }
 
     @GetMapping("/artist")
-    public List<ArtistDto> getAllArtists() {
-        return artistService.findAllArtistsDtoNoRepertoire();
+    public List<ArtistDto> getAllArtists(@PathParam("name") String name) {
+        List<ArtistDto> artists;
+        if(StringUtils.isNotBlank(name)){
+            artists =  artistService.getArtistsByName(name);
+        }
+        else {
+            artists = artistService.findAllArtistsDtoNoRepertoire();
+        }
+        return artists;
     }
+
 
     @GetMapping("/artist/{name}")
     public List<Art> getObjectsByArtist(@PathVariable String name) {

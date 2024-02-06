@@ -22,4 +22,9 @@ public class ArtistDto {
         this.birthplace = artist.getBirthplace();
         this.bio = artist.getBio();
     }
+
+    public ArtistDto(Long id, String name){
+        this.id = id;
+        this.name = name;
+    }
 }
