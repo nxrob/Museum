@@ -9,7 +9,9 @@ import AdminUpdate from "./ArtistUpdate";
 import ReadArtist from './ReadArtists';
 import ArtistDelete  from  './ArtistDelete';
 import ArtDelete from './ArtDelete';
-
+import AdminArtistHome from './AdminArtistHome';
+import AdminArtHome from './AdminArtHome';
+import AdminMuseumHome from './AdminMuseumHome';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -26,8 +28,9 @@ function App() {
           <Route path = "/Admin/Artist/Delete" element = {<ArtistDelete/>}/>
           <Route path = "/Admin/Artist/Read" element = {<ReadArtist/>}/>
           <Route path = "/Admin/Art/Delete" element = {<ArtDelete/>}/>
-          <Route path = "/Admin/Art" element = {<ReadArtist/>}/>
-          <Route path = "/Admin/Museum" element = {<ArtDelete/>}/>
+          <Route path = "/Admin/Art" element = {<AdminArtHome/>}/>
+          <Route path = "/Admin/Museum" element = {<AdminMuseumHome/>}/>
+          <Route path = "/Admin/Artist" element = {<AdminArtistHome/>}/>
 
         </Routes>
       </div>

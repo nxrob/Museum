@@ -2,26 +2,26 @@ import React from "react"
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 
 
-const AdminArtistHome = () => {
+const AdminMuseumHome = () => {
     return(
         <div>
-            <h1>Artist Catalog Admin Site</h1>
+            <h1>Museum Catalog Admin Site</h1>
             <nav>
             <ul>
               
               <li>
-                 <Link to = "/Admin/Artist/Create">Create</Link> 
+                 <Link to = "/Admin/Museum/Create">Create</Link> 
               </li>
               
               <li>
-                <Link to = "/Admin/Artist/Update">Update</Link>
+                <Link to = "/Admin/Museum/Update">Update</Link>
               </li>
               <li>
-                <Link to = "/Admin/Artist/Delete">Delete</Link>
+                <Link to = "/Admin/Museum/Delete">Delete</Link>
               </li>
         
               <li>
-                <Link to = "/Admin/Artist/Read">Read</Link>
+                <Link to = "/Admin/Museum/Read">Read</Link>
               </li>
              
             </ul>
@@ -30,4 +30,4 @@ const AdminArtistHome = () => {
     )
 }
 
-export default AdminArtistHome
+export default AdminMuseumHome
