@@ -13,26 +13,26 @@ const MuseumAll = () => {
     setMuseums(searchMuseums);
   }, [searchMuseums]);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     //search();
-  //     // try {
-  //     //   const response = await fetch('http://localhost:8080/museum');
-  //     //   console.log(response);
-  //     //   const data = await response.json();
-  //     //   setMuseums(data);
-  //     // } catch (error) {
-  //     //   console.error('Error fetching data:', error);
-  //     // }
-  //     // setMuseums(searchMuseums);
+  useEffect(() => {
+    const fetchData = async () => {
       
-  //     console.log(museums, 'dff')
+      try {
+        const response = await fetch('http://localhost:8080/museum');
+        console.log(response);
+        const data = await response.json();
+        setMuseums(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    
+      
+    
       
 
-  //   };
+    };
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   return (
     <div class="container-fluid text-center">

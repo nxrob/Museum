@@ -2,8 +2,10 @@ import React, {useState} from "react";
 import SearchBar from "./SearchBar";
 import MuseumAll from "./MuseumAll";
 
-function MuseumSearchParent() {
+function SearchParent() {
     const [searchMuseums, setSearchMuseums] = useState([]);
+    const [searchArt, setSearchArt] = useState([]);
+    const [searchArtists, setSearchArtists] = useState([]);
 
     return(
         <div>
@@ -13,4 +15,4 @@ function MuseumSearchParent() {
     );
 }
 
-export default MuseumSearchParent;
+export default SearchParent;
