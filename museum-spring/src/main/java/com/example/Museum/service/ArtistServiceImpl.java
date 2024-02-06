@@ -84,4 +84,10 @@ public class ArtistServiceImpl implements ArtistService {
         oldestNewest.add(newestArt);
         return oldestNewest;
     }
+
+    @Override
+    public void deleteArtist(int id) {
+        artistRepository.deleteById(id);
+
+    }
 }

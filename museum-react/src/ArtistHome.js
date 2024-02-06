@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 
 
-const Admin = () => {
+const ArtistHome = () => {
     
     return (
         <div className="AdminHome">
@@ -20,10 +20,7 @@ const Admin = () => {
                 <Link to = "/Admin/update">Update</Link>
               </li>
               <li>
-                <Link to = "/Admin/artist/delete">Artist Delete</Link>
-              </li>
-              <li>
-                <Link to = "/Admin/art/delete">Art Delete</Link>
+                <Link to = "/Admin/delete">Delete</Link>
               </li>
               <li>
                 <Link to = "/Admin/read">Read</Link>
@@ -31,9 +28,7 @@ const Admin = () => {
              
             </ul>
           </nav>
-          {/* <Routes>
-            
-          </Routes> */}
+         
          </div>
           
         </div>
@@ -43,4 +38,4 @@ const Admin = () => {
     
 }
 
-export default Admin
+export default ArtistHome

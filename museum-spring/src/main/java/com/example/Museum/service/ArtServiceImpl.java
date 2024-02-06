@@ -72,4 +72,9 @@ public class ArtServiceImpl implements ArtService {
         return objectsDto;
     }
 
+    @Override
+    public void deleteArt(int id) {
+        artRepository.deleteById( id);
+    }
+
 }

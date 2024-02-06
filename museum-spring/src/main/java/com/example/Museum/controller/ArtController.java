@@ -5,10 +5,7 @@ import com.example.Museum.model.Art;
 import com.example.Museum.service.ArtService;
 import io.micrometer.common.util.StringUtils;
 import jakarta.websocket.server.PathParam;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.List;
@@ -50,4 +47,8 @@ public class ArtController {
         return artService.findByStyleContains(style);
     }
 
+    @DeleteMapping("/art/{id}")
+    public void deleteArt(@PathVariable int id)  {
+        artService.deleteArt(id);
+    }
 }

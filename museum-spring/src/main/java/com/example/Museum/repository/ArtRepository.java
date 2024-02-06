@@ -15,4 +15,6 @@ public interface ArtRepository extends CrudRepository<Art, Integer> {
     Art findByTitleIs(String title);
     List<Art> findByStyleContains(String style);
 
+    void deleteById(int id);
+
 }

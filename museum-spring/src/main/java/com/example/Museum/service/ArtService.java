@@ -13,4 +13,5 @@ public interface ArtService {
     List<ArtDto> findByArtistNameContainsIgnoreCase(String filter);
     List<ArtDto> findByStyleContains(String style);
 
+    void deleteArt(int id);
 }
