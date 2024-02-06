@@ -39,10 +39,9 @@ public class ArtistController {
     @GetMapping("/artist")
     public List<ArtistDto> getAllArtists(@PathParam("name") String name) {
         List<ArtistDto> artists;
-        if(StringUtils.isNotBlank(name)){
-            artists =  artistService.getArtistsByName(name);
-        }
-        else {
+        if (StringUtils.isNotBlank(name)) {
+            artists = artistService.getArtistsByName(name);
+        } else {
             artists = artistService.findAllArtistsDtoNoRepertoire();
         }
         return artists;
@@ -59,18 +58,20 @@ public class ArtistController {
         return artistService.getArtistInfo(name);
     }
 
-    @DeleteMapping("/artist/{id}")
-    public void deleteArtist(@PathVariable int id)  {
-        artistService.deleteArtist(id);
-    }
 
-    @GetMapping("/artist/{name}/mostworks")
-    public String getMuseumWithMostWorksByArtist(@PathVariable String name) {
-        return artistService.getMuseumWithMostWorksByArtist(name);
-    }
+        @DeleteMapping("/artist/{id}")
+        public void deleteArtist ( @PathVariable int id){
+            artistService.deleteArtist(id);
 
-    @GetMapping("/artist/{name}/oldestnewest")
-    public List<Art> findFirstAndLastObject(@PathVariable String name) {
-        return artistService.findFirstAndLastObject(name);
+        }
+
+        @GetMapping("/artist/{name}/mostworks")
+        public String getMuseumWithMostWorksByArtist (@PathVariable String name){
+            return artistService.getMuseumWithMostWorksByArtist(name);
+        }
+
+        @GetMapping("/artist/{name}/oldestnewest")
+        public List<Art> findFirstAndLastObject (@PathVariable String name){
+            return artistService.findFirstAndLastObject(name);
+        }
     }
-}
