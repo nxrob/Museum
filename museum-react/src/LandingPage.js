@@ -9,18 +9,38 @@ const LandingPage = () => {
     guideRating: '',
   });
 
+  const [loginInfo, setLoginInfo] = useState({
+    username: '',
+    password: '',
+  });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setPreferences((prevPreferences) => ({
-      ...prevPreferences,
-      [name]: value,
-    }));
+    const isLoginField = ['username', 'password'].includes(name);
+
+    if (isLoginField) {
+      setLoginInfo((prevLoginInfo) => ({
+        ...prevLoginInfo,
+        [name]: value,
+      }));
+    } else {
+      setPreferences((prevPreferences) => ({
+        ...prevPreferences,
+        [name]: value,
+      }));
+    }
   };
 
   const handleSearch = (e) => {
     e.preventDefault();
     console.log('Searching with preferences:', preferences);
-    //Ready for Tom's magic!
+    // Ready for Tom's magic!
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    console.log('Logging in with:', loginInfo);
+    // Login Logic Goes 'Ere
   };
 
   return (
@@ -28,7 +48,7 @@ const LandingPage = () => {
       <h1>Welcome to the Museum Catalogue and Guide</h1>
       <p className="subheading italic">From Renaissance to Reggae, we've got it all!</p>
       <p className="instructions">
-        If you know what you are after you can go straight to our indices, alternatively you can search by location, theme, artist or our very special Snob's Guide Rating™.
+        If you know what you are after, you can go straight to our indices. Alternatively, you can search by location, theme, artist, or our very special Snob's Guide Rating™.
       </p>
       
       <div className="content">
@@ -41,38 +61,19 @@ const LandingPage = () => {
         </div>
         
         <div className="search-boxes">
-           {/* Search inputs */}
-           <input
-              type="text"
-              name="location"
-              placeholder="Location"
-              value={preferences.location}
-              onChange={handleChange}
-            />
-            <input
-              type="text"
-              name="theme"
-              placeholder="Theme"
-              value={preferences.theme}
-              onChange={handleChange}
-            />
-            <input
-              type="text"
-              name="artist"
-              placeholder="Artist"
-              value={preferences.artist}
-              onChange={handleChange}
-            />
-            <input
-              type="text"
-              name="guideRating"
-              placeholder="Guide Rating"
-              value={preferences.guideRating}
-              onChange={handleChange}
-            />
-            <button type="submit" onClick={handleSearch}>Search</button>
-          </div>
+          <input type="text" name="location" placeholder="Location" value={preferences.location} onChange={handleChange} />
+          <input type="text" name="theme" placeholder="Theme" value={preferences.theme} onChange={handleChange} />
+          <input type="text" name="artist" placeholder="Artist" value={preferences.artist} onChange={handleChange} />
+          <input type="text" name="guideRating" placeholder="Guide Rating" value={preferences.guideRating} onChange={handleChange} />
+          <button type="submit" onClick={handleSearch}>Search</button>
+
+
+          <h2>Login</h2>
+          <input type="text" name="username" placeholder="Username" value={loginInfo.username} onChange={handleChange} />
+          <input type="password" name="password" placeholder="Password" value={loginInfo.password} onChange={handleChange} />
+          <button type="submit" onClick={handleLogin}>Login</button>
         </div>
+      </div>
       
       <div className="admin-access">
         <Link to="/admin">Administrator Access</Link>
@@ -80,6 +81,5 @@ const LandingPage = () => {
     </div>
   );
 };
-
 
 export default LandingPage;
