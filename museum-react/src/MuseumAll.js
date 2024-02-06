@@ -37,7 +37,7 @@ const MuseumAll = () => {
   return (
     <div class="container-fluid text-center">
       <h1>Museums</h1><br/>
-      <SearchBar setSearchMuseums={setSearchMuseums} />
+      <SearchBar setSearchMuseums={setSearchMuseums} filter="museum" />
       
       <br />
       {museums ? (

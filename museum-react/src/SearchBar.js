@@ -5,13 +5,13 @@ import { useAsyncError } from "react-router";
 import { Form } from "react-router-dom";
 import { waitFor } from "@testing-library/react";
 
-const SearchBar = ({setSearchMuseums}) => {
+const SearchBar = ({setSearchMuseums,filter}) => {
     const [input, setInput] = useState("");
     const [artists, setArtists] = useState("");
     const [arts, setArts] = useState("");
     //const [searchMuseums, setSearchMuseums] = useState("");
     const [allNames, setAllNames] = useState("");
-    const [searchFilter, setSearchFilter] = useState("");
+    const [searchFilter, setSearchFilter] = useState(filter);
 
     useEffect(() => {
         fetchAllNames();
@@ -145,8 +145,10 @@ const SearchBar = ({setSearchMuseums}) => {
                     value={input}
                     onInput={updateInput}
                     onSelect={updateInput}
+                    
                     onKeyDown={(e) => {
                         if (e.key === 'Enter') {
+                        
                             search();
                         }
                     }
