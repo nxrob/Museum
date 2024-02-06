@@ -1,10 +1,2 @@
 
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡î€æ8ÿÚ¢ò×1
-;
-java:S1128"Remove this duplicated import.(º´Ñ†8µÛ¢ò×1
-;
-java:S1128"Remove this duplicated import.(‡¡‰Ø8µÛ¢ò×1
-@
-java:S1128"Remove this duplicated import.(¹ûñÅþÿÿÿÿ8µÛ¢ò×1
-@
-java:S1128"Remove this duplicated import.(±íþ¡þÿÿÿÿ8µÛ¢ò×1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡î€æ8«ª¼ñ×1
