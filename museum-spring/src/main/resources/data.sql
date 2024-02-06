@@ -2,7 +2,7 @@
 
 INSERT IGNORE INTO MUSEUM (id, name, location) VALUES
 (100001, 'Museo Nacional del Prado', 'Madrid, Spain'),
-(100002, 'National Gallery', 'London, UK'),
+(100002, 'The National Gallery, London', 'London, UK'),
 (100003, 'Tate Modern', 'London, UK'),
 (100004, 'Metropolitan Museum of Art', 'New York City, USA'),
 (100005, 'Los Angeles County Museum of Modern Art', 'Los Angeles, USA'),
@@ -11,7 +11,7 @@ INSERT IGNORE INTO MUSEUM (id, name, location) VALUES
 (100008, 'Hermitage Museum', 'St. Petersburg, Russia'),
 (100009, 'Van Gogh Museum', 'Amsterdam, Netherlands'),
 (100010, 'National Gallery of Art', 'Washington D.C., USA'),
-(100011, 'Museum of Modern Art', 'New York City, USA'),
+(100011, 'MoMA', 'New York City, USA'),
 (100012, 'Guggenheim Museum', 'New York City, USA'),
 (100013, 'Centre Pompidou', 'Paris, France'),
 (100014, 'Uffizi Gallery', 'Florence, Italy'),

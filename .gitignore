@@ -34,3 +34,4 @@ replay_pid*
 data/
 museum-react/package-lock.json
 museum-react/package-lock.json
+*.iml
