@@ -31,3 +31,5 @@ q
 Asrc/main/java/com/example/Museum/repository/ArtistRepository.java,0\4\044a940e6344104e66e48a2d12201ab3cf81b243
 q
 Asrc/main/java/com/example/Museum/repository/MuseumRepository.java,4\9\498d21dc1b2b28c72496d3d09bfcb103d87c593f
+n
+>src/main/java/com/example/Museum/repository/ArtRepository.java,f\e\fe5115ad23a3dfc081bd7f8e1dffba072e74f746

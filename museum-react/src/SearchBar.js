@@ -3,7 +3,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import { TextField, Button, RadioGroup, Radio, FormControlLabel } from "@mui/material";
 
 
-const SearchBar = ({ setSearchArtists, setSearchArts, setSearchMuseums, filter }) => {
+const SearchBar = ({ setSearchArtists, setSearchArts, setSearchMuseums, filter, location }) => {
     const [input, setInput] = useState("");
     //const [artists, setArtists] = useState("");
     //const [arts, setArts] = useState("");
@@ -35,10 +35,12 @@ const SearchBar = ({ setSearchArtists, setSearchArts, setSearchMuseums, filter }
                 console.error('Error fetching data: ', error);
             }
             tempArtists.forEach(element => {
+
                 names.push(element.name);
+
             });
         }
-        if (searchFilter == 'all' || searchFilter == 'artwork') {
+        if (searchFilter == 'all' || searchFilter == 'art') {
 
             let tempArtworks = new Array;
 
@@ -49,10 +51,31 @@ const SearchBar = ({ setSearchArtists, setSearchArts, setSearchMuseums, filter }
             } catch (error) {
                 console.error('Error fetching data: ', error);
             }
-            tempArtworks.forEach(element => {
-                names.push(element.title);
-            });
+            if (location !== null) {
+                tempArtworks.forEach(element => {
+                    var isPresent = false;
+                    console.log(element.title);
+                    console.log(element.location);
+
+                    if ((element.location).includes(location) ) {
+                        isPresent = true;
+                    }
+
+
+                    console.log(isPresent, 'present');
+                    if (isPresent) {
+                        names.push(element.title);
+                    }
+                });
+
+            }
+            else {
+                tempArtworks.forEach(element => {
+                    names.push(element.title);
+                })
+            }
         }
+
         if (searchFilter == 'all' || searchFilter == 'museum') {
             let tempMuseums = new Array;
             try {

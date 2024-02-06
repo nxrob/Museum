@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 const Museum = () => {
 
     const { museumName } = useParams();
 
+    const [searchArt, setSearchArt] = useState([]);
     const [museumInfo, setMuseumInfo] = useState();
     const [worksInMuseum, setWorksInMuseum] = useState();
     console.log("Rendering... (museumInfo = " + museumInfo + ")")
@@ -39,12 +41,14 @@ const Museum = () => {
 
     return (
         <div class="container w-50">
+            <SearchBar setSearchArt={setSearchArt} filter="art" location={museumName}/>
             {worksInMuseum ? (
                 <div>
                     <div class="container my-3 py-3" style={{ backgroundColor: "#EFF6F9" }}>
                         <h1>{museumInfo.name}</h1>
                         <b>{museumInfo.location}</b>
                     </div>
+                    
                     {worksInMuseum.map((artwork) => (
                         <div>
                             <ul className="list-group" style={{ width: "100%" }}>
