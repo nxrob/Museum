@@ -1,6 +1,6 @@
 import React from "react";
 
-const AdminCreate = () => {
+const ArtistCreate = () => {
 
     return(
         <div>
@@ -13,4 +13,4 @@ const AdminCreate = () => {
     )
 }
 
-export default AdminCreate
+export default ArtistCreate

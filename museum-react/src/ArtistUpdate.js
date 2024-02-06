@@ -1,6 +1,6 @@
 import React from "react";
 
-const AdminUpdate = () => {
+const ArtistUpdate = () => {
 
 
     return(
@@ -10,4 +10,4 @@ const AdminUpdate = () => {
     )
 }
 
-export default AdminUpdate
+export default ArtistUpdate

@@ -4,8 +4,8 @@ import LandingPage from './LandingPage';
 import Museum from './Museum';
 import MuseumAll from './MuseumAll';
 import Admin from './Admin';
-import AdminCreate from "./AdminCreate";
-import AdminUpdate from "./AdminUpdate";
+import AdminCreate from "./ArtistCreate";
+import AdminUpdate from "./ArtistUpdate";
 import ReadArtist from './ReadArtists';
 import ArtistDelete  from  './ArtistDelete';
 import ArtDelete from './ArtDelete';
@@ -21,11 +21,13 @@ function App() {
           <Route path="/museums" element={<MuseumAll />} />
           <Route path="/museums/:museumName" element={<Museum />} />
           <Route path="/Admin" element={<Admin />} />
-          <Route path = "/Admin/create" element = {<AdminCreate />}/>
-          <Route path = "/Admin/update" element = {<AdminUpdate/>}/>
-          <Route path = "/Admin/artist/delete" element = {<ArtistDelete/>}/>
-          <Route path = "/Admin/read" element = {<ReadArtist/>}/>
-          <Route path = "/Admin/art/delete" element = {<ArtDelete/>}/>
+          <Route path = "/Admin/Artist/Create" element = {<AdminCreate />}/>
+          <Route path = "/Admin/Artist/Update" element = {<AdminUpdate/>}/>
+          <Route path = "/Admin/Artist/Delete" element = {<ArtistDelete/>}/>
+          <Route path = "/Admin/Artist/Read" element = {<ReadArtist/>}/>
+          <Route path = "/Admin/Art/Delete" element = {<ArtDelete/>}/>
+          <Route path = "/Admin/Art" element = {<ReadArtist/>}/>
+          <Route path = "/Admin/Museum" element = {<ArtDelete/>}/>
 
         </Routes>
       </div>

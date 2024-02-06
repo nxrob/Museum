@@ -13,20 +13,14 @@ const Admin = () => {
             <ul>
               
               <li>
-                 <Link to = "/Admin/Create">Create</Link> 
+                 <Link to = "/Admin/Artist">Artists</Link> 
               </li>
               
               <li>
-                <Link to = "/Admin/update">Update</Link>
+                <Link to = "/Admin/Art">Artwork</Link>
               </li>
               <li>
-                <Link to = "/Admin/artist/delete">Artist Delete</Link>
-              </li>
-              <li>
-                <Link to = "/Admin/art/delete">Art Delete</Link>
-              </li>
-              <li>
-                <Link to = "/Admin/read">Read</Link>
+                <Link to = "/Admin/Museum">Museums</Link>
               </li>
              
             </ul>
