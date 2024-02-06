@@ -9,6 +9,7 @@ function DisplayArtist(artists) {
                     {artists.map((artist) => (
                         <div key= {artist.id}>
                       
+                            <p>Id: : {artist.id}</p>
                             <p>Name: : {artist.name}</p>
                             {/* <p>Biography: : {artist.bio}</p> */}
                                              

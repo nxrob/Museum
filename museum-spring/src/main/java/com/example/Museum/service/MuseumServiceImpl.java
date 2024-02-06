@@ -89,4 +89,9 @@ public class MuseumServiceImpl implements MuseumService {
         return worksByArtistInMuseum;
     }
 
+    @Override
+    public void deleteById(int id) {
+        museumRepository.deleteById(id);
+    }
+
 }
