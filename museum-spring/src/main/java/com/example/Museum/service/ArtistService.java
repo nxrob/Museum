@@ -16,4 +16,7 @@ public interface ArtistService {
     List<Art> findFirstAndLastObject(String name);
 
     Artist getArtistInfo(String name);
+    
+    void deleteArtist(int id);
+
 }

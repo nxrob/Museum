@@ -89,4 +89,8 @@ public class ArtistServiceImpl implements ArtistService {
     public Artist getArtistInfo(String name) {
         return artistRepository.findByName(name);
     }
+
+    public void deleteArtist(int id) {
+        artistRepository.deleteById(id);
+    }
 }

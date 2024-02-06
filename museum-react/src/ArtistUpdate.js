@@ -1,12 +1,13 @@
 import React from "react";
 
-const AdminCreate = () => {
+const ArtistUpdate = () => {
+
 
     return(
         <h1>
-            Create
+            Update
         </h1>
     )
 }
 
-export default AdminCreate
+export default ArtistUpdate

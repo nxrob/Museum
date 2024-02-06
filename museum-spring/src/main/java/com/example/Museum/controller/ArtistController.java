@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@CrossOrigin()
+@CrossOrigin
 public class ArtistController {
 
     private final ArtistService artistService;
@@ -34,6 +35,11 @@ public class ArtistController {
     @GetMapping("/artist/{name}/info")
     public Artist getArtistInfo(@PathVariable String name) {
         return artistService.getArtistInfo(name);
+
+    @DeleteMapping("/artist/{id}")
+    public void deleteArtist(@PathVariable int id)  {
+        artistService.deleteArtist(id);
+
     }
 
     @GetMapping("/artist/{name}/mostworks")
