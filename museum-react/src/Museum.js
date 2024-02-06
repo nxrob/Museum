@@ -12,6 +12,11 @@ const Museum = () => {
     console.log("Rendering... (museumInfo = " + museumInfo + ")")
 
     useEffect(() => {
+        setWorksInMuseum(searchArt);
+        console.log(searchArt, 'fdfd');
+    }, [searchArt]);
+
+    useEffect(() => {
         const getMuseumInfo = async () => {
             try {
                 const response = await fetch('http://localhost:8080/museum/' + museumName);
@@ -35,14 +40,15 @@ const Museum = () => {
 
         getMuseumInfo();
         getWorksInMuseum();
+        console.log(searchArt, 'fhdfw');
 
 
     }, []);
 
     return (
         <div class="container w-50">
-            <SearchBar setSearchArt={setSearchArt} filter="art" location={museumName}/>
-            {worksInMuseum ? (
+            <SearchBar setSearchArt={setSearchArt} filter="artistArt" location={museumName}/>
+            {worksInMuseum && museumInfo ? (
                 <div>
                     <div class="container my-3 py-3" style={{ backgroundColor: "#EFF6F9" }}>
                         <h1>{museumInfo.name}</h1>

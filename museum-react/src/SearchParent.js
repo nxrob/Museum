@@ -9,8 +9,8 @@ function SearchParent() {
 
     return(
         <div>
-            <SearchBar setSearchMuseums={setSearchMuseums}/>
-            <MuseumAll searchMuseums={searchMuseums}/>
+            <SearchBar setSearchMuseums={setSearchMuseums} setSearchArt={setSearchArt} setSearchArtists={setSearchArtists}/>
+            <MuseumAll searchMuseums={searchMuseums} searchArt={searchArt} searchArtists={searchArtists}/>
         </div>
     );
 }

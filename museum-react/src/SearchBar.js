@@ -3,7 +3,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import { TextField, Button, RadioGroup, Radio, FormControlLabel } from "@mui/material";
 
 
-const SearchBar = ({ setSearchArtists, setSearchArts, setSearchMuseums, filter, location }) => {
+const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, filter, location }) => {
     const [input, setInput] = useState("");
     //const [artists, setArtists] = useState("");
     //const [arts, setArts] = useState("");
@@ -24,7 +24,7 @@ const SearchBar = ({ setSearchArtists, setSearchArts, setSearchMuseums, filter, 
         console.log(allNames);
 
 
-        if (searchFilter == 'all' || searchFilter == 'artist') {
+        if (searchFilter == 'all' || searchFilter == 'artist' || searchFilter == 'artistArt') {
             let tempArtists = new Array;
             try {
                 const response = await fetch("http://localhost:8080/artist");
@@ -34,13 +34,36 @@ const SearchBar = ({ setSearchArtists, setSearchArts, setSearchMuseums, filter, 
             catch (error) {
                 console.error('Error fetching data: ', error);
             }
+            
+            if(location !== null){
+                tempArtists.forEach(async element => {
+                    console.log('sfjhssfjh')
+                    var isPresent = false;
+                    const response = await fetch("http://localhost:8080?filter=" + element.name)
+                    const data = await response.json();
+                    data.forEach(element => {
+                        if((element.location).includes(location)){
+                            isPresent = true;
+                            console.log('added');
+                        }
+                    })
+                    console.log(isPresent,element.name);
+                    if(isPresent){
+                        names.push(element.name);
+                    }
+                })
+            }
+            else{
             tempArtists.forEach(element => {
+                
 
                 names.push(element.name);
 
             });
+            console.log(names, 'names after artist call')
         }
-        if (searchFilter == 'all' || searchFilter == 'art') {
+        }
+        if (searchFilter == 'all' || searchFilter == 'art' || searchFilter == 'artistArt') {
 
             let tempArtworks = new Array;
 
@@ -54,15 +77,15 @@ const SearchBar = ({ setSearchArtists, setSearchArts, setSearchMuseums, filter, 
             if (location !== null) {
                 tempArtworks.forEach(element => {
                     var isPresent = false;
-                    console.log(element.title);
-                    console.log(element.location);
+                    // console.log(element.title);
+                    // console.log(element.location);
 
-                    if ((element.location).includes(location) ) {
+                    if ((element.location).includes(location)) {
                         isPresent = true;
                     }
 
 
-                    console.log(isPresent, 'present');
+                    // console.log(isPresent, 'present');
                     if (isPresent) {
                         names.push(element.title);
                     }
@@ -91,6 +114,7 @@ const SearchBar = ({ setSearchArtists, setSearchArts, setSearchMuseums, filter, 
         }
 
         var uniqNames = [...new Set(names)];
+        console.log(uniqNames);
         setAllNames(uniqNames);
 
     }
@@ -112,30 +136,56 @@ const SearchBar = ({ setSearchArtists, setSearchArts, setSearchMuseums, filter, 
     const search = async () => {
 
 
-        try {
-            const response = await fetch("http://localhost:8080/artist?name=" + input);
-            const data = await response.json();
-            setSearchArtists(data);
+        if (searchFilter == 'all' || searchFilter == 'artist' || searchFilter == 'artistArt') {
+            try {
+                const response = await fetch("http://localhost:8080/artist?name=" + input);
+                const data = await response.json();
+                setSearchArtists(data);
+            }
+            catch (error) {
+                console.error('Error fetching Data ', error);
+            }
         }
-        catch (error) {
-            console.error('Error fetching Data ', error);
+        if (searchFilter == 'all' || searchFilter == 'art' || searchFilter == 'artistArt') {
+            try {
+                const response = await fetch("http://localhost:8080?filter=" + input);
+                const data = await response.json();
+
+                if (location !== null) {
+                    let tempData = new Array;
+                    data.forEach(element => {
+                        var isPresent = false;
+                        
+                        if ((element.location).includes(location)) {
+                            isPresent = true;
+                        }
+
+                        if (isPresent) {
+                            tempData.push(element);
+                        }
+                    });
+                    setSearchArt(tempData);
+                }
+                else {
+                    setSearchArt(data);
+                }
+
+            }
+            catch (error) {
+                console.error('Error Fetching Data ', error)
+            }
         }
-        try {
-            const response = await fetch("http://localhost:8080?filter=" + input);
-            const data = await response.json();
-            setSearchArts(data);
+        if (searchFilter == 'all' || searchFilter == 'museum') {
+            try {
+                const response = await fetch("http://localhost:8080/museum?name=" + input);
+                const data = await response.json();
+                setSearchMuseums(data);
+            }
+            catch (error) {
+                console.error('Error Fetching Data ', error)
+            }
         }
-        catch (error) {
-            console.error('Error Fetching Data ', error)
-        }
-        try {
-            const response = await fetch("http://localhost:8080/museum?name=" + input);
-            const data = await response.json();
-            setSearchMuseums(data);
-        }
-        catch (error) {
-            console.error('Error Fetching Data ', error)
-        }
+
 
     };
 
@@ -177,27 +227,12 @@ const SearchBar = ({ setSearchArtists, setSearchArts, setSearchMuseums, filter, 
                     onClick={search}
 
                 >🔍</Button>
-
             </div>
             <div style={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
             }}>
-                {/* Search By:
-                <RadioGroup
-                    defaultValue="all"
-                    name="search-filter-group"
-                    row
-                >
-
-                    <FormControlLabel value="artwork" control={<Radio />} label="Artwork" onChange={handleInput} />
-                    <FormControlLabel value="artist" control={<Radio />} label="Artist" onChange={handleInput} />
-                    <FormControlLabel value="museum" control={<Radio />} label="Museum" onChange={handleInput} />
-                    <FormControlLabel value="all" control={<Radio />} label="All" onChange={handleInput} />
-
-                </RadioGroup>
-                ddjsdk, {searchFilter} */}
             </div>
 
         </h1>
