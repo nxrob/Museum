@@ -4,12 +4,9 @@ import { TextField } from "@mui/material";
 
 const SearchBar = () => {
     const [input, setInput] = useState("");
-    const [test, setTest] = useState("");
     const [artists, setArtists] = useState("");
     const [arts, setArts] = useState("");
-    const [display, setDisplay] = useState("");
     const [allNames, setAllNames ]= useState("");
-    const [allArtworkNames, setAllArtworkNames] = useState("");
 
     const fetchAllNames = async () => {
         let names = new Array;
@@ -56,7 +53,6 @@ const SearchBar = () => {
     function updateInput(e) {
         e.preventDefault()
         setInput(e.target.value);
-        fetchAllNames();
         console.log('updating input');
         
         
