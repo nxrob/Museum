@@ -14,37 +14,53 @@ const LandingPage = () => {
     password: '',
   });
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState('');
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     const isLoginField = ['username', 'password'].includes(name);
 
     if (isLoginField) {
-      setLoginInfo((prevLoginInfo) => ({
+      setLoginInfo(prevLoginInfo => ({
         ...prevLoginInfo,
         [name]: value,
       }));
     } else {
-      setPreferences((prevPreferences) => ({
+      setPreferences(prevPreferences => ({
         ...prevPreferences,
         [name]: value,
       }));
     }
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    console.log('Searching with preferences:', preferences);
-    // Ready for Tom's magic!
-  };
-
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log('Logging in with:', loginInfo);
-    // Login Logic Goes 'Ere
+    if (loginInfo.username && loginInfo.password) {
+      setIsLoggedIn(true);
+      setCurrentUser(loginInfo.username);
+      console.log('Logged in with:', loginInfo);
+    } else {
+      console.log('Login failed: Username or password is missing');
+    }
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setCurrentUser('');
+    setLoginInfo({ username: '', password: '' });
+    console.log('Logged out');
   };
 
   return (
     <div className="landing-page">
+      {isLoggedIn && (
+        <div className="login-status">
+          <p>Logged in as: {currentUser}</p>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      )}
+
       <h1>Welcome to the Museum Catalogue and Guide</h1>
       <p className="subheading italic">From Renaissance to Reggae, we've got it all!</p>
       <p className="instructions">
@@ -59,22 +75,26 @@ const LandingPage = () => {
           <Link to="/paintings" className="link paintings">Paintings</Link>
           <Link to="/sculptures" className="link sculptures">Sculptures</Link>
         </div>
-        
+
         <div className="search-boxes">
+          <h2>Search</h2>
           <input type="text" name="location" placeholder="Location" value={preferences.location} onChange={handleChange} />
           <input type="text" name="theme" placeholder="Theme" value={preferences.theme} onChange={handleChange} />
           <input type="text" name="artist" placeholder="Artist" value={preferences.artist} onChange={handleChange} />
           <input type="text" name="guideRating" placeholder="Guide Rating" value={preferences.guideRating} onChange={handleChange} />
-          <button type="submit" onClick={handleSearch}>Search</button>
-
-
+          <button type="submit">Search</button>
+        </div>
+      </div>
+      
+      {!isLoggedIn && (
+        <div className="login-form">
           <h2>Login</h2>
           <input type="text" name="username" placeholder="Username" value={loginInfo.username} onChange={handleChange} />
           <input type="password" name="password" placeholder="Password" value={loginInfo.password} onChange={handleChange} />
           <button type="submit" onClick={handleLogin}>Login</button>
         </div>
-      </div>
-      
+      )}
+
       <div className="admin-access">
         <Link to="/admin">Administrator Access</Link>
       </div>

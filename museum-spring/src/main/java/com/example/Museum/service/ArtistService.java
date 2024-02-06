@@ -19,4 +19,6 @@ public interface ArtistService {
     
     void deleteArtist(int id);
 
+    List<ArtistDto> getArtistsByName(String name);
+
 }

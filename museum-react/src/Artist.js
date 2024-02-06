@@ -45,7 +45,7 @@ const Artist = () => {
                     <span class="display-3">𝐓𝐡𝐞 𝐆𝐢𝐭𝐠𝐨𝐨𝐝 𝐌𝐮𝐬𝐞𝐮𝐦</span>
                 </span>
                 <div class="col d-flex flex-row-reverse h-50 align-self-center">
-                    <button class="btn btn-primary" type="button" style={{maxWidth:"50px"}} onClick={() => navigate(-1)}>Back</button>
+                    <button class="btn btn-primary" type="button" style={{ maxWidth: "50px" }} onClick={() => navigate(-1)}>Back</button>
                 </div>
             </div>
             <div class="row mh-25 d-flex">
@@ -64,6 +64,7 @@ const Artist = () => {
                 </div>
                 <div class="col my-3">
                     <img src={artistImage} class="img-fluid float-end" />
+
                 </div>
             </div>
 

@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from "react";
-import DisplayArtist from "./DisplayArtist";
+import DisplayArt from "./DisplayArt";
 
 const ArtDelete = () => {
     const [submitClicked, setSubmitClicked] = useState(0)
@@ -32,7 +32,7 @@ const ArtDelete = () => {
                     console.log(data)
                 }
                 catch(error){
-                    console.error("Error deleting artist" + error)
+                    console.error("Error deleting artwork" + error)
                 }
                 fetchData();
             }
@@ -59,6 +59,10 @@ const ArtDelete = () => {
             Submit
         </button>
       </p>
+      <c>
+        For  your reference,  
+        {DisplayArt(artData)}
+      </c>
       
        </div>
     )

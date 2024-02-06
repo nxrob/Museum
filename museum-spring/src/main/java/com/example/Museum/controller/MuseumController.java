@@ -5,6 +5,8 @@ import com.example.Museum.dto.ArtDto;
 import com.example.Museum.model.Art;
 import com.example.Museum.model.Museum;
 import com.example.Museum.service.MuseumService;
+import io.micrometer.common.util.StringUtils;
+import jakarta.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,8 +22,16 @@ public class MuseumController {
     }
 
     @GetMapping("/museum")
-    public List<MuseumDto> getMuseums() {
-        return museumService.findAllDto();
+    public List<MuseumDto> getMuseums(@PathParam("name") String name) {
+        List<MuseumDto> museums;
+        if(StringUtils.isNotBlank(name)){
+            museums = museumService.findMuseumByName(name);
+        }
+        else {
+            museums = museumService.findAllDto();
+
+        }
+        return museums;
     }
 
     @GetMapping("/museum/{museumName}")
@@ -47,6 +57,11 @@ public class MuseumController {
     @PutMapping("/museum")
     public Museum editMuseum(@RequestBody Museum museum) {
         return museumService.saveMuseum(museum);
+    }
+
+    @DeleteMapping("/museum/{id}")
+    void deleteMuseum(int id){
+        museumService.deleteById(id);
     }
 
 }
