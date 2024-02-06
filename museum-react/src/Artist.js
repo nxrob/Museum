@@ -55,7 +55,7 @@ const Artist = () => {
                     </div>
                 </div>
                 <div class="col container my-3 ">
-                    <img src={artistImage} style={{maxHeight:"550px"}}/>
+                    {artistImage ? (<img src={artistImage} style={{maxHeight:"550px"}}/>) : (<p>Loading artist image</p>)}
                 </div>
             </div>
 
