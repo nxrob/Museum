@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LandingPage from './LandingPage'; 
 import Museum from './Museum';
 import MuseumAll from './MuseumAll';
+import Admin from './Admin';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/museums" element={<MuseumAll />} />
           <Route path="/museums/:museumName" element={<Museum />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </div>
     </Router>

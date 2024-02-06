@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Art {
 
     @Id
-    private Long id;
+    private Long id;  
 
     private String title;
 

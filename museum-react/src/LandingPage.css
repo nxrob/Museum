@@ -1,0 +1,70 @@
+
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 1vh;
+    padding-bottom: 2rem; 
+  }
+  
+  .subheading.italic {
+    font-style: italic;
+    margin-top: 2px; 
+    margin-bottom: 20px; 
+  }
+  
+  .instructions {
+    margin-bottom: 20px; 
+  }
+  
+  .content {
+    display: flex;
+    justify-content: space-around; 
+    align-items: start; 
+    margin-bottom: 2rem;
+  }
+  
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    margin-bottom: 20px;
+  }
+  
+  .link {
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .museums { background-color: #f00; }
+  .artists { background-color: #0f0; }
+  .guides { background-color: #00f; }
+  .paintings { background-color: #ffa500; }
+  .sculptures { background-color: #ff00ff; }
+  
+  .search-boxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    position: absolute; 
+    top: 60%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    gap: 10px; 
+    z-index: 2;
+  }
+  
+  .admin-access {
+    font-size: 0.8rem;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+  }
+
+
