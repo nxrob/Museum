@@ -5,17 +5,17 @@ import { useAsyncError } from "react-router";
 import { Form } from "react-router-dom";
 import { waitFor } from "@testing-library/react";
 
-const SearchBar = () => {
+const SearchBar = ({setSearchMuseums}) => {
     const [input, setInput] = useState("");
     const [artists, setArtists] = useState("");
     const [arts, setArts] = useState("");
-    const [museums, setMuseums] = useState("");
+    //const [searchMuseums, setSearchMuseums] = useState("");
     const [allNames, setAllNames] = useState("");
     const [searchFilter, setSearchFilter] = useState("");
 
     useEffect(() => {
         fetchAllNames();
-        setSearchFilter("all");
+        
     }, []);
 
 
@@ -96,6 +96,8 @@ const SearchBar = () => {
     // }
 
     const search = async () => {
+        console.log('Searching')
+       // console.log('dsdsa' + searchMuseums);
 
         try {
             const response = await fetch("http://localhost:8080/artist?name=" + input);
@@ -116,11 +118,12 @@ const SearchBar = () => {
         try {
             const response = await fetch("http://localhost:8080/museum?name=" + input);
             const data = await response.json();
-            setMuseums(data);
+            setSearchMuseums(data);
         }
         catch (error) {
             console.error('Error Fetching Data ', error)
         }
+        
     };
 
 
@@ -134,8 +137,9 @@ const SearchBar = () => {
             }}>
                 <Autocomplete
                     disablePortal
+                    disableClearable
                     id="auto-search"
-                    sx={{ width: 300 }}
+                    sx={{ width: 400 }}
                     options={allNames}
                     freeSolo
                     value={input}
@@ -151,7 +155,8 @@ const SearchBar = () => {
                     renderInput={(params) => <TextField {...params} label="Search" />}
                 />
                 <Button
-                    sx={{ height: 58 }}
+                    sx={{ height: 58, 
+                    width: 58}}
                     onClick={search}
 
                 >🔍</Button>
@@ -236,3 +241,4 @@ const SearchBar = () => {
     );
 };
 export default SearchBar;
+
