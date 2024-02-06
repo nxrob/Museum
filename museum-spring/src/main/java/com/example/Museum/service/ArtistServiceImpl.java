@@ -84,4 +84,9 @@ public class ArtistServiceImpl implements ArtistService {
         oldestNewest.add(newestArt);
         return oldestNewest;
     }
+
+    @Override
+    public Artist getArtistInfo(String name) {
+        return artistRepository.findByName(name);
+    }
 }

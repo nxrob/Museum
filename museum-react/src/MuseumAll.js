@@ -23,7 +23,7 @@ const MuseumAll = () => {
 
   return (
     <div class="container-fluid text-center">
-      <h1>Museum Information</h1><br />
+      <h1>Museums</h1><br />
       {museums ? (
         <table class="table table-striped" style={{ width: "30%", marginLeft: "auto", marginRight: "auto" }}>
           <thead>

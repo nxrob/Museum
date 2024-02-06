@@ -1,60 +1,65 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-const Museum = () => {
+const Artist = () => {
 
-    const { museumName } = useParams();
+    const { artistName } = useParams();
 
-    const [museumInfo, setMuseumInfo] = useState();
-    const [worksInMuseum, setWorksInMuseum] = useState();
-    console.log("Rendering... (museumInfo = " + museumInfo + ")")
+    const [artistWorks, setArtistWorks] = useState();
+    const [artistInfo, setArtistInfo] = useState();
+
 
     useEffect(() => {
-        const getMuseumInfo = async () => {
+        const getArtistWorks = async () => {
             try {
-                const response = await fetch('http://localhost:8080/museum/' + museumName);
+                const response = await fetch('http://localhost:8080/artist/' + artistName);
                 const data = await response.json();
-                setMuseumInfo(data);
+                console.log(data);
+                setArtistWorks(data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
-        };
-
-        const getWorksInMuseum = async () => {
-            console.log("Getting works in museum")
+        }
+        const getArtistInfo = async () => {
             try {
-                const response = await fetch('http://localhost:8080/museum/' + museumName + '/works');
+                const response = await fetch('http://localhost:8080/artist/' + artistName + '/info');
                 const data = await response.json();
-                setWorksInMuseum(data);
+                console.log(data);
+                setArtistInfo(data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
-        };
-
-        getMuseumInfo();
-        getWorksInMuseum();
-
-
+        }
+        getArtistWorks();
+        getArtistInfo();
     }, []);
 
     return (
         <div class="container w-50">
-            {worksInMuseum ? (
-                <div>
-                    <div class="container my-3 py-3" style={{ backgroundColor: "#EFF6F9" }}>
-                        <h1>{museumInfo.name}</h1>
-                        <b>{museumInfo.location}</b>
+            <div class="container my-3 py-3" style={{backgroundColor:"#EFF6F9"}}>
+                <h1>{artistName}</h1>
+                {artistInfo ? (
+                    <div>
+                        <b>{artistInfo.dobAndDod}<br />
+                            Born in {artistInfo.birthplace}<br /></b>
+                        <div >
+                            {artistInfo.bio}
+                        </div>
                     </div>
-                    {worksInMuseum.map((artwork) => (
+                ) : (<p>Loading artist info...</p>)
+                }
+            </div>
+
+
+            {artistWorks ? (
+                <div>
+                    {artistWorks.map((artwork) => (
                         <div>
                             <ul className="list-group" style={{ width: "100%" }}>
-                                <li className="list-group-item" style={{ backgroundColor: "#EFF9F1" }}>
+                                <li className="list-group-item" style={{backgroundColor:"#EFF9F1"}}>
                                     <b>{artwork.title}</b>
                                 </li>
                                 <ul class="py-3">
-                                    <li className="list-group">
-                                        <span><b>Artist: </b><Link to={"/artists/" + artwork.artistName}>{artwork.artistName}</Link></span>
-                                    </li>
                                     <li className="list-group">
                                         <span><b>Year: </b>{artwork.yearOf}</span>
                                     </li>
@@ -70,10 +75,11 @@ const Museum = () => {
                     ))}
                 </div>
             ) : (
-                <p>Loading museum...</p>
-            )}
-        </div>
+                <p>Loading artist's works...</p>
+            )
+            }
+        </div >
     );
 };
 
-export default Museum;
+export default Artist;

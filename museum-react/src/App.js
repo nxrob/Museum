@@ -6,6 +6,7 @@ import MuseumAll from './MuseumAll';
 import Admin from './Admin';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Artist from './Artist';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/museums" element={<MuseumAll />} />
           <Route path="/museums/:museumName" element={<Museum />} />
+          <Route path="/artists/:artistName" element={<Artist />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
       </div>
