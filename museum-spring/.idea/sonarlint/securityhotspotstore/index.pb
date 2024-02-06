@@ -1,6 +1,6 @@
 
 q
-Asrc/main/java/com/example/Museum/controller/ArtistController.java,4/3/4386a01879642bf8527e00b6ce890229e3b46aa3
+Asrc/main/java/com/example/Museum/controller/ArtistController.java,4\3\4386a01879642bf8527e00b6ce890229e3b46aa3
 7
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 :
@@ -28,13 +28,13 @@ g
 q
 Asrc/main/java/com/example/Museum/repository/MuseumRepository.java,4/9/498d21dc1b2b28c72496d3d09bfcb103d87c593f
 b
-2src/main/java/com/example/Museum/model/Artist.java,6/1/61a7cae72afd868134ee6a846402a0bf2b9f809d
+2src/main/java/com/example/Museum/model/Artist.java,6\1\61a7cae72afd868134ee6a846402a0bf2b9f809d
 h
 8src/main/java/com/example/Museum/service/ArtService.java,9/1/91cd579076bebdeb5dac1c5a0e94e66e7238b6e7
 q
-Asrc/main/java/com/example/Museum/repository/ArtistRepository.java,0/4/044a940e6344104e66e48a2d12201ab3cf81b243
+Asrc/main/java/com/example/Museum/repository/ArtistRepository.java,0\4\044a940e6344104e66e48a2d12201ab3cf81b243
 o
-?src/main/java/com/example/Museum/service/ArtistServiceImpl.java,7/5/7550b488babfce7a90c6bfaeaa95a05f46b02043
+?src/main/java/com/example/Museum/service/ArtistServiceImpl.java,7\5\7550b488babfce7a90c6bfaeaa95a05f46b02043
 m
 =src/main/java/com/example/Museum/util/MuseumDtoConverter.java,9/d/9d402afcc167a289c18c48866867825647f50827
 j
@@ -44,8 +44,12 @@ l
 n
 >src/main/java/com/example/Museum/repository/ArtRepository.java,f/e/fe5115ad23a3dfc081bd7f8e1dffba072e74f746
 n
->src/main/java/com/example/Museum/controller/ArtController.java,6/5/65c02451f8a9620220102c5007c9cf84a7b98224
+>src/main/java/com/example/Museum/controller/ArtController.java,6\5\65c02451f8a9620220102c5007c9cf84a7b98224
 b
 2src/main/java/com/example/Museum/model/Museum.java,0/b/0be31635c474fc170baf7bb8ab479a491b5fa36b
 q
-Asrc/main/java/com/example/Museum/controller/MuseumController.java,b/4/b40c4562b2e9119b5cbeea4857d9327195884f23
+Asrc/main/java/com/example/Museum/controller/MuseumController.java,b\4\b40c4562b2e9119b5cbeea4857d9327195884f23
+k
+;src/main/java/com/example/Museum/service/ArtistService.java,9\6\96a8e11beec02397f857b48d2a1680d0341dffad
+f
+6src/main/java/com/example/Museum/config/WebConfig.java,6\9\69491ab6bc9afcfdbcdbf18e30c89a52e847d2c3

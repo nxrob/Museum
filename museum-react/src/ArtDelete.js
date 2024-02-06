@@ -1,52 +1,53 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import DisplayArtist from "./DisplayArtist";
 
-const AdminDelete = () => {
+const ArtDelete = () => {
     const [submitClicked, setSubmitClicked] = useState(0)
-    const [id, setId] = useState();
-    const [artist,  setArtist] = useState(null)
+    const hasPageBeenRendered = useRef(false);
+    const [artData,  setArtData] = useState(null)
     const [chosenId, setChosenId] = useState(1)
 
     const fetchData = async () => {
         try{
-        const response = await fetch('http://localhost:8080/artist')
+        const response = await fetch('http://localhost:8080/art')
         const data = await response.json();
         console.log(data);
-        setArtist(data);
+        setArtData(data);
     } catch (error) {
         console.error('Error fetching data: ', error);
     }
 };
 
+  
+
+
     useEffect (() => {
         fetchData();
-    }, []);
-
-
-    useEffect (() => {
-        if (submitClicked >0) {
-            const deleteArtist = async () => {
+        if (hasPageBeenRendered.current) {
+            const deleteArt = async () => {
                 try {
                     const options = {method: 'DELETE'};
-                    const response = await fetch('http://localhost:8080/artist/${chosenId}', options)
+                    const response = await fetch('http://localhost:8080/art/' + chosenId, options)
                     const data = await response.json();
-                    fetchData()
+                    console.log(data)
                 }
                 catch(error){
                     console.error("Error deleting artist" + error)
                 }
+                fetchData();
             }
-            deleteArtist();
+            deleteArt();
         }
-    }, [submitClicked, chosenId])
+        hasPageBeenRendered.current=true;
+    }, [submitClicked])
     
 
 
 
     return(
        <div>
-        <h1> Careful, you're deleting an artist from our catalog</h1>
-        <b> What's the id of the book you want to delete?</b>
+        <h1> Careful, you're deleting art from our catalog</h1>
+        <b> What's the id of the art you want to delete?</b>
         <input
         type="text"
         value={chosenId}
@@ -54,7 +55,7 @@ const AdminDelete = () => {
       />
       <p>
       <button
-            onClick={() => setSubmitClicked(submitClicked + 1)}>
+            onClick={(e) => setSubmitClicked(submitClicked + 1)}>
             Submit
         </button>
       </p>
@@ -63,4 +64,4 @@ const AdminDelete = () => {
     )
 }
 
-export default AdminDelete
+export default ArtDelete
