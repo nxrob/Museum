@@ -178,7 +178,7 @@ const SearchBar = () => {
                 ddjsdk, {searchFilter} */}
             </div>
 
-            <div2>
+            {/* <div2>
 
                 {artists ? (
                     <div>
@@ -230,7 +230,7 @@ const SearchBar = () => {
                 ) : (
                     <p>Loading...</p>
                 )}
-            </div4>
+            </div4> */}
         </h1>
 
     );
