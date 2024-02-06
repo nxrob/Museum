@@ -94,4 +94,9 @@ public class MuseumServiceImpl implements MuseumService {
         return museumRepository.findMuseumByName(name);
     }
 
+    public void deleteById(int id) {
+        museumRepository.deleteById(id);
+
+    }
+
 }

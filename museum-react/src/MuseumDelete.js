@@ -1,18 +1,18 @@
 import React, {useState, useEffect, useRef} from "react";
-import DisplayArtist from "./DisplayArtist";
+import DisplayMuseum from "./DisplayMuseum";
 
-const ArtistDelete = () => {
+const MuseumDelete = () => {
     const [submitClicked, setSubmitClicked] = useState(0)
     const hasPageBeenRendered = useRef(false);
-    const [artistData,  setArtistData] = useState(null)
+    const [museumData,  setMuseumData] = useState(null)
     const [chosenId, setChosenId] = useState(1)
 
     const fetchData = async () => {
         try{
-        const response = await fetch('http://localhost:8080/artist')
+        const response = await fetch('http://localhost:8080/museum')
         const data = await response.json();
         console.log(data);
-        setArtistData(data);
+        setMuseumData(data);
     } catch (error) {
         console.error('Error fetching data: ', error);
     }
@@ -24,19 +24,19 @@ const ArtistDelete = () => {
     useEffect (() => {
         fetchData();
         if (hasPageBeenRendered.current) {
-            const deleteArtist = async () => {
+            const deleteMuseum = async () => {
                 try {
                     const options = {method: 'DELETE'};
-                    const response = await fetch('http://localhost:8080/artist/' + chosenId, options)
+                    const response = await fetch('http://localhost:8080/museum/' + chosenId, options)
                     const data = await response.json();
                     console.log(data)
                 }
                 catch(error){
-                    console.error("Error deleting artist" + error)
+                    console.error("Error deleting museum" + error)
                 }
                 fetchData();
             }
-            deleteArtist();
+            deleteMuseum();
         }
         hasPageBeenRendered.current=true;
     }, [submitClicked])
@@ -46,8 +46,8 @@ const ArtistDelete = () => {
 
     return(
        <div>
-        <h1> Careful, you're deleting an artist from our catalog</h1>
-        <b> What's the id of the artist you want to delete?</b>
+        <h1> Careful, you're deleting a museum from our catalog</h1>
+        <b> What's the id of the museum you want to delete?</b>
         <input
         type="text"
         value={chosenId}
@@ -59,10 +59,13 @@ const ArtistDelete = () => {
             Submit
         </button>
       </p>
-      <c>For your reference, {DisplayArtist(artistData)}</c>
+      <c>
+        For  your reference,  
+        {DisplayMuseum(museumData)}
+      </c>
       
-    </div>
+       </div>
     )
 }
 
-export default ArtistDelete
+export default MuseumDelete

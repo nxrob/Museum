@@ -59,4 +59,9 @@ public class MuseumController {
         return museumService.saveMuseum(museum);
     }
 
+    @DeleteMapping("/museum/{id}")
+    void deleteMuseum(int id){
+        museumService.deleteById(id);
+    }
+
 }
