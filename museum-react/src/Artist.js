@@ -8,6 +8,8 @@ const Artist = () => {
     const [artistWorks, setArtistWorks] = useState();
     const [artistInfo, setArtistInfo] = useState();
 
+    const images = require.context('../images/artist/', true);
+    const artistImage = images(`./${artistName}/artist.jpeg`)
 
     useEffect(() => {
         const getArtistWorks = async () => {
@@ -36,18 +38,25 @@ const Artist = () => {
 
     return (
         <div class="container w-50">
-            <div class="container my-3 py-3" style={{backgroundColor:"#EFF6F9"}}>
-                <h1>{artistName}</h1>
-                {artistInfo ? (
-                    <div>
-                        <b>{artistInfo.dobAndDod}<br />
-                            Born in {artistInfo.birthplace}<br /></b>
-                        <div >
-                            {artistInfo.bio}
-                        </div>
+            <div class="row mh-25">
+                <div class="col">
+                    <div class="container my-3 py-3" style={{ backgroundColor: "#EFF6F9" }}>
+                        {artistInfo ? (
+
+                            <div>
+                                <h1>{artistName}</h1>
+                                <b>{artistInfo.dobAndDod}</b><br />
+                                <b>Born in {artistInfo.birthplace}</b><br />
+                                {artistInfo.bio}
+                            </div>
+
+                        ) : (<p>Loading artist info...</p>)
+                        }
                     </div>
-                ) : (<p>Loading artist info...</p>)
-                }
+                </div>
+                <div class="col container my-3 ">
+                    <img src={artistImage} style={{maxHeight:"550px"}}/>
+                </div>
             </div>
 
 
@@ -56,7 +65,7 @@ const Artist = () => {
                     {artistWorks.map((artwork) => (
                         <div>
                             <ul className="list-group" style={{ width: "100%" }}>
-                                <li className="list-group-item" style={{backgroundColor:"#EFF9F1"}}>
+                                <li className="list-group-item" style={{ backgroundColor: "#EFF9F1" }}>
                                     <b>{artwork.title}</b>
                                 </li>
                                 <ul class="py-3">
