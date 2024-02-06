@@ -84,4 +84,9 @@ public class MuseumServiceImpl implements MuseumService {
         return worksByArtistInMuseum;
     }
 
+    @Override
+    public List<MuseumDto> findMuseumByName(String name) {
+        return museumRepository.findMuseumByName(name);
+    }
+
 }
