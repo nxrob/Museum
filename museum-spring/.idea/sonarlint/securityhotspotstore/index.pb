@@ -55,3 +55,5 @@ o
 ?src/main/java/com/example/Museum/service/MuseumServiceImpl.java,7/e/7e9835a32aae9f5db60b68ed6a6c5276b9424064
 `
 0src/main/java/com/example/Museum/dto/ArtDto.java,1/9/190b7dd91263cadd205f2069fdb032e5a156e4bd
+k
+;src/main/java/com/example/Museum/service/ArtistService.java,9/6/96a8e11beec02397f857b48d2a1680d0341dffad

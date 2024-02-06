@@ -35,6 +35,7 @@ public class ArtistController {
     @GetMapping("/artist/{name}/info")
     public Artist getArtistInfo(@PathVariable String name) {
         return artistService.getArtistInfo(name);
+    }
 
     @DeleteMapping("/artist/{id}")
     public void deleteArtist(@PathVariable int id)  {
