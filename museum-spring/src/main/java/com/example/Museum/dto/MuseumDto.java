@@ -29,4 +29,8 @@ public class MuseumDto {
         this.collectionSize = museum.getCollection().size();
     }
 
+    public MuseumDto(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

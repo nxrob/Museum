@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LandingPage from './LandingPage';
 import Museum from './Museum';
+import SearchBar from './SearchBar';
 import MuseumAll from './MuseumAll';
 import Admin from './Admin';
 import AdminCreate from "./ArtistCreate";

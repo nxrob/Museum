@@ -26,4 +26,5 @@ public interface MuseumService {
     List<Art> getWorksByArtistInMuseum(String museumName, String artistName);
 
 
+    List<MuseumDto> findMuseumByName(String name);
 }

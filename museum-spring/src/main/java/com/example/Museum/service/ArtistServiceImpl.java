@@ -38,15 +38,15 @@ public class ArtistServiceImpl implements ArtistService {
         int count = 0;
         Museum museumWithMostWorks = new Museum();
 
-        for(Museum museum : museums) {
+        for (Museum museum : museums) {
             int localCount = 0;
             List<Art> museumCollection = museum.getCollection();
-            for(Art art : museumCollection) {
-                if(art.getArtist().equals(artist)) {
+            for (Art art : museumCollection) {
+                if (art.getArtist().equals(artist)) {
                     localCount++;
                 }
             }
-            if(localCount > count) {
+            if (localCount > count) {
                 count = localCount;
                 museumWithMostWorks = museum;
             }
@@ -63,18 +63,18 @@ public class ArtistServiceImpl implements ArtistService {
 
         Art oldestArt = new Art();
         oldestArt.setYearOf("9999");
-        for(Art art : repertoire) {
+        for (Art art : repertoire) {
             int yearMade = Integer.parseInt(art.getYearOf());
-            if(yearMade < Integer.parseInt(oldestArt.getYearOf())) {
+            if (yearMade < Integer.parseInt(oldestArt.getYearOf())) {
                 oldestArt = art;
             }
         }
 
         Art newestArt = new Art();
         newestArt.setYearOf("0");
-        for(Art art : repertoire) {
+        for (Art art : repertoire) {
             int yearMade = Integer.parseInt(art.getYearOf());
-            if(yearMade > Integer.parseInt(newestArt.getYearOf())) {
+            if (yearMade > Integer.parseInt(newestArt.getYearOf())) {
                 newestArt = art;
             }
         }
@@ -92,5 +92,11 @@ public class ArtistServiceImpl implements ArtistService {
 
     public void deleteArtist(int id) {
         artistRepository.deleteById(id);
+    }
+
+    @Override
+    public List<ArtistDto> getArtistsByName(String name) {
+        return artistRepository.getArtistsByName(name);
+
     }
 }
