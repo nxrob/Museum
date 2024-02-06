@@ -49,11 +49,15 @@ b
 2src/main/java/com/example/Museum/model/Museum.java,0/b/0be31635c474fc170baf7bb8ab479a491b5fa36b
 q
 Asrc/main/java/com/example/Museum/controller/MuseumController.java,b/4/b40c4562b2e9119b5cbeea4857d9327195884f23
-s
-Csrc/main/java/com/example/Museum/controller/PaintingController.java,3/4/3418e347f58d31263392d6f09d1061fae9fa0032
 c
 3src/main/java/com/example/Museum/dto/MuseumDto.java,1/9/1913279573200000302a15c5f2aa6e1418091906
 c
 3src/main/java/com/example/Museum/dto/ArtistDto.java,7/1/716a41d45514fbfd7bdf543e4d21dc3189f190c6
 `
 0src/main/java/com/example/Museum/dto/ArtDto.java,1/9/190b7dd91263cadd205f2069fdb032e5a156e4bd
+k
+;src/main/java/com/example/Museum/service/ArtistService.java,9/6/96a8e11beec02397f857b48d2a1680d0341dffad
+k
+;src/main/java/com/example/Museum/service/MuseumService.java,e/a/ea10b7beb40adeb10d88bb34ddb3e258febe6708
+o
+?src/main/java/com/example/Museum/service/MuseumServiceImpl.java,7/e/7e9835a32aae9f5db60b68ed6a6c5276b9424064

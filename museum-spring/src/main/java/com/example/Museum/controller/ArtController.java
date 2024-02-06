@@ -2,17 +2,18 @@ package com.example.Museum.controller;
 
 import com.example.Museum.dto.ArtDto;
 import com.example.Museum.model.Art;
+import com.example.Museum.model.Painting;
+import com.example.Museum.model.Sculpture;
 import com.example.Museum.service.ArtService;
-import io.micrometer.common.util.StringUtils;
-import jakarta.websocket.server.PathParam;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
+
 
 import java.util.Collections;
 import java.util.List;
 
+@Slf4j
 @RestController
 @CrossOrigin()
 public class ArtController {
@@ -24,11 +25,12 @@ public class ArtController {
         this.artService = artService;
     }
 
+
     @GetMapping("/art")
-    public List<ArtDto> getAllArt(@PathParam("filter") String filter) {
+    public List<ArtDto> getAllArt(@RequestParam(value = "filter",required = false) String filter) {
         List<ArtDto> allArt = Collections.emptyList();
 
-        if(StringUtils.isNotBlank(filter)) {
+        if(StringUtils.hasText(filter)) {
             allArt = artService.findByTitleContainsIgnoreCase(filter);
             allArt.addAll(artService.findByArtistNameContainsIgnoreCase(filter));
         }
@@ -48,6 +50,28 @@ public class ArtController {
     @GetMapping("/{style}")
     public List<ArtDto> getObjectsInStyleOf(@PathVariable String style) {
         return artService.findByStyleContains(style);
+    }
+
+//    @PostMapping("/art")
+//    public Art createArt(@RequestBody Art art) {
+////        return artService.saveArt(art);
+//        return null;
+//    }
+
+    @PutMapping("/art")
+    public ArtDto editArt(@RequestBody ArtDto art) {
+        log.debug("in the put" + art);
+        return artService.saveArt(art);
+    }
+
+    @PostMapping("/painting")
+    public ArtDto createPainting(@RequestBody ArtDto artDto) {
+        return artService.saveArt(artDto,new Painting());
+    }
+
+    @PostMapping("/sculpture")
+    public ArtDto createSculpture(@RequestBody ArtDto artDto) {
+        return artService.saveArt(artDto,new Sculpture());
     }
 
 }

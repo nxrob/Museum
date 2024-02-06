@@ -2,6 +2,7 @@ package com.example.Museum.service;
 
 import com.example.Museum.dto.ArtDto;
 import com.example.Museum.model.Art;
+import com.example.Museum.model.Painting;
 
 import java.util.List;
 
@@ -13,4 +14,7 @@ public interface ArtService {
     List<ArtDto> findByArtistNameContainsIgnoreCase(String filter);
     List<ArtDto> findByStyleContains(String style);
 
+    ArtDto saveArt(ArtDto art);
+
+    ArtDto saveArt(ArtDto artDto, Art art);
 }

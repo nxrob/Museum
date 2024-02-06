@@ -1,4 +1,5 @@
 
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡î€æ8êéõÆ×1
-U
-java:S1854":Remove this useless assignment to local variable "allArt".(Ê˜÷£úÿÿÿÿ
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡î€æ8öð¦ö×1
+\
+java:S1854":Remove this useless assignment to local variable "allArt".(Ê˜÷£úÿÿÿÿ8þð¦ö×1
+X	java:S1258"<This block of commented-out lines of code should be removed.(Ž©ÁÃ8³”¦ù×1

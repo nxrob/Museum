@@ -2,14 +2,20 @@ package com.example.Museum.service;
 
 import com.example.Museum.dto.ArtDto;
 import com.example.Museum.model.Art;
+import com.example.Museum.model.Artist;
+import com.example.Museum.model.Museum;
 import com.example.Museum.repository.ArtRepository;
+import com.example.Museum.repository.ArtistRepository;
+import com.example.Museum.repository.MuseumRepository;
 import com.example.Museum.util.ArtDtoConverter;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -17,6 +23,8 @@ import java.util.List;
 public class ArtServiceImpl implements ArtService {
 
     private ArtRepository artRepository;
+    private ArtistRepository artistRepository;
+    private MuseumRepository museumRepository;
 
     @Override
     public List<ArtDto> findAllDto() {
@@ -70,6 +78,31 @@ public class ArtServiceImpl implements ArtService {
             objectsDto.add(artDtoConverter.convertArtToStandardDto(art));
         }
         return objectsDto;
+    }
+
+    @Override
+    public ArtDto saveArt(ArtDto artDto) {
+        Optional<Art> art = artRepository.findById(artDto.getId().intValue());
+        art.ifPresent(value -> {
+            BeanUtils.copyProperties(artDto,value);
+            artRepository.save(value);
+        });
+        return artDto;
+    }
+
+    @Override
+    public ArtDto saveArt(ArtDto artDto, Art art) {
+        Artist artist = artistRepository.findByName(artDto.getArtistName());
+        Museum museum = museumRepository.findById(Integer.parseInt(artDto.getLocationId()));
+
+        log.debug(String.valueOf(artist));
+        log.debug(String.valueOf(museum));
+        BeanUtils.copyProperties(artDto,art);
+        art.setArtist(artist);
+        art.setMuseum(museum);
+        art = artRepository.save(art);
+        ArtDtoConverter artDtoConverter = new ArtDtoConverter();
+        return artDtoConverter.convertArtToStandardDto(art);
     }
 
 }

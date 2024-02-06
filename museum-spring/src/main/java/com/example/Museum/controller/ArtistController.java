@@ -2,14 +2,15 @@ package com.example.Museum.controller;
 
 import com.example.Museum.dto.ArtistDto;
 import com.example.Museum.model.Art;
+import com.example.Museum.model.Artist;
+import com.example.Museum.model.Museum;
 import com.example.Museum.service.ArtistService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin()
 public class ArtistController {
 
     private ArtistService artistService;
@@ -36,5 +37,15 @@ public class ArtistController {
     @GetMapping("/artist/{name}/oldestnewest")
     public List<Art> findFirstAndLastObject(@PathVariable String name) {
         return artistService.findFirstAndLastObject(name);
+    }
+
+    @PostMapping("/artist")
+    public Artist createArtist(@RequestBody Artist artist) {
+        return artistService.saveArtist(artist);
+    }
+
+    @PutMapping("/artist")
+    public Artist editArtist(@RequestBody Artist artist) {
+        return artistService.saveArtist(artist);
     }
 }

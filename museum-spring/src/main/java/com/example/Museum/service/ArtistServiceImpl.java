@@ -61,27 +61,32 @@ public class ArtistServiceImpl implements ArtistService {
         Artist artist = artistRepository.findByName(name);
         List<Art> repertoire = artist.getRepertoire();
 
-        Art oldestArt = new Art();
-        oldestArt.setYearOf("9999");
-        for(Art art : repertoire) {
-            int yearMade = Integer.parseInt(art.getYearOf());
-            if(yearMade < Integer.parseInt(oldestArt.getYearOf())) {
-                oldestArt = art;
-            }
-        }
+//        Art oldestArt = new Art();
+//        oldestArt.setYearOf("9999");
+//        for(Art art : repertoire) {
+//            int yearMade = Integer.parseInt(art.getYearOf());
+//            if(yearMade < Integer.parseInt(oldestArt.getYearOf())) {
+//                oldestArt = art;
+//            }
+//        }
+//
+//        Art newestArt = new Art();
+//        newestArt.setYearOf("0");
+//        for(Art art : repertoire) {
+//            int yearMade = Integer.parseInt(art.getYearOf());
+//            if(yearMade > Integer.parseInt(newestArt.getYearOf())) {
+//                newestArt = art;
+//            }
 
-        Art newestArt = new Art();
-        newestArt.setYearOf("0");
-        for(Art art : repertoire) {
-            int yearMade = Integer.parseInt(art.getYearOf());
-            if(yearMade > Integer.parseInt(newestArt.getYearOf())) {
-                newestArt = art;
-            }
-        }
 
         List<Art> oldestNewest = new ArrayList<>();
-        oldestNewest.add(oldestArt);
-        oldestNewest.add(newestArt);
+//        oldestNewest.add(oldestArt);
+//        oldestNewest.add(newestArt);
         return oldestNewest;
+    }
+
+    @Override
+    public Artist saveArtist(Artist artist) {
+        return artistRepository.save(artist);
     }
 }

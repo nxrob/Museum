@@ -5,6 +5,7 @@ import Museum from './Museum';
 import UpdateMuseum from './UpdateMuseum'
 import AddMuseum from './AddMuseum'
 import UpdateArt from './UpdateArt'
+import UpdateArtist from './UpdateArtist'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/updateMuseum" element={<UpdateMuseum />} />
           <Route path="/addMuseum" element={<AddMuseum />} />
           <Route path="/updateArt" element={<UpdateArt />} />
+          <Route path="/updateArtist" element={<UpdateArtist />} />
         </Routes>
       </div>
     </Router>
