@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import SearchBar from "./SearchBar";
 import MuseumAll from "./MuseumAll";
+import Artist from "./Artist";
 
 function SearchParent() {
     const [searchMuseums, setSearchMuseums] = useState([]);
@@ -11,6 +12,7 @@ function SearchParent() {
         <div>
             <SearchBar setSearchMuseums={setSearchMuseums} setSearchArt={setSearchArt} setSearchArtists={setSearchArtists}/>
             <MuseumAll searchMuseums={searchMuseums} searchArt={searchArt} searchArtists={searchArtists}/>
+            <Artist searchArt={searchArt}/>
         </div>
     );
 }

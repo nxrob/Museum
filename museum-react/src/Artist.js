@@ -1,15 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useFetcher, useParams } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 const Artist = () => {
 
     const { artistName } = useParams();
+
+    const [searchArt, setSearchArt] = useState([]);
 
     const [artistWorks, setArtistWorks] = useState();
     const [artistInfo, setArtistInfo] = useState();
 
     const images = require.context('../images/artist/', true);
     const artistImage = images(`./${artistName}/artist.jpeg`)
+
+
+    useEffect(() => {
+        console.log(searchArt);
+        setArtistWorks(searchArt);
+        console.log(artistWorks,'dsfs')
+        console.log(searchArt, 'this is searchArt')
+    }, [searchArt]);
 
     useEffect(() => {
         const getArtistWorks = async () => {
@@ -34,14 +45,16 @@ const Artist = () => {
         }
         getArtistWorks();
         getArtistInfo();
+        
     }, []);
 
     return (
         <div class="container w-50">
+            <SearchBar setSearchArt={setSearchArt} filter="art" artist={artistName}/>
             <div class="row mh-25">
                 <div class="col">
                     <div class="container my-3 py-3" style={{ backgroundColor: "#EFF6F9" }}>
-                        {artistInfo ? (
+                        {artistInfo && artistWorks ? (
 
                             <div>
                                 <h1>{artistName}</h1>
@@ -60,7 +73,7 @@ const Artist = () => {
             </div>
 
 
-            {artistWorks ? (
+            {artistWorks  ? (
                 <div>
                     {artistWorks.map((artwork) => (
                         <div>

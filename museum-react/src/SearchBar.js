@@ -3,7 +3,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import { TextField, Button, RadioGroup, Radio, FormControlLabel } from "@mui/material";
 
 
-const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, filter, location }) => {
+const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, filter, location, artist }) => {
     const [input, setInput] = useState("");
     //const [artists, setArtists] = useState("");
     //const [arts, setArts] = useState("");
@@ -34,47 +34,51 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, filter, l
             catch (error) {
                 console.error('Error fetching data: ', error);
             }
-            
-            if(location !== null){
+
+            if (location !== null) {
                 tempArtists.forEach(async element => {
                     console.log('sfjhssfjh')
                     var isPresent = false;
                     const response = await fetch("http://localhost:8080?filter=" + element.name)
                     const data = await response.json();
                     data.forEach(element => {
-                        if((element.location).includes(location)){
+                        if ((element.location).includes(location)) {
                             isPresent = true;
                             console.log('added');
                         }
                     })
-                    console.log(isPresent,element.name);
-                    if(isPresent){
+                    console.log(isPresent, element.name);
+                    if (isPresent) {
                         names.push(element.name);
                     }
                 })
             }
-            else{
-            tempArtists.forEach(element => {
-                
+            else {
+                tempArtists.forEach(element => {
 
-                names.push(element.name);
 
-            });
-            console.log(names, 'names after artist call')
-        }
+                    names.push(element.name);
+
+                });
+                console.log(names, 'names after artist call')
+            }
         }
         if (searchFilter == 'all' || searchFilter == 'art' || searchFilter == 'artistArt') {
 
             let tempArtworks = new Array;
+            console.log('fdsfs')
+            console.log(artist, 'this is artist');
 
             try {
                 const response = await fetch("http://localhost:8080");
                 const data = await response.json();
                 tempArtworks = data;
+                console.log(data);
             } catch (error) {
                 console.error('Error fetching data: ', error);
             }
-            if (location !== null) {
+            if (location != null) {
+                
                 tempArtworks.forEach(element => {
                     var isPresent = false;
                     // console.log(element.title);
@@ -92,8 +96,28 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, filter, l
                 });
 
             }
-            else {
+
+
+            else if(artist != null) {
+                console.log('in here')
                 tempArtworks.forEach(element => {
+                    var isPresent = false;
+
+
+                    if ((element.artistName) == (artist)) {
+                        isPresent = true;
+                    }
+                    console.log(element.artistName);
+
+                    if (isPresent) {
+                        names.push(element.title);
+                    }
+                });
+            }
+            else {
+
+                tempArtworks.forEach(element => {
+                    console.log(element.artistName);
                     names.push(element.title);
                 })
             }
@@ -151,16 +175,30 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, filter, l
                 const response = await fetch("http://localhost:8080?filter=" + input);
                 const data = await response.json();
 
-                if (location !== null) {
+                if (location != null) {
                     let tempData = new Array;
                     data.forEach(element => {
                         var isPresent = false;
-                        
+
                         if ((element.location).includes(location)) {
                             isPresent = true;
                         }
 
                         if (isPresent) {
+                            tempData.push(element);
+                        }
+                    });
+                    setSearchArt(tempData);
+                }
+                else if(artist != null){
+                    let tempData = new Array;
+                    data.forEach(element => {
+                        var isPresent = false;
+
+                        if((element.artistName) == artist){
+                            isPresent = true;
+                        }
+                        if(isPresent){
                             tempData.push(element);
                         }
                     });
