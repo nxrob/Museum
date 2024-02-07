@@ -38,15 +38,15 @@ public class ArtistServiceImpl implements ArtistService {
         int count = 0;
         Museum museumWithMostWorks = new Museum();
 
-        for (Museum museum : museums) {
+        for(Museum museum : museums) {
             int localCount = 0;
             List<Art> museumCollection = museum.getCollection();
-            for (Art art : museumCollection) {
-                if (art.getArtist().equals(artist)) {
+            for(Art art : museumCollection) {
+                if(art.getArtist().equals(artist)) {
                     localCount++;
                 }
             }
-            if (localCount > count) {
+            if(localCount > count) {
                 count = localCount;
                 museumWithMostWorks = museum;
             }
@@ -61,42 +61,32 @@ public class ArtistServiceImpl implements ArtistService {
         Artist artist = artistRepository.findByName(name);
         List<Art> repertoire = artist.getRepertoire();
 
-        Art oldestArt = new Art();
-        oldestArt.setYearOf("9999");
-        for (Art art : repertoire) {
-            int yearMade = Integer.parseInt(art.getYearOf());
-            if (yearMade < Integer.parseInt(oldestArt.getYearOf())) {
-                oldestArt = art;
-            }
-        }
+//        Art oldestArt = new Art();
+//        oldestArt.setYearOf("9999");
+//        for(Art art : repertoire) {
+//            int yearMade = Integer.parseInt(art.getYearOf());
+//            if(yearMade < Integer.parseInt(oldestArt.getYearOf())) {
+//                oldestArt = art;
+//            }
+//        }
+//
+//        Art newestArt = new Art();
+//        newestArt.setYearOf("0");
+//        for(Art art : repertoire) {
+//            int yearMade = Integer.parseInt(art.getYearOf());
+//            if(yearMade > Integer.parseInt(newestArt.getYearOf())) {
+//                newestArt = art;
+//            }
 
-        Art newestArt = new Art();
-        newestArt.setYearOf("0");
-        for (Art art : repertoire) {
-            int yearMade = Integer.parseInt(art.getYearOf());
-            if (yearMade > Integer.parseInt(newestArt.getYearOf())) {
-                newestArt = art;
-            }
-        }
 
         List<Art> oldestNewest = new ArrayList<>();
-        oldestNewest.add(oldestArt);
-        oldestNewest.add(newestArt);
+//        oldestNewest.add(oldestArt);
+//        oldestNewest.add(newestArt);
         return oldestNewest;
     }
 
     @Override
-    public Artist getArtistInfo(String name) {
-        return artistRepository.findByName(name);
-    }
-
-    public void deleteArtist(int id) {
-        artistRepository.deleteById(id);
-    }
-
-    @Override
-    public List<ArtistDto> getArtistsByName(String name) {
-        return artistRepository.getArtistsByName(name);
-
+    public Artist saveArtist(Artist artist) {
+        return artistRepository.save(artist);
     }
 }

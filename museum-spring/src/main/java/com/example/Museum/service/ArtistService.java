@@ -3,6 +3,7 @@ package com.example.Museum.service;
 import com.example.Museum.dto.ArtistDto;
 import com.example.Museum.model.Art;
 import com.example.Museum.model.Artist;
+import com.example.Museum.model.Museum;
 
 import java.util.List;
 
@@ -15,10 +16,5 @@ public interface ArtistService {
 
     List<Art> findFirstAndLastObject(String name);
 
-    Artist getArtistInfo(String name);
-    
-    void deleteArtist(int id);
-
-    List<ArtistDto> getArtistsByName(String name);
-
+    Artist saveArtist(Artist artist);
 }

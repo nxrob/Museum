@@ -16,7 +16,7 @@ public class ArtDto {
     private String yearOf;
     private String medium;
     private String location;
-    @Column(length = 1000)
+    private String locationId;
     private String description;
     private String style;
 
@@ -28,6 +28,7 @@ public class ArtDto {
         this.medium = art.getMedium();
         this.description = art.getDescription();
         this.location = "" + art.getMuseum().getName() + " (" + art.getMuseum().getLocation() + ")";
+        this.locationId = "" + art.getMuseum().getId();
         this.style = art.getStyle();
     }
 }
