@@ -33,8 +33,7 @@ const MuseumAll = () => {
 
 	return (
 		<div class="container w-50">
-			<Header pageTitle={"Museums"}/>
-			<SearchBar setSearchMuseums={setSearchMuseums} toggleMuseum={true} />
+			<Header pageTitle={"Museums"} setSearchMuseums={setSearchMuseums} toggleMuseum={true} />
 				{/* {museums ? (
 					<table class="table table-striped" style={{ marginLeft: "auto", marginRight: "auto" }}>
 						<thead>

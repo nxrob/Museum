@@ -52,10 +52,8 @@ const Museum = () => {
 
     return (
         <div class="container w-50">
-            <Header pageTitle={"Museums"} />
+            <Header pageTitle={"Museums"} setSearchArt={setSearchArt} toggleArt={true} toggleArtist={true} location={museumName}/>
             <div id="content">
-                <SearchBar setSearchArt={setSearchArt} toggleArt={true} toggleArtist={true} location={museumName} />
-
                 {worksInMuseum && museumInfo ? (
                     <div class="row mh-25 d-flex">
                         <div class="col d-flex">

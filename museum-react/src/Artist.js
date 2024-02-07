@@ -66,8 +66,8 @@ const Artist = () => {
 
     return (
         <div class="container w-50">
-            <SearchBar setSearchArt={setSearchArt} toggleArt={true} artist={artistName}/>
-            <Header pageTitle={"Artists"} />
+            <Header pageTitle={"Artists"} setSearchArt={setSearchArt} toggleArt={true} artist={artistName} />
+            {/* <SearchBar setSearchArt={setSearchArt} toggleArt={true} artist={artistName}/> */}
             <div class="row mh-25 d-flex">
                 <div class="col d-flex">
                     <div class="container my-3 py-3" style={{ backgroundColor: "#EFF9F1" }}>
