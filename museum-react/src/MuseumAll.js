@@ -34,66 +34,16 @@ const MuseumAll = () => {
   }, [searchMuseums]);
 
 
-
-  useEffect(() => {
-
-    // searchMuseums.forEach(async function (element){
-    //   var rating = "No Ratings Yet";
-    //   try {
-    //     const response = await fetch('http://localhost:8080/museum/' + element.name + '/rating');
-    //     const data1 = await response.json();
-    //     rating = data1
-        
-    //   }
-    //   catch (error) {
-    //     console.error('Error fetching data: ', error);
-        
-    //   }
-    //   console.log(rating);
-    //   element.rating = rating;
-      
-    //   searchMuseums.pop()
-    //   searchMuseums.push(element);
-    //   console.log(element.rating);
-
-    // })
-    // console.log(searchMuseums);
-    
-    setMuseums(searchMuseums);
-    
+  useEffect(() => {    
+    setMuseums(searchMuseums);    
   }, [searchMuseums]);
 
   useEffect(() => {
     const fetchData = async () => {
-
       try {
         const response = await fetch('http://localhost:8080/museum');
         console.log(response);
         const data = await response.json();
-        setMuseums(data);
-        // data.forEach(async function (element){
-        //   var rating = "No Ratings Yet";
-        //   try {
-        //     const response = await fetch('http://localhost:8080/museum/' + element.name + '/rating');
-        //     const data1 = await response.json();
-        //     rating = data1
-            
-        //   }
-        //   catch (error) {
-        //     console.error('Error fetching data: ', error);
-            
-        //   }
-        //   console.log(rating);
-        //   element.rating = rating;
-         
-        //   data.pop()
-        //   data.push(element);
-        //   console.log(element.rating);
-
-        // })
-        // console.log(data);
-        
-        
         setMuseums(data);
         setSearchMuseums(data);
         console.log(museums);
@@ -101,10 +51,7 @@ const MuseumAll = () => {
       } catch (error) {
         console.error('Error fetching data:', error);
       }
-
-
     };
-
     fetchData();
   }, []);
 
