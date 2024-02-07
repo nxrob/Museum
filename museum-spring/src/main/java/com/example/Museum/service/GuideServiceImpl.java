@@ -3,11 +3,13 @@ package com.example.Museum.service;
 
 import com.example.Museum.dto.MuseumDto;
 import com.example.Museum.model.Guide;
+import com.example.Museum.model.Museum;
 import com.example.Museum.repository.GuideRepository;
 import com.example.Museum.repository.MuseumRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -25,5 +27,19 @@ public class GuideServiceImpl implements GuideService {
     @Override
     public List<MuseumDto> getMuseumsInGuide(int id) {
         return museumRepository.getMuseumsInGuide(id);
+    }
+
+    @Override
+    public List<Guide> getGuidesMentioningMuseum(String museumName) {
+        List<Guide> allGuides = guideRepository.findAll();
+        List<Guide> guidesMentioningMuseum = new ArrayList<>();
+        for(Guide guide : allGuides) {
+            for(MuseumDto museum : getMuseumsInGuide(Math.toIntExact(guide.getId()))) {
+                if(museum.getName().equals(museumName)) {
+                    guidesMentioningMuseum.add(guide);
+                }
+            }
+        }
+        return guidesMentioningMuseum;
     }
 }

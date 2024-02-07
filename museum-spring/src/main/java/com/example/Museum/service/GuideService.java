@@ -9,4 +9,6 @@ public interface GuideService {
     List<Guide> findAll();
 
     List<MuseumDto> getMuseumsInGuide(int id);
+
+    List<Guide> getGuidesMentioningMuseum(String museumName);
 }

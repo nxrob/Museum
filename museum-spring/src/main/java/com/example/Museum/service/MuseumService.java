@@ -2,6 +2,7 @@ package com.example.Museum.service;
 
 import com.example.Museum.dto.MuseumDto;
 import com.example.Museum.dto.ArtDto;
+import com.example.Museum.model.Guide;
 import com.example.Museum.model.Museum;
 import com.example.Museum.model.Art;
 
@@ -31,4 +32,5 @@ public interface MuseumService {
     void deleteById(int id);
 
     double getMuseumRating(String museumName);
+
 }

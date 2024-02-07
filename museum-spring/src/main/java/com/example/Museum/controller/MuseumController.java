@@ -3,6 +3,7 @@ package com.example.Museum.controller;
 import com.example.Museum.dto.MuseumDto;
 import com.example.Museum.dto.ArtDto;
 import com.example.Museum.model.Art;
+import com.example.Museum.model.Guide;
 import com.example.Museum.model.Museum;
 import com.example.Museum.service.MuseumService;
 import io.micrometer.common.util.StringUtils;

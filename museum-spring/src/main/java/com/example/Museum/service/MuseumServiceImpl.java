@@ -4,8 +4,10 @@ import com.example.Museum.dto.MuseumDto;
 import com.example.Museum.dto.ArtDto;
 import com.example.Museum.model.Art;
 import com.example.Museum.model.Artist;
+import com.example.Museum.model.Guide;
 import com.example.Museum.model.Museum;
 import com.example.Museum.repository.ArtistRepository;
+import com.example.Museum.repository.GuideRepository;
 import com.example.Museum.repository.MuseumRepository;
 import com.example.Museum.util.MuseumDtoConverter;
 import com.example.Museum.util.ArtDtoConverter;
@@ -22,6 +24,7 @@ public class MuseumServiceImpl implements MuseumService {
 
     private MuseumRepository museumRepository;
     private ArtistRepository artistRepository;
+    private GuideRepository guideRepository;
 
     @Override
     public Museum saveMuseum(Museum museum) {
