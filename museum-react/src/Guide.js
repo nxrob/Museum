@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react";
-import {Link, useParams} from 'react-router-dom '
+import {Link, useParams} from "react-router-dom";
 
 const Guide = () => {
     const {guideName} = useParams();
 
-    const [guideInfo, setGuideInfo] = usestate([]);
+    const [guideInfo, setGuideInfo] = useState([]);
     const [museumsInGuide, setMuseumsInGuide] = useState([]);
 
 
@@ -46,7 +46,7 @@ const Guide = () => {
                         <div>
                             <ul className="list-group" style={{ width: "100%"}}>
                                 <li className="list-group-item" style={{backgroundColor: "#EFF9F1"}}>
-                                    <span><Link to={"/museum/" + museum.name}>{museum.name}</Link></span>
+                                    <span><Link to={"/museums/" + museum.name}>{museum.name}</Link></span>
                                 </li>
                                 <li className="list-group-item" style={{backgroundColor: "#EFF9F1"}}>
                                     <b>{museum.location}</b>

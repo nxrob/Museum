@@ -20,6 +20,7 @@ import ReadMuseum from './ReadMuseum';
 import ReadArt from './ReadArt';
 import DataAnalysisPage from './DataAnalysisPage';
 import GuideAll from './GuideAll';
+import Guide from './Guide';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
           <Route path = "/Admin/Museum/Read" element = {<ReadMuseum/>}/>
 
           <Route path = "/guides" element = {<GuideAll/>}/>
+          <Route path = "/guides/:guideName" element = {<Guide />}/>
           
         </Routes>
       </div>
