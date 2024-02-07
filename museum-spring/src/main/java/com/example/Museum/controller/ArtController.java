@@ -2,30 +2,35 @@ package com.example.Museum.controller;
 
 import com.example.Museum.dto.ArtDto;
 import com.example.Museum.model.Art;
+import com.example.Museum.model.Painting;
+import com.example.Museum.model.Sculpture;
 import com.example.Museum.service.ArtService;
-import io.micrometer.common.util.StringUtils;
-import jakarta.websocket.server.PathParam;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.Collections;
 import java.util.List;
 
+@Slf4j
 @RestController
 @CrossOrigin()
 public class ArtController {
 
-    private final ArtService artService;
+    private ArtService artService;
 
 
     public ArtController(ArtService artService) {
         this.artService = artService;
     }
 
-    @GetMapping("")
-    public List<ArtDto> getAllArt(@PathParam("filter") String filter) {
+
+    @GetMapping("/art")
+    public List<ArtDto> getAllArt(@RequestParam(value = "filter",required = false) String filter) {
         List<ArtDto> allArt = Collections.emptyList();
 
-        if(StringUtils.isNotBlank(filter)) {
+        if(StringUtils.hasText(filter)) {
             allArt = artService.findByTitleContainsIgnoreCase(filter);
             allArt.addAll(artService.findByArtistNameContainsIgnoreCase(filter));
         }
@@ -47,8 +52,35 @@ public class ArtController {
         return artService.findByStyleContains(style);
     }
 
-    @DeleteMapping("/art/{id}")
-    public void deleteArt(@PathVariable int id)  {
-        artService.deleteArt(id);
+//    @PostMapping("/art")
+//    public ArtDto createArt(@RequestBody ArtDto art) {
+//        return artService.saveArt(art, new Painting());
+//    }
+
+    @PutMapping("/art")
+    public ArtDto editArt(@RequestBody ArtDto art) {
+        log.debug("in the put" + art);
+        return artService.saveArt(art);
     }
+
+    @PostMapping("/painting")
+    public ArtDto createPainting(@RequestBody ArtDto artDto) {
+        return artService.saveArt(artDto,new Painting());
+    }
+
+    @PutMapping("/painting")
+    public ArtDto updatePainting(@RequestBody ArtDto artDto) {
+        return artService.saveArt(artDto,new Painting());
+    }
+
+    @PostMapping("/sculpture")
+    public ArtDto createSculpture(@RequestBody ArtDto artDto) {
+        return artService.saveArt(artDto,new Sculpture());
+    }
+
+    @PutMapping("/sculpture")
+    public ArtDto updateSculpture(@RequestBody ArtDto artDto) {
+        return artService.saveArt(artDto,new Sculpture());
+    }
+
 }

@@ -17,10 +17,5 @@ public interface ArtistService {
 
     List<Art> findFirstAndLastObject(String name);
 
-    Artist getArtistInfo(String name);
-    
-    void deleteArtist(int id);
-
-    List<ArtistDto> getArtistsByName(String name);
-
+    Artist saveArtist(Artist artist);
 }

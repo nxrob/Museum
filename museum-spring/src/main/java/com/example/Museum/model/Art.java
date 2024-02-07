@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Art {
+public abstract class Art {
 
     @Id
     private Long id;  
