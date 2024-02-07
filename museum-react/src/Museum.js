@@ -9,6 +9,7 @@ const Museum = () => {
     const [searchArt, setSearchArt] = useState([]);
     const [museumInfo, setMuseumInfo] = useState();
     const [worksInMuseum, setWorksInMuseum] = useState();
+    const [museumRating, setMuseumRating] = useState("");
     console.log("Rendering... (museumInfo = " + museumInfo + ")")
 
     useEffect(() => {
@@ -37,7 +38,18 @@ const Museum = () => {
                 console.error('Error fetching data:', error);
             }
         };
+        const getMuseumRating = async () => {
+            try {
+                const response = await fetch('http://localhost:8080/museum/' + museumName + '/rating');
+                const data = await response.json();
+                setMuseumRating(data);
+            } catch (error) {
+                console.error('Error fetching data: ', error);
+                setMuseumRating("No Ratings Yet");
+            }
+        }
 
+        getMuseumRating();   
         getMuseumInfo();
         getWorksInMuseum();
         console.log(searchArt, 'fhdfw');
@@ -47,12 +59,13 @@ const Museum = () => {
 
     return (
         <div class="container w-50">
-            <SearchBar setSearchArt={setSearchArt} toggleArt={true} toggleArtist={true} location={museumName}/>
+            <SearchBar setSearchArt={setSearchArt} toggleArt={true}toggleArtist={true} location={museumName}/>
             {worksInMuseum && museumInfo ? (
                 <div>
                     <div class="container my-3 py-3" style={{ backgroundColor: "#EFF6F9" }}>
                         <h1>{museumInfo.name}</h1>
-                        <b>{museumInfo.location}</b>
+                        <b>{museumInfo.location}</b><br/>
+                        <b>Museum Guide Rating: {museumRating}</b>
                     </div>
                     
                     {worksInMuseum.map((artwork) => (
