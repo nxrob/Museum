@@ -53,9 +53,8 @@ public class ArtController {
     }
 
 //    @PostMapping("/art")
-//    public Art createArt(@RequestBody Art art) {
-////        return artService.saveArt(art);
-//        return null;
+//    public ArtDto createArt(@RequestBody ArtDto art) {
+//        return artService.saveArt(art, new Painting());
 //    }
 
     @PutMapping("/art")
@@ -69,8 +68,18 @@ public class ArtController {
         return artService.saveArt(artDto,new Painting());
     }
 
+    @PutMapping("/painting")
+    public ArtDto updatePainting(@RequestBody ArtDto artDto) {
+        return artService.saveArt(artDto,new Painting());
+    }
+
     @PostMapping("/sculpture")
     public ArtDto createSculpture(@RequestBody ArtDto artDto) {
+        return artService.saveArt(artDto,new Sculpture());
+    }
+
+    @PutMapping("/sculpture")
+    public ArtDto updateSculpture(@RequestBody ArtDto artDto) {
         return artService.saveArt(artDto,new Sculpture());
     }
 

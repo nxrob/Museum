@@ -13,7 +13,6 @@ function UpdateArtist() {
   const [message, setMessage] = useState('');
   const [isError, setIsError] = useState(false);
 
-  // Fixed state management function name to setArtist
   const handleChange = (e) => {
     const { name, value } = e.target;
     setArtist(prevState => ({
@@ -28,7 +27,7 @@ function UpdateArtist() {
     setIsError(false);
 
     try {
-      // Corrected the URL to match the artist update endpoint
+
       const response = await axios.put('http://localhost:8080/artist', artist);
       console.log('Response:', response.data);
       setMessage('Artist entry has been updated successfully');
