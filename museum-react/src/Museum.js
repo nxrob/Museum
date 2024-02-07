@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Header from './Header';
+import SearchBar from './SearchBar';
+
 
 const Museum = () => {
 
     const { museumName } = useParams();
     const navigate = useNavigate();
 
+    const [searchArt, setSearchArt] = useState([]);
     const [museumInfo, setMuseumInfo] = useState();
     const [worksInMuseum, setWorksInMuseum] = useState();
 
     const images = require.context('../images/museum/', true);
     const museumImage = images(`./${museumName}.jpeg`)
+
+    useEffect(() => {
+        setWorksInMuseum(searchArt);
+        console.log(searchArt, 'fdfd');
+    }, [searchArt]);
 
     useEffect(() => {
         const getMuseumInfo = async () => {
@@ -37,15 +45,18 @@ const Museum = () => {
 
         getMuseumInfo();
         getWorksInMuseum();
+        console.log(searchArt, 'fhdfw');
 
 
     }, []);
 
     return (
         <div class="container w-50">
-            <Header pageTitle={"Museums"}/>
+            <Header pageTitle={"Museums"} />
             <div id="content">
-                {museumInfo ? (
+                <SearchBar setSearchArt={setSearchArt} toggleArt={true} toggleArtist={true} location={museumName} />
+
+                {worksInMuseum && museumInfo ? (
                     <div class="row mh-25 d-flex">
                         <div class="col d-flex">
                             <div class="container my-3 py-3" style={{ backgroundColor: "#EFF9F1" }}>
@@ -61,6 +72,7 @@ const Museum = () => {
                                     {museumInfo.description}
                                 </span>
                             </div>
+
                         </div>
                         <div class="col my-3">
                             <img src={museumImage} class="img-fluid float-end" />
@@ -75,13 +87,13 @@ const Museum = () => {
                         <div class="row">
                             <div class="col ps-0">
                                 {museumInfo ? (
-                                    <div class="py-3 ps-3 float-sm-end rounded border" style={{ backgroundColor: "#EFF6F9", width:"48.7%" }}>
-                                        <b>{museumInfo.name}</b> appears in the following guides: <br/>
+                                    <div class="py-3 ps-3 float-sm-end rounded border" style={{ backgroundColor: "#EFF6F9", width: "48.7%" }}>
+                                        <b>{museumInfo.name}</b> appears in the following guides: <br />
                                         <span>
-                                            Guide 1<br/>
-                                            Guide 2<br/>
-                                            Guide 3<br/>
-                                            Guide 4<br/>
+                                            Guide 1<br />
+                                            Guide 2<br />
+                                            Guide 3<br />
+                                            Guide 4<br />
                                         </span>
                                     </div>
                                 ) : (

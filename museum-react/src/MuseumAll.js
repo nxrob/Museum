@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Route, Routes, useNavigate, useParams } from 'react-router-dom';
+import SearchBar from './SearchBar';
+
 import Museum from './Museum';
 import Header from './Header';
 
 const MuseumAll = () => {
 
 	const [museums, setMuseums] = useState(null);
+	const [searchMuseums, setSearchMuseums] = useState([]);
 	const navigate = useNavigate();
 	const images = require.context('../images/museum/', true);
 
@@ -24,9 +27,14 @@ const MuseumAll = () => {
 		fetchData();
 	}, []);
 
+	useEffect(() =>{
+		setMuseums(searchMuseums);
+	  }, [searchMuseums]);
+
 	return (
 		<div class="container w-50">
 			<Header pageTitle={"Museums"}/>
+			<SearchBar setSearchMuseums={setSearchMuseums} toggleMuseum={true} />
 				{/* {museums ? (
 					<table class="table table-striped" style={{ marginLeft: "auto", marginRight: "auto" }}>
 						<thead>

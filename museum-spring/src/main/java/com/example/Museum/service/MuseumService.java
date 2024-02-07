@@ -30,4 +30,5 @@ public interface MuseumService {
 
     void deleteById(int id);
 
+    double getMuseumRating(String museumName);
 }

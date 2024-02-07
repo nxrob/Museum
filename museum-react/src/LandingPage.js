@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -49,12 +49,14 @@ const LandingPage = () => {
       } else {
         console.log('Login failed: Username or password is missing');
       }
+      
     };
   };
   const [isAdmin, setIsAdmin] = useState(false);
   const adminCredentials = [
     { username: 'Administrator', password: 'AllHailTheNewFlesh' },
     { username: 'Apprentice', password: 'LearningOnTheJob' },
+    {username: 'a', password: 'b'},
   ];
   
   const handleLogin = (e) => {
@@ -65,26 +67,45 @@ const LandingPage = () => {
       setIsLoggedIn(true);
       setIsAdmin(true);
       setCurrentUser(loginInfo.username);
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('isAdmin', 'true');
+      localStorage.setItem('currentUser', loginInfo.username);
       console.log('Logged in as admin:', loginInfo.username);
     } else if (loginInfo.username && loginInfo.password) {
       setIsLoggedIn(true);
       setIsAdmin(false);
       setCurrentUser(loginInfo.username);
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('isAdmin', 'false');
+      localStorage.setItem('currentUser', loginInfo.username);
       console.log('Logged in with:', loginInfo);
     } else {
       console.log('Login failed: Username or password is missing');
     }
   };
   
-  
 
   const handleLogout = () => {
-    setIsLoggedIn(false);
-    setIsAdmin(false); 
-    setCurrentUser(''); 
-    setLoginInfo({ username: '', password: '' });
-    console.log('Logged out');
-  };
+  localStorage.removeItem('isLoggedIn');
+  localStorage.removeItem('isAdmin');
+  localStorage.removeItem('currentUser');
+  
+  setIsLoggedIn(false);
+  setIsAdmin(false);
+  setCurrentUser('');
+  console.log('Logged out');
+};
+useEffect(() => {
+  const storedIsLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  const storedIsAdmin = localStorage.getItem('isAdmin') === 'true';
+  const storedCurrentUser = localStorage.getItem('currentUser');
+
+  if (storedIsLoggedIn) {
+    setIsLoggedIn(storedIsLoggedIn);
+    setIsAdmin(storedIsAdmin);
+    setCurrentUser(storedCurrentUser);
+  }
+}, []);
  
   
 

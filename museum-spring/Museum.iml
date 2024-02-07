@@ -4,6 +4,10 @@
     <exclude-output />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
   <component name="SonarLintModuleSettings">
     <option name="uniqueId" value="365e1551-fe87-4abb-878a-9eb154036906" />
   </component>

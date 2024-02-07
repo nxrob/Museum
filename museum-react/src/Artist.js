@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useParams, useFetcher, useNavigate } from 'react-router-dom';
 import Header from './Header';
+import SearchBar from './SearchBar';
+
 
 const Artist = () => {
 
     const { artistName } = useParams();
     const navigate = useNavigate();
+
+    const [searchArt, setSearchArt] = useState([]);
 
     const [artistWorks, setArtistWorks] = useState();
     const [artistInfo, setArtistInfo] = useState();
@@ -14,6 +17,14 @@ const Artist = () => {
 
     const images = require.context('../images/artist/', true);
     const artistImage = images(`./${artistName}/artist.jpeg`)
+
+
+    useEffect(() => {
+        console.log(searchArt);
+        setArtistWorks(searchArt);
+        console.log(artistWorks,'dsfs')
+        console.log(searchArt, 'this is searchArt')
+    }, [searchArt]);
 
     useEffect(() => {
         const getArtistWorks = async () => {
@@ -50,15 +61,17 @@ const Artist = () => {
         getArtistWorks();
         getArtistInfo();
         getMuseumWithMostWorks();
+
     }, []);
 
     return (
         <div class="container w-50">
+            <SearchBar setSearchArt={setSearchArt} toggleArt={true} artist={artistName}/>
             <Header pageTitle={"Artists"} />
             <div class="row mh-25 d-flex">
                 <div class="col d-flex">
                     <div class="container my-3 py-3" style={{ backgroundColor: "#EFF9F1" }}>
-                        {artistInfo ? (
+                    {artistInfo && artistWorks ? (
                             <div>
                                 <h1>{artistInfo.name}</h1>
                                 <b>{artistInfo.dobAndDod}</b><br />
@@ -85,6 +98,7 @@ const Artist = () => {
             </div>
 
             {artistWorks ? (
+
                 <div>
                     {artistWorks.map((artwork) => (
                         <div>

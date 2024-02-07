@@ -175,3 +175,54 @@ INSERT IGNORE INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, 
 
 --INSERT IGNORE INTO ART SELECT * FROM PAINTING;
 --INSERT IGNORE INTO ART SELECT * FROM SCULPTURE;
+
+
+INSERT IGNORE INTO GUIDE (id, name, summary) VALUES (30001, 'The Works of Da Vinci', 'A guide, which showcases world renowned museums containing works by the Renaissance artist Leonardo da Vinci.');
+INSERT IGNORE INTO GUIDE_LOOKUP(id,guide_id, museum_id, rating) VALUES
+(40001, 30001, 100001, 8),
+(40002, 30001, 100003, 7),
+(40003, 30001, 100005, 6),
+(40004, 30001, 100006, 10),
+(40005, 30001, 100008, 8);
+
+
+INSERT IGNORE INTO GUIDE (id, name, summary) VALUES (30002, 'Western Europe\s Finest', 'The biggest and best of Western Europe');
+INSERT IGNORE INTO GUIDE_LOOKUP(id,guide_id, museum_id, rating) VALUES
+(40006, 30002, 100001, 7),
+(40007, 30002, 100002, 8),
+(40008, 30002, 100003, 9),
+(40009, 30002, 100006, 6),
+(40010, 30002, 100009, 5),
+(40011, 30002, 100013, 10),
+(40012, 30002, 100014, 7),
+(40013, 30002, 100015, 8);
+
+
+INSERT IGNORE INTO GUIDE (id, name, summary) VALUES (30003, 'US Tour', 'A collection of America\'s most well known museums, from East coast to West!');
+INSERT IGNORE INTO GUIDE_LOOKUP (id, guide_id, museum_id, rating) VALUES
+(40014, 30003, 100004, 8),
+(40015, 30003, 100005, 9),
+(40016, 30003, 100007, 3),
+(40017, 30003, 100010, 5),
+(40018, 30003, 100011, 8),
+(40019, 30003, 100012, 5);
+
+INSERT IGNORE INTO GUIDE (id, name, summary) VALUES (30004, 'Modern Institutes','A collection of museums and galleries, all founded within the last century');
+INSERT IGNORE INTO GUIDE_LOOKUP (id, guide_id, museum_id, rating) VALUES
+(40021, 30004, 100005, 6),
+(40022, 30004, 100009, 3),
+(40023, 30004, 100010, 5),
+(40024, 30004, 100011, 8),
+(40025, 30004, 100012, 9),
+(40026, 30004, 100013, 7);
+
+INSERT IGNORE INTO GUIDE (id, name, summary) VALUES (30005, 'Globetrotter','Institutes from all corners of the world');
+INSERT IGNORE INTO GUIDE_LOOKUP (id, guide_id, museum_id, rating) VALUES
+(40027, 30005, 100001, 6),
+(40028, 30005, 100003, 9),
+(40029, 30005, 100005, 5),
+(40030, 30005, 100006, 7),
+(40031, 30005, 100008, 10),
+(40032, 30005, 100009, 5),
+(40033, 30005, 100012, 6),
+(40034, 30005, 100015, 8);
