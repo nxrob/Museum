@@ -19,6 +19,7 @@ import MuseumDelete from './MuseumDelete';
 import ReadMuseum from './ReadMuseum';
 import ReadArt from './ReadArt';
 import DataAnalysisPage from './DataAnalysisPage';
+import GuideAll from './GuideAll';
 
 function App() {
   return (
@@ -46,6 +47,8 @@ function App() {
           <Route path = "/Admin/Museum" element = {<AdminMuseumHome/>}/>
           <Route path = "/Admin/Museum/Delete" element = {<MuseumDelete />}/>
           <Route path = "/Admin/Museum/Read" element = {<ReadMuseum/>}/>
+
+          <Route path = "/guides" element = {<GuideAll/>}/>
           
         </Routes>
       </div>
