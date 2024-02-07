@@ -10,31 +10,57 @@ const MuseumAll = () => {
 
 
   useEffect(() => {
+    const fetchMuseumRatings = async () => {
+      const museumsWithRatings = await Promise.all(
+        searchMuseums.map(async (museum) => {
+          try {
+            const response = await fetch('http://localhost:8080/museum/' + museum.name + '/rating');
+            const data = await response.json();
+            museum.rating = data;
+            return museum;
+          } catch (error) {
+            console.error('Error fetching data: ', error);
+            return museum;
+          }
+        })
+      );
+      setMuseums(museumsWithRatings);
+     
+    };
+  
+    if (museums) {
+      fetchMuseumRatings();
+    }
+  }, [searchMuseums]);
 
-    searchMuseums.forEach(async function (element){
-      let rating = "No Ratings Yet";
-      try {
-        const response = await fetch('http://localhost:8080/museum/' + element.name + '/rating');
-        const data1 = await response.json();
-        rating = data1
-        
-      }
-      catch (error) {
-        console.error('Error fetching data: ', error);
-        
-      }
-      console.log(rating);
-      // element.rating = rating;
-      element.rating  = 'test';
-      searchMuseums.pop()
-      searchMuseums.push(element);
-      console.log(element.rating);
 
-    })
-    console.log(searchMuseums);
+
+  useEffect(() => {
+
+    // searchMuseums.forEach(async function (element){
+    //   var rating = "No Ratings Yet";
+    //   try {
+    //     const response = await fetch('http://localhost:8080/museum/' + element.name + '/rating');
+    //     const data1 = await response.json();
+    //     rating = data1
+        
+    //   }
+    //   catch (error) {
+    //     console.error('Error fetching data: ', error);
+        
+    //   }
+    //   console.log(rating);
+    //   element.rating = rating;
+      
+    //   searchMuseums.pop()
+    //   searchMuseums.push(element);
+    //   console.log(element.rating);
+
+    // })
+    // console.log(searchMuseums);
     
     setMuseums(searchMuseums);
-    setLoaded(true);
+    
   }, [searchMuseums]);
 
   useEffect(() => {
@@ -45,30 +71,31 @@ const MuseumAll = () => {
         console.log(response);
         const data = await response.json();
         setMuseums(data);
-        data.forEach(async function (element){
-          let rating = "No Ratings Yet";
-          try {
-            const response = await fetch('http://localhost:8080/museum/' + element.name + '/rating');
-            const data1 = await response.json();
-            rating = data1
+        // data.forEach(async function (element){
+        //   var rating = "No Ratings Yet";
+        //   try {
+        //     const response = await fetch('http://localhost:8080/museum/' + element.name + '/rating');
+        //     const data1 = await response.json();
+        //     rating = data1
             
-          }
-          catch (error) {
-            console.error('Error fetching data: ', error);
+        //   }
+        //   catch (error) {
+        //     console.error('Error fetching data: ', error);
             
-          }
-          console.log(rating);
-          // element.rating = rating;
-          element.rating  = 'test';
-          data.pop()
-          data.push(element);
-          console.log(element.rating);
+        //   }
+        //   console.log(rating);
+        //   element.rating = rating;
+         
+        //   data.pop()
+        //   data.push(element);
+        //   console.log(element.rating);
 
-        })
-        console.log(data);
+        // })
+        // console.log(data);
         
         
         setMuseums(data);
+        setSearchMuseums(data);
         console.log(museums);
         
       } catch (error) {
@@ -104,7 +131,6 @@ const MuseumAll = () => {
                 </td>
                 <td>{museum.location}</td>
                 <td>{museum.rating}</td>
-                <div>{museum.rating} ffdgf</div>
               </tr>
              
             ))}
