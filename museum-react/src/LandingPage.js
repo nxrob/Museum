@@ -55,6 +55,7 @@ const LandingPage = () => {
   const adminCredentials = [
     { username: 'Administrator', password: 'AllHailTheNewFlesh' },
     { username: 'Apprentice', password: 'LearningOnTheJob' },
+    {username: 'a', password: 'b'},
   ];
   
   const handleLogin = (e) => {
