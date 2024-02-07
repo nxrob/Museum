@@ -4,13 +4,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const LandingPage = () => {
+  const [location, setLocation] = useState('');
+  const [isSearching, setIsSearching] = useState(false);
+  const [results, setResults] = useState([]);
   const [preferences, setPreferences] = useState({
     location: '',
     theme: '',
     artist: '',
     guideRating: '',
   });
-
   const [loginInfo, setLoginInfo] = useState({
     username: '',
     password: '',
@@ -59,6 +61,28 @@ const LandingPage = () => {
     {username: 'a', password: 'b'},
   ];
   
+  const handleSearch = async () => {
+    setIsSearching(true);
+    try {
+      const queryParams = new URLSearchParams(preferences).toString();
+      const response = await fetch(`http://localhost:8080/museum?${queryParams}`);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      
+      setResults(data); 
+      
+      if (isLoggedIn) {
+        console.log('Recording search:', preferences);
+      }
+    } catch (error) {
+      console.error('Search failed:', error);
+    }
+    setIsSearching(false);
+  };
+
   const handleLogin = (e) => {
     e.preventDefault();
     const isAdminUser = adminCredentials.some(cred => cred.username === loginInfo.username && cred.password === loginInfo.password);
@@ -94,6 +118,7 @@ const LandingPage = () => {
   setIsAdmin(false);
   setCurrentUser('');
   console.log('Logged out');
+  setLoginInfo({ username: '', password: '' });
 };
 useEffect(() => {
   const storedIsLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -107,8 +132,6 @@ useEffect(() => {
   }
 }, []);
  
-  
-
   return (
     <div className="landing-page">
       {isLoggedIn && (
@@ -139,7 +162,7 @@ useEffect(() => {
           <input type="text" name="theme" placeholder="Theme" value={preferences.theme} onChange={handleChange} />
           <input type="text" name="artist" placeholder="Artist" value={preferences.artist} onChange={handleChange} />
           <input type="text" name="guideRating" placeholder="Guide Rating" value={preferences.guideRating} onChange={handleChange} />
-          <button type="submit">Search</button>
+          <button onClick={handleSearch}>Search</button>
         </div>
       </div>
       
@@ -186,9 +209,6 @@ useEffect(() => {
     </div>
   </div>
 )}
-
-
-
     </div>
   );
   

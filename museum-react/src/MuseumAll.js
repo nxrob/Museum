@@ -12,6 +12,8 @@ const MuseumAll = () => {
 	const navigate = useNavigate();
 	const images = require.context('../images/museum/', true);
 
+	const [loaded, setLoaded] = useState("")
+
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -19,6 +21,7 @@ const MuseumAll = () => {
 				console.log(response);
 				const data = await response.json();
 				setMuseums(data);
+				setSearchMuseums(data);
 			} catch (error) {
 				console.error('Error fetching data:', error);
 			}
@@ -29,6 +32,30 @@ const MuseumAll = () => {
 
 	useEffect(() =>{
 		setMuseums(searchMuseums);
+	  }, [searchMuseums]);
+
+	  useEffect(() => {
+		const fetchMuseumRatings = async () => {
+		  const museumsWithRatings = await Promise.all(
+			searchMuseums.map(async (museum) => {
+			  try {
+				const response = await fetch('http://localhost:8080/museum/' + museum.name + '/rating');
+				const data = await response.json();
+				museum.rating = data;
+				return museum;
+			  } catch (error) {
+				console.error('Error fetching data: ', error);
+				return museum;
+			  }
+			})
+		  );
+		  setMuseums(museumsWithRatings);
+		 
+		};
+	  
+		if (museums) {
+		  fetchMuseumRatings();
+		}
 	  }, [searchMuseums]);
 
 	return (

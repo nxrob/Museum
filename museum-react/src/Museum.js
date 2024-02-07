@@ -14,9 +14,12 @@ const Museum = () => {
     const [worksInMuseum, setWorksInMuseum] = useState();
     const [guidesMentioningMuseum, setGuidesMentioningMuseum] = useState();
     const [topRated, setTopRated] = useState();
+    const [museumRating, setMuseumRating] = useState("");
 
     const images = require.context('../images/museum/', true);
     const museumImage = images(`./${museumName}.jpeg`)
+
+    console.log("Rendering... (museumInfo = " + museumInfo + ")")
 
     useEffect(() => {
         setWorksInMuseum(searchArt);
@@ -44,6 +47,16 @@ const Museum = () => {
                 console.error('Error fetching data:', error);
             }
         };
+        const getMuseumRating = async () => {
+            try {
+                const response = await fetch('http://localhost:8080/museum/' + museumName + '/rating');
+                const data = await response.json();
+                setMuseumRating(data);
+            } catch (error) {
+                console.error('Error fetching data: ', error);
+                setMuseumRating("No Ratings Yet");
+            }
+        }
 
         const getGuidesMentioningMuseum = async () => {
             try {
@@ -62,6 +75,7 @@ const Museum = () => {
         const displayTopRated = () => {
 
         }
+        getMuseumRating();   
 
         getMuseumInfo();
         getWorksInMuseum();
@@ -91,10 +105,12 @@ const Museum = () => {
                                     ) : (<p></p>)}
                                 </p>
                                 <b>{museumInfo.location}</b><br />
+                                <b>Museum Guide Rating: {museumRating}</b>
                                 <span>
                                     {museumInfo.description}
                                 </span>
                             </div>
+
 
                         </div>
                         <div class="col my-3">

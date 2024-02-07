@@ -1,0 +1,15 @@
+.data-analysis-container {
+    padding: 20px;
+  }
+  
+  .category-selection {
+    margin-bottom: 20px;
+  }
+  
+  .category-selection label,
+  .category-selection select {
+    margin-right: 10px;
+  }
+  
+  
+  
