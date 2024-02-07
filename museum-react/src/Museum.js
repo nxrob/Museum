@@ -105,7 +105,8 @@ const Museum = () => {
                                     ) : (<p></p>)}
                                 </p>
                                 <b>{museumInfo.location}</b><br />
-                                <b>Museum Guide Rating: {museumRating}</b>
+                                <b>Museum Guide Rating: {museumRating}</b><br/>
+                                <hr />
                                 <span>
                                     {museumInfo.description}
                                 </span>

@@ -69,7 +69,7 @@ const MuseumAll = () => {
                                 <div class="card bg-light m-auto" style={{ width: "35rem" }}>
                                     <img src={images(`./${museum.name}.jpeg`)} class="card-img-top" style={{ maxHeight: "200px", objectFit: "cover" }} />
                                     <div class="card-body">
-                                        <p class="card-text">{museum.name}</p>
+                                        <p class="card-text">{museum.name} ({museum.rating} ★)</p>
                                     </div>
                                 </div>
                             </Link>
