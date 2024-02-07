@@ -24,9 +24,13 @@ public interface MuseumRepository extends CrudRepository<Museum, Integer> {
     @Query("SELECT new com.example.Museum.dto.MuseumDto(m.id, m.name) FROM Museum m WHERE m.name LIKE %:name%")
     List<MuseumDto> getMuseumByName(String name);
     @Query("SELECT new com.example.Museum.dto.MuseumDto(m) FROM Museum m WHERE m.name LIKE %:name%")
-
     List<MuseumDto> findMuseumByName(String name);
 
     void deleteById(int id);
 
+    @Query("SELECT new com.example.Museum.dto.MuseumDto(m) FROM Museum m join GuideLookup l on l.museum_id = m.id where l.guide_id = :id")
+    List<MuseumDto> getMuseumsInGuide(int id);
+
+    @Query("SELECT AVG(l.rating) FROM GuideLookup l JOIN Museum m on l.museum_id = m.id WHERE m.name LIKE %:museumName%")
+    double getMuseumRating(String museumName);
 }

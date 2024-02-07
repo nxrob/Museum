@@ -34,6 +34,11 @@ public class MuseumController {
         return museums;
     }
 
+    @GetMapping("/museum/{museumName}/rating")
+    public double getMuseumRating(@PathVariable String museumName){
+        return museumService.getMuseumRating(museumName);
+    }
+
     @GetMapping("/museum/{museumName}")
     public Museum getMuseum(@PathVariable String museumName) {
         return museumService.getMuseum(museumName);

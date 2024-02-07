@@ -39,3 +39,17 @@ l
 <src/main/java/com/example/Museum/service/ArtServiceImpl.java,d\8\d8b35d0f91f51bc37ae0349eb56a1322eb97001e
 h
 8src/main/java/com/example/Museum/service/ArtService.java,9\1\91cd579076bebdeb5dac1c5a0e94e66e7238b6e7
+a
+1src/main/java/com/example/Museum/model/Guide.java,a\6\a665ba4b542ffc8e8e6a1c27012fe404802b1d0c
+p
+@src/main/java/com/example/Museum/controller/GuideController.java,a\8\a80b025ca1e848bba682dd08b3a20f3f190ca925
+j
+:src/main/java/com/example/Museum/service/GuideService.java,8\d\8d2e8c8f81327198a9004b8382feb8485f6c8a7e
+n
+>src/main/java/com/example/Museum/service/GuideServiceImpl.java,a\2\a2d9a6eb1a78407133311ea1687f6dbdc8e85899
+p
+@src/main/java/com/example/Museum/repository/GuideRepository.java,5\c\5c28f6a31d0faaaa527eeb02d411b7c53031ce85
+g
+7src/main/java/com/example/Museum/model/GuideLookup.java,2\d\2dca9c2978eb2cf68dbfe2d51f1b161095b70519
+d
+4src/main/java/com/example/Museum/model/Painting.java,c\1\c1d3aa4a120dcf4c25f0a734c6a67f16104f6cad
