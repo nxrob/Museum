@@ -12,6 +12,7 @@ import com.example.Museum.util.ArtDtoConverter;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,6 +98,12 @@ public class MuseumServiceImpl implements MuseumService {
     public void deleteById(int id) {
         museumRepository.deleteById(id);
 
+    }
+
+    @Override
+    public double getMuseumRating(String museumName) {
+        DecimalFormat numberFormat = new DecimalFormat("#.0");
+        return Double.parseDouble(numberFormat.format(museumRepository.getMuseumRating(museumName)));
     }
 
 }

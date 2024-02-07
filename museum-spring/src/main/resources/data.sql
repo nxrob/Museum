@@ -209,6 +209,22 @@ INSERT IGNORE INTO GUIDE_LOOKUP (id, guide_id, museum_id, rating) VALUES
 (40018, 30003, 100011, 8),
 (40019, 30003, 100012, 5);
 
-INSERT IGNORE INTO GUIDE (id, name, summary)
+INSERT IGNORE INTO GUIDE (id, name, summary) VALUES (30004, 'Modern Institutes','A collection of museums and galleries, all founded within the last century');
+INSERT IGNORE INTO GUIDE_LOOKUP (id, guide_id, museum_id, rating) VALUES
+(40021, 30004, 100005, 6),
+(40022, 30004, 100009, 3),
+(40023, 30004, 100010, 5),
+(40024, 30004, 100011, 8),
+(40025, 30004, 100012, 9),
+(40026, 30004, 100013, 7);
 
-
+INSERT IGNORE INTO GUIDE (id, name, summary) VALUES (30005, 'Globetrotter','Institutes from all corners of the world');
+INSERT IGNORE INTO GUIDE_LOOKUP (id, guide_id, museum_id, rating) VALUES
+(40027, 30005, 100001, 6),
+(40028, 30005, 100003, 9),
+(40029, 30005, 100005, 5),
+(40030, 30005, 100006, 7),
+(40031, 30005, 100008, 10),
+(40032, 30005, 100009, 5),
+(40033, 30005, 100012, 6),
+(40034, 30005, 100015, 8);
