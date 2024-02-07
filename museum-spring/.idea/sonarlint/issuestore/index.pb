@@ -35,3 +35,7 @@ n
 >src/main/java/com/example/Museum/repository/ArtRepository.java,f\e\fe5115ad23a3dfc081bd7f8e1dffba072e74f746
 b
 2src/main/java/com/example/Museum/model/Museum.java,0\b\0be31635c474fc170baf7bb8ab479a491b5fa36b
+l
+<src/main/java/com/example/Museum/service/ArtServiceImpl.java,d\8\d8b35d0f91f51bc37ae0349eb56a1322eb97001e
+h
+8src/main/java/com/example/Museum/service/ArtService.java,9\1\91cd579076bebdeb5dac1c5a0e94e66e7238b6e7
