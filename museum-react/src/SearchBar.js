@@ -21,7 +21,7 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, toggleArt
         console.log(allNames);
 
 
-        if (toggleArt) {
+        if (toggleArtist) {
             let tempArtists = new Array;
             try {
                 const response = await fetch("http://localhost:8080/artist");
@@ -32,7 +32,7 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, toggleArt
                 console.error('Error fetching data: ', error);
             }
 
-            if (location !== null) {
+            if (location != null) {
                 tempArtists.forEach(async element => {
                     var isPresent = false;
                     const response = await fetch("http://localhost:8080?filter=" + element.name)
@@ -54,7 +54,7 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, toggleArt
                 });
             }
         }
-        if (toggleArtist) {
+        if (toggleArt) {
 
             let tempArtworks = new Array;
            
@@ -175,7 +175,7 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, toggleArt
                     });
                     setSearchArt(tempData);
                 }
-                
+
                 else {
                     setSearchArt(data);
                 }

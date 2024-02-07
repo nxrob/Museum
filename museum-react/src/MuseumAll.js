@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Route, Routes, useParams } from 'react-router-dom';
-import Museum from './Museum';
 import SearchBar from './SearchBar';
 
 const MuseumAll = () => {
@@ -37,7 +36,7 @@ const MuseumAll = () => {
   return (
     <div class="container-fluid text-center">
       <h1>Museums</h1><br/>
-      <SearchBar setSearchMuseums={setSearchMuseums} filter="museum" />
+      <SearchBar setSearchMuseums={setSearchMuseums} toggleMuseum={true} />
       
       <br />
       {museums ? (

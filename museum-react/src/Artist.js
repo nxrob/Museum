@@ -50,7 +50,7 @@ const Artist = () => {
 
     return (
         <div class="container w-50">
-            <SearchBar setSearchArt={setSearchArt} filter="art" artist={artistName}/>
+            <SearchBar setSearchArt={setSearchArt} toggleArt={true} artist={artistName}/>
             <div class="row mh-25">
                 <div class="col">
                     <div class="container my-3 py-3" style={{ backgroundColor: "#EFF6F9" }}>
