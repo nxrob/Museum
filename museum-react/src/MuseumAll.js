@@ -34,31 +34,8 @@ const MuseumAll = () => {
 	return (
 		<div class="container w-50">
 			<Header pageTitle={"Museums"} setSearchMuseums={setSearchMuseums} toggleMuseum={true} />
-				{/* {museums ? (
-					<table class="table table-striped" style={{ marginLeft: "auto", marginRight: "auto" }}>
-						<thead>
-							<tr>
-								<th scope="col">Name</th>
-								<th scope="col">Location</th>
-							</tr>
-						</thead>
-						<tbody>
-							{museums.map((museum) => (
-								<tr>
-									<td>
-										<Link to={museum.name}>{museum.name}</Link>
-									</td>
-									<td>{museum.location}</td>
-								</tr>
-							))}
-						</tbody>
-					</table>
-
-				) : (
-					<p>Loading...</p>
-				)} */}
 				{museums ? (
-                <div class="row row-cols-1 row-cols-md-2 g-4 my-3">
+                <div class="row row-cols-1 row-cols-md-2 g-4 my-2">
                     {museums.map((museum) => (
                         <div class="col">
                             <Link to={museum.name} class="text-decoration-none">

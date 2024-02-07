@@ -18,7 +18,6 @@ function Header({ pageTitle, setSearchArt, toggleArt, artist, setSearchMuseums, 
                 toggleArtist={toggleArtist} location={location}
                 />
             </div>
-            {console.log('TOGGLE ART: ' + artist)}
             <div class="col d-flex flex-row-reverse h-50 align-self-center">
                 <button class="btn btn-primary" type="button" style={{ maxWidth: "50px" }} onClick={() => navigate(-1)}>Back</button>
                 <button class="btn btn-primary mx-1" type="button" style={{ maxWidth: "55px" }} onClick={() => navigate("/")}>Home</button>
