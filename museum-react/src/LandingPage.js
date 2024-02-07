@@ -52,26 +52,30 @@ const LandingPage = () => {
     };
   };
   const [isAdmin, setIsAdmin] = useState(false);
-  const adminCredentials = {
-    username: 'Administrator',
-    password: 'AllHailTheNewFlesh',
-  };
+  const adminCredentials = [
+    { username: 'Administrator', password: 'AllHailTheNewFlesh' },
+    { username: 'Apprentice', password: 'LearningOnTheJob' },
+  ];
+  
   const handleLogin = (e) => {
     e.preventDefault();
-    if (loginInfo.username === adminCredentials.username && loginInfo.password === adminCredentials.password) {
+    const isAdminUser = adminCredentials.some(cred => cred.username === loginInfo.username && cred.password === loginInfo.password);
+  
+    if (isAdminUser) {
       setIsLoggedIn(true);
-      setIsAdmin(true); 
+      setIsAdmin(true);
       setCurrentUser(loginInfo.username);
       console.log('Logged in as admin:', loginInfo.username);
     } else if (loginInfo.username && loginInfo.password) {
       setIsLoggedIn(true);
-      setIsAdmin(false); 
+      setIsAdmin(false);
       setCurrentUser(loginInfo.username);
       console.log('Logged in with:', loginInfo);
     } else {
       console.log('Login failed: Username or password is missing');
     }
   };
+  
   
 
   const handleLogout = () => {
