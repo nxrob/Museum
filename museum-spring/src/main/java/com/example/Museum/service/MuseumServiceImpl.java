@@ -12,6 +12,7 @@ import com.example.Museum.util.ArtDtoConverter;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +45,7 @@ public class MuseumServiceImpl implements MuseumService {
         List<Museum> tempList = museumRepository.findAll();
         List<MuseumDto> museums = new ArrayList<>();
 
-        for(Museum museum : tempList) {
+        for (Museum museum : tempList) {
             museums.add(converter.convertToMuseumStandardDto(museum));
         }
         return museums;
@@ -56,7 +57,12 @@ public class MuseumServiceImpl implements MuseumService {
     }
 
     @Override
-    public List<ArtDto> getWorksInMuseum(String museumName) {
+    public Museum getMuseum(String museumName) {
+        return museumRepository.findByNameContains(museumName);
+    }
+
+    @Override
+    public List<ArtDto> getMuseumWorks(String museumName) {
         ArtDtoConverter converter = new ArtDtoConverter();
 
         Museum museum = museumRepository.findByNameContains(museumName);
@@ -64,7 +70,7 @@ public class MuseumServiceImpl implements MuseumService {
         List<Art> collectionTemp = museum.getCollection();
         List<ArtDto> collectionInDto = new ArrayList<>();
 
-        for(Art art : collectionTemp) {
+        for (Art art : collectionTemp) {
             collectionInDto.add(converter.convertArtToStandardDto(art));
         }
         return collectionInDto;
@@ -76,12 +82,28 @@ public class MuseumServiceImpl implements MuseumService {
         Museum museum = museumRepository.findByNameContains(museumName);
         List<Art> worksByArtistInMuseum = new ArrayList<>();
         List<Art> collection = museum.getCollection();
-        for(Art art : collection) {
-            if(art.getArtist().equals(artist)) {
+        for (Art art : collection) {
+            if (art.getArtist().equals(artist)) {
                 worksByArtistInMuseum.add(art);
             }
         }
         return worksByArtistInMuseum;
+    }
+
+    @Override
+    public List<MuseumDto> findMuseumByName(String name) {
+        return museumRepository.findMuseumByName(name);
+    }
+
+    public void deleteById(int id) {
+        museumRepository.deleteById(id);
+
+    }
+
+    @Override
+    public double getMuseumRating(String museumName) {
+        DecimalFormat numberFormat = new DecimalFormat("#.0");
+        return Double.parseDouble(numberFormat.format(museumRepository.getMuseumRating(museumName)));
     }
 
 }
