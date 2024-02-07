@@ -200,5 +200,15 @@ INSERT IGNORE INTO GUIDE_LOOKUP(id,guide_id, museum_id, rating) VALUES
 (40013, 30002, 100015, 8);
 
 
+INSERT IGNORE INTO GUIDE (id, name, summary) VALUES (30003, 'US Tour', 'A collection of America\'s most well known museums, from East coast to West!');
+INSERT IGNORE INTO GUIDE_LOOKUP (id, guide_id, museum_id, rating) VALUES
+(40014, 30003, 100004, 8),
+(40015, 30003, 100005, 9),
+(40016, 30003, 100007, 3),
+(40017, 30003, 100010, 5),
+(40018, 30003, 100011, 8),
+(40019, 30003, 100012, 5);
+
+INSERT IGNORE INTO GUIDE (id, name, summary)
 
 
