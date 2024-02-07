@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface GuideRepository extends CrudRepository<Guide, Integer>{
     List<Guide> findAll();
+
+    Guide getGuideByName(String name);
 }
