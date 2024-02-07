@@ -47,7 +47,7 @@ const Museum = () => {
 
     return (
         <div class="container w-50">
-            <SearchBar setSearchArt={setSearchArt} filter="artistArt" location={museumName}/>
+            <SearchBar setSearchArt={setSearchArt} toggleArt={true} toggleArtist={true} location={museumName}/>
             {worksInMuseum && museumInfo ? (
                 <div>
                     <div class="container my-3 py-3" style={{ backgroundColor: "#EFF6F9" }}>
