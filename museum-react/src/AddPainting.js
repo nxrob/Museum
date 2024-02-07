@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function UpdateArt() {
+function AddArt() {
   const [art, setArt] = useState({
     id: '',
     title: '',
@@ -9,7 +9,6 @@ function UpdateArt() {
     yearOf: '',
     medium: '',
     location: '',
-    locationId: '',
     description: '',
     style: ''
   });
@@ -31,7 +30,7 @@ function UpdateArt() {
     setIsError(false);
 
     try {
-      const response = await axios.put('http://localhost:8080/art', art);
+      const response = await axios.post('http://localhost:8080/painting', art);
       console.log('Response:', response.data);
       setMessage('Painting entry has been updated successfully');
     } catch (error) {
@@ -44,7 +43,7 @@ function UpdateArt() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h1>Update an Art Entry based on ID</h1>
+        <h1>Add a painting based on ID</h1>
         <div>
           <label>
             Art ID:
@@ -152,4 +151,4 @@ function UpdateArt() {
   );
 }
 
-export default UpdateArt;
+export default AddArt;

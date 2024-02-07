@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function UpdateArt() {
-  const [art, setArt] = useState({
-    id: '',
-    title: '',
-    artistName: '',
-    yearOf: '',
-    medium: '',
-    location: '',
-    locationId: '',
-    description: '',
-    style: ''
-  });
+function AddSculpture() {
+    const [art, setArt] = useState({
+      id: '',
+      title: '',
+      artistName: '',
+      yearOf: '',
+      medium: '',
+      location: '',
+      locationId: '',
+      description: '',
+      style: ''
+    });
 
   const [message, setMessage] = useState('');
   const [isError, setIsError] = useState(false);
@@ -31,7 +31,7 @@ function UpdateArt() {
     setIsError(false);
 
     try {
-      const response = await axios.put('http://localhost:8080/art', art);
+      const response = await axios.post('http://localhost:8080/sculpture', art);
       console.log('Response:', response.data);
       setMessage('Painting entry has been updated successfully');
     } catch (error) {
@@ -44,7 +44,7 @@ function UpdateArt() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h1>Update an Art Entry based on ID</h1>
+        <h1>Add a sculpture based on ID</h1>
         <div>
           <label>
             Art ID:
@@ -143,7 +143,7 @@ function UpdateArt() {
             />
           </label>
         </div>
-        <button type="submit">Update Entry</button>
+        <button type="submit">Add Sculpture</button>
       </form>
       {message && (
         <p style={{ color: isError ? 'red' : 'green' }}>{message}</p>
@@ -152,4 +152,4 @@ function UpdateArt() {
   );
 }
 
-export default UpdateArt;
+export default AddSculpture;

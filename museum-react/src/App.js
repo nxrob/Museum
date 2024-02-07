@@ -5,8 +5,10 @@ import Museum from './Museum';
 import UpdateMuseum from './UpdateMuseum'
 import AddMuseum from './AddMuseum'
 import UpdateArt from './UpdateArt'
+import AddPainting from './AddPainting'
 import UpdateArtist from './UpdateArtist'
 import AddArtist from './AddArtist'
+import AddSculpture from './AddSculpture';
 
 
 function App() {
@@ -19,8 +21,11 @@ function App() {
           <Route path="/updateMuseum" element={<UpdateMuseum />} />
           <Route path="/addMuseum" element={<AddMuseum />} />
           <Route path="/updateArt" element={<UpdateArt />} />
+          <Route path="/addPainting" element={<AddPainting/>} />
+          <Route path="/addSculpture" element={<AddSculpture/>} />
           <Route path="/updateArtist" element={<UpdateArtist />} />
           <Route path="/addArtist" element={<AddArtist />} />
+        
         </Routes>
       </div>
     </Router>
