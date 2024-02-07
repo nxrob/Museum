@@ -124,3 +124,31 @@
   .login-status button:hover {
     background-color: #c62828; 
   }
+
+  .admin-section {
+    display: flex;
+    justify-content: space-between; 
+  }
+  
+  .admin-actions {
+    width: 300px; 
+    margin-left: auto; 
+    padding: 10px;
+    border: 1px solid #f00; 
+    border-radius: 5px;
+  }
+  
+  .admin-actions h2 {
+    text-align: center;
+  }
+  
+  table {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  td {
+    border-bottom: 1px solid #eee; 
+    padding: 8px; 
+  }
+  
