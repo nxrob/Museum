@@ -18,6 +18,7 @@ import Artist from './Artist';
 import MuseumDelete from './MuseumDelete';
 import ReadMuseum from './ReadMuseum';
 import ReadArt from './ReadArt';
+import Artists from './Artists';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/museums" element={<MuseumAll />} />
           <Route path="/museums/:museumName" element={<Museum />} />
+          <Route path="/artists" element={<Artists />} />
           <Route path="/artists/:artistName" element={<Artist />} />
           <Route path="/Admin" element={<Admin />} />
 

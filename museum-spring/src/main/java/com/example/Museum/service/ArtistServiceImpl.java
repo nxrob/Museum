@@ -1,10 +1,12 @@
 package com.example.Museum.service;
 
+import com.example.Museum.dto.ArtDto;
 import com.example.Museum.dto.ArtistDto;
 import com.example.Museum.model.Artist;
 import com.example.Museum.model.Museum;
 import com.example.Museum.model.Art;
 import com.example.Museum.repository.ArtistRepository;
+import com.example.Museum.util.ArtDtoConverter;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -25,13 +27,19 @@ public class ArtistServiceImpl implements ArtistService {
     }
 
     @Override
-    public List<Art> findObjectsByArtist(String name) {
+    public List<ArtDto> findObjectsByArtist(String name) {
         Artist artist = artistRepository.findByName(name);
-        return artist.getRepertoire();
+        List<Art> repertoireTemp = artist.getRepertoire();
+        List<ArtDto> repertoire = new ArrayList<>();
+        ArtDtoConverter artDtoConverter = new ArtDtoConverter();
+        for (Art art : repertoireTemp) {
+            repertoire.add(artDtoConverter.convertArtToStandardDto(art));
+        }
+        return repertoire;
     }
 
     @Override
-    public String getMuseumWithMostWorksByArtist(String name) {
+    public Museum getMuseumWithMostWorksByArtist(String name) {
 
         Artist artist = artistRepository.findByName(name);
         List<Museum> museums = museumService.findAll();
@@ -52,8 +60,7 @@ public class ArtistServiceImpl implements ArtistService {
             }
         }
 
-        return "Currently, the " + museumWithMostWorks.getName() + " holds the most paintings by "
-                + artist.getName() + " at a total of " + count + " work(s).";
+        return museumWithMostWorks;
     }
 
     @Override

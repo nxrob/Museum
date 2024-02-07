@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Route, Routes, useNavigate, useParams } from 'react-router-dom';
 import Museum from './Museum';
+import Header from './Header';
 
 const MuseumAll = () => {
 
 	const [museums, setMuseums] = useState(null);
 	const navigate = useNavigate();
+	const images = require.context('../images/museum/', true);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -24,20 +26,8 @@ const MuseumAll = () => {
 
 	return (
 		<div class="container w-50">
-			<div class="rounded-1 row mx-auto mt-2 border" style={{ backgroundColor: "#EFF6F9" }}>
-				<span class="col my-2 align-self-center">
-					<span class="display-3">𝐌𝐮𝐬𝐞𝐮𝐦𝐬</span>
-				</span>
-				<div class="col d-flex flex-row-reverse h-50 align-self-center">
-					<button class="btn btn-primary" type="button" style={{ maxWidth: "50px" }} onClick={() => navigate(-1)}>Back</button>
-				</div>
-			</div>
-			<div class="text-left">
-				<div class="container my-3 py-3" style={{ backgroundColor: "#EFF9F1" }}>
-					<h1>Museums in our Catalogue</h1>
-				</div>
-				<br />
-				{museums ? (
+			<Header pageTitle={"Museums"}/>
+				{/* {museums ? (
 					<table class="table table-striped" style={{ marginLeft: "auto", marginRight: "auto" }}>
 						<thead>
 							<tr>
@@ -59,8 +49,26 @@ const MuseumAll = () => {
 
 				) : (
 					<p>Loading...</p>
-				)}
-			</div>
+				)} */}
+				{museums ? (
+                <div class="row row-cols-1 row-cols-md-2 g-4 my-3">
+                    {museums.map((museum) => (
+                        <div class="col">
+                            <Link to={museum.name} class="text-decoration-none">
+                                <div class="card bg-light m-auto" style={{ width: "35rem" }}>
+                                    <img src={images(`./${museum.name}.jpeg`)} class="card-img-top" style={{ maxHeight: "200px", objectFit: "cover" }} />
+                                    <div class="card-body">
+                                        <p class="card-text">{museum.name}</p>
+                                    </div>
+                                </div>
+                            </Link>
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <p>Loading museums...</p>
+            )
+            }
 		</div>
 	);
 

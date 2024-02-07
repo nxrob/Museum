@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Header from './Header';
 
 const Artist = () => {
 
@@ -9,6 +10,7 @@ const Artist = () => {
 
     const [artistWorks, setArtistWorks] = useState();
     const [artistInfo, setArtistInfo] = useState();
+    const [museumWithMostWorks, setMuseumWithMostWorks] = useState();
 
     const images = require.context('../images/artist/', true);
     const artistImage = images(`./${artistName}/artist.jpeg`)
@@ -34,29 +36,44 @@ const Artist = () => {
                 console.error('Error fetching data:', error);
             }
         }
+
+        const getMuseumWithMostWorks = async () => {
+            try {
+                const response = await fetch('http://localhost:8080/artist/' + artistName + '/mostworks');
+                const data = await response.json();
+                setMuseumWithMostWorks(data);
+            } catch (error) {
+                console.error('Error fetching data: ', error);
+            }
+        }
+
         getArtistWorks();
         getArtistInfo();
+        getMuseumWithMostWorks();
     }, []);
 
     return (
         <div class="container w-50">
-            <div class="rounded-1 row mx-auto mt-2 border" style={{ backgroundColor: "#EFF6F9" }}>
-                <span class="col my-2 align-self-center">
-                    <span class="display-3">𝐀𝐫𝐭𝐢𝐬𝐭𝐬</span>
-                </span>
-                <div class="col d-flex flex-row-reverse h-50 align-self-center">
-                    <button class="btn btn-primary" type="button" style={{ maxWidth: "50px" }} onClick={() => navigate(-1)}>Back</button>
-                </div>
-            </div>
+            <Header pageTitle={"Artists"} />
             <div class="row mh-25 d-flex">
                 <div class="col d-flex">
                     <div class="container my-3 py-3" style={{ backgroundColor: "#EFF9F1" }}>
                         {artistInfo ? (
                             <div>
-                                <h1>{artistName}</h1>
+                                <h1>{artistInfo.name}</h1>
                                 <b>{artistInfo.dobAndDod}</b><br />
                                 <b>Born in {artistInfo.birthplace}</b><br />
                                 {artistInfo.bio}
+                                <hr/>
+                                <b>Did you know?</b><br />
+                                {museumWithMostWorks ? (
+                                    <div>
+                                        <p>Currently, the <Link to={"/museums/"+museumWithMostWorks.name}>{museumWithMostWorks.name}</Link> holds more works by {artistInfo.name} than any other museum in our catalogue.</p>
+                                    </div>
+                                ) : (
+                                    <div></div>
+                                )}
+                                
                             </div>
                         ) : (<p>Loading artist info...</p>)
                         }
@@ -80,7 +97,13 @@ const Artist = () => {
                                         <span><b>Year: </b>{artwork.yearOf}</span>
                                     </li>
                                     <li className="list-group">
+                                        <span><b>Location: </b>{artwork.location}</span>
+                                    </li>
+                                    <li className="list-group">
                                         <span><b>Medium: </b>{artwork.medium}</span>
+                                    </li>
+                                    <li className="list-group">
+                                        <span><b>Style: </b>{artwork.style}</span>
                                     </li>
                                     <li className="list-group">
                                         <span><b>Description: </b>{artwork.description}</span>
