@@ -177,3 +177,28 @@ INSERT IGNORE INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, 
 
 --INSERT IGNORE INTO ART SELECT * FROM PAINTING;
 --INSERT IGNORE INTO ART SELECT * FROM SCULPTURE;
+
+
+INSERT IGNORE INTO GUIDE (id, name, summary) VALUES (30001, 'The Works of Da Vinci', 'A guide, which showcases world renowned museums containing works by the Renaissance artist Leonardo da Vinci.');
+INSERT IGNORE INTO GUIDE_LOOKUP(id,guide_id, museum_id, rating) VALUES
+(40001, 30001, 100001, 8),
+(40002, 30001, 100003, 7),
+(40003, 30001, 100005, 6),
+(40004, 30001, 100006, 10),
+(40005, 30001, 100008, 8);
+
+
+INSERT IGNORE INTO GUIDE (id, name, summary) VALUES (30002, 'Western Europe\s Finest', 'The biggest and best of Western Europe');
+INSERT IGNORE INTO GUIDE_LOOKUP(id,guide_id, museum_id, rating) VALUES
+(40006, 30002, 100001, 7),
+(40007, 30002, 100002, 8),
+(40008, 30002, 100003, 9),
+(40009, 30002, 100006, 6),
+(40010, 30002, 100009, 5),
+(40011, 30002, 100013, 10),
+(40012, 30002, 100014, 7),
+(40013, 30002, 100015, 8);
+
+
+
+
