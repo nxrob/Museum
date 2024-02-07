@@ -41,7 +41,7 @@ function UpdateArtist() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h1>Update an Artist Entry based on ID</h1>
+        <h1>Update an Artist Entry</h1>
         <div>
           <label>
             Artist ID:
