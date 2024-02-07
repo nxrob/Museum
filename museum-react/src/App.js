@@ -18,7 +18,7 @@ import Artist from './Artist';
 import MuseumDelete from './MuseumDelete';
 import ReadMuseum from './ReadMuseum';
 import ReadArt from './ReadArt';
-
+import DataAnalysisPage from './DataAnalysisPage';
 
 function App() {
   return (
@@ -30,6 +30,7 @@ function App() {
           <Route path="/museums/:museumName" element={<Museum />} />
           <Route path="/artists/:artistName" element={<Artist />} />
           <Route path="/Admin" element={<Admin />} />
+          <Route path="/Admin/data-analysis" Component={DataAnalysisPage} />
 
           <Route path = "/Admin/Artist" element = {<AdminArtistHome/>}/>
           <Route path = "/Admin/Artist/Create" element = {<AdminCreate />}/>
@@ -52,4 +53,3 @@ function App() {
   );
 }
 export default App;
-

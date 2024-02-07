@@ -98,7 +98,15 @@
   button:hover {
     background-color: #0056b3; 
   }
-
+  .content {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .search-boxes, .search-records {
+    flex: 1; 
+    padding: 1rem; 
+  }
  
 
   .login-status {
@@ -151,4 +159,3 @@
     border-bottom: 1px solid #eee; 
     padding: 8px; 
   }
-  
