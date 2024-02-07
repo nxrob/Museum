@@ -23,7 +23,12 @@ public class GuideServiceImpl implements GuideService {
     }
 
     @Override
-    public List<MuseumDto> getMuseumsInGuide(int id) {
-        return museumRepository.getMuseumsInGuide(id);
+    public List<MuseumDto> getMuseumsInGuide(String name) {
+        return museumRepository.getMuseumsInGuide(name);
+    }
+
+    @Override
+    public Guide getGuideByName(String name) {
+        return guideRepository.getGuideByName(name);
     }
 }

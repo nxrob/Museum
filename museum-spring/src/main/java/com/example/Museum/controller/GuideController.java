@@ -26,8 +26,13 @@ public class GuideController {
         return guideService.findAll();
     }
 
-    @GetMapping("/guide/{id}")
-        public List<MuseumDto> getMuseumsInGuide(@PathVariable int id) {
-        return guideService.getMuseumsInGuide(id);
+    @GetMapping("/guide/{guideName}")
+    public Guide getGuideByName(@PathVariable String guideName) {
+        return guideService.getGuideByName(guideName);
+    }
+
+    @GetMapping("/guide/{guideName}/list")
+        public List<MuseumDto> getMuseumsInGuide(@PathVariable String guideName) {
+        return guideService.getMuseumsInGuide(guideName);
     }
 }
