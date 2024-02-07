@@ -34,7 +34,34 @@ const Guide = () => {
     }, []);
 
     return (
-        ddsd
-    )
+        <div class="container w-50">
+            {guideInfo && museumsInGuide ? (
+                <div>
+                    <div class="container my-3 py-3" style = {{backgroundColor: "#EFF9F1"}}>
+                        <h1>{guideInfo.name}</h1>
+                        <b>{guideInfo.summary}</b><br/>                        
+                    </div>
 
-}
+                    {museumsInGuide.map((museum) => (
+                        <div>
+                            <ul className="list-group" style={{ width: "100%"}}>
+                                <li className="list-group-item" style={{backgroundColor: "#EFF9F1"}}>
+                                    <span><Link to={"/museum/" + museum.name}>{museum.name}</Link></span>
+                                </li>
+                                <li className="list-group-item" style={{backgroundColor: "#EFF9F1"}}>
+                                    <b>{museum.location}</b>
+                                </li>
+                            </ul>
+                            </div>
+                        
+                    ))}
+                    </div>
+            ) : (
+                <p>Loading museum...</p>
+            )}
+        </div>
+    );
+
+};
+
+export default Guide;
