@@ -31,3 +31,16 @@ q
 Asrc/main/java/com/example/Museum/repository/MuseumRepository.java,4\9\498d21dc1b2b28c72496d3d09bfcb103d87c593f
 q
 Asrc/main/java/com/example/Museum/repository/ArtistRepository.java,0\4\044a940e6344104e66e48a2d12201ab3cf81b243
+f
+6src/main/java/com/example/Museum/config/WebConfig.java,6\9\69491ab6bc9afcfdbcdbf18e30c89a52e847d2c3
+d
+4src/main/java/com/example/Museum/model/Painting.java,c\1\c1d3aa4a120dcf4c25f0a734c6a67f16104f6cad
+h
+8src/main/java/com/example/Museum/service/ArtService.java,9\1\91cd579076bebdeb5dac1c5a0e94e66e7238b6e7
+l
+<src/main/java/com/example/Museum/service/ArtServiceImpl.java,d\8\d8b35d0f91f51bc37ae0349eb56a1322eb97001e
+n
+>src/main/java/com/example/Museum/repository/ArtRepository.java,f\e\fe5115ad23a3dfc081bd7f8e1dffba072e74f746
+:
+
+Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
