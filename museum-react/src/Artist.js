@@ -81,7 +81,7 @@ const Artist = () => {
 
     return (
         <div class="container w-75">
-            <Header pageTitle={"Artists"} setSearchArt={setSearchArt} toggleArt={true} artist={artistName} />
+            <Header pageTitle={"Artists"} setSearchArt={setSearchArt} toggleArt={true} artist={artistName} toggleSearch={true}/>
             {/* <SearchBar setSearchArt={setSearchArt} toggleArt={true} artist={artistName}/> */}
             <div class="row mh-25 d-flex">
                 <div class="col d-flex">
