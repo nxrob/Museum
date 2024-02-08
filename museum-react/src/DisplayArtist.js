@@ -11,7 +11,7 @@ function DisplayArtist(artists) {
                       
                             <p>Id: : {artist.id}</p>
                             <p>Name: : {artist.name}</p>
-                            {/* <p>Biography: : {artist.bio}</p> */}
+                           
                                              
                         </div>
                     ))}

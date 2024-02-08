@@ -2,10 +2,11 @@ import React from "react"
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 
 
+
 const AdminArtHome = () => {
     return(
-        <div>
-            <h1>Artwork Catalog Admin Site</h1>
+        <div className="ArtistHome">
+            <h1 className="ArtistHeader">Artwork Catalog Admin Site</h1>
             <nav>
             <ul>
               
