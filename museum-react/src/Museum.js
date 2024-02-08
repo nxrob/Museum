@@ -86,6 +86,19 @@ const Museum = () => {
 
     }, []);
 
+    function getMuseumImage() {
+        let imageSource = ""
+
+        try {
+            imageSource = './' + museumName + '.jpeg';
+            let src = images(imageSource);
+        } catch (error) {
+            console.error('Error, museum image not found, ',error);
+            imageSource = './Default.jpeg';
+        }
+        return imageSource;
+    }
+
     return (
         <div class="container w-75">
             <Header pageTitle={"Museums"} setSearchArt={setSearchArt} toggleArt={true} toggleArtist={true} location={museumName} />
@@ -115,7 +128,8 @@ const Museum = () => {
 
                         </div>
                         <div class="col my-3">
-                            <img src={museumImage} class="img-fluid float-end" />
+                            {/* <img src={museumImage} class="img-fluid float-end" /> */}
+                            <img src={images(getMuseumImage())} class="img-fluid float-end"/>
                         </div>
                     </div>
                 ) : (
