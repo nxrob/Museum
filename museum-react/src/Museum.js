@@ -90,7 +90,7 @@ const Museum = () => {
         let imageSource = ""
 
         try {
-            imageSource = './' + {museumName} + '.jpeg';
+            imageSource = './' + museumName + '.jpeg';
             let src = images(imageSource);
         } catch (error) {
             console.error('Error, museum image not found, ',error);

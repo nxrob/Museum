@@ -27,6 +27,7 @@ const Artists = () => {
 
     function getArtistImage(artistName) {
         let imageSource = "";
+        
        
         console.log(artistName);
         try {

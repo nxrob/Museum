@@ -68,6 +68,8 @@ const MuseumAll = () => {
 			console.error('Error, museum image not found: ', error);
 			imageSource = './Default.jpeg';
 		}
+
+		return imageSource;
 	  }
 
 	return (

@@ -67,8 +67,9 @@ const Artist = () => {
     function getArtistImage() {
 
         let imageSource = "";
+        console.log(artistName);
         try {
-            imageSource = './'+{artistName}+'/artist.jpeg'
+            imageSource = './'+artistName+'/artist.jpeg'
             let src = images(imageSource);
         } catch (error) {
             console.error('Error, artist image not found, ', error);
