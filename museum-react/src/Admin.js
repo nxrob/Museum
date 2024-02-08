@@ -13,10 +13,11 @@ import ImageGallery from "./ImageGallery";
 const Admin = () => {
     
     return (
-        <div className="adminContainer">
+        <div className="adminContainer" >
+          
             
          <div>
-         <Header/>
+         <Header pageTitle={"Catalogues"}/>
         
           <nav className = "nav-links">
           
@@ -47,7 +48,7 @@ const Admin = () => {
         
          
          </div>
-         <ImageGallery/>
+         
          <Footer/>
           
         </div>
