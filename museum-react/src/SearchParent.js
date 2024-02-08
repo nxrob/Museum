@@ -14,6 +14,7 @@ function SearchParent() {
             <MuseumAll searchMuseums={searchMuseums} searchArt={searchArt} searchArtists={searchArtists}/>
             <Artist searchArt={searchArt}/>
             <Museum searchArt={searchArt} searchArtists ={searchArtists}/>
+            <Artists setSearchArtists={setSearchArtists}/>
         </div>
     );
 }
