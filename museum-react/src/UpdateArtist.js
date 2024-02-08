@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import "./Admin.css"; // Ensure your CSS file is correctly imported
 
 function UpdateArtist() {
   const [artist, setArtist] = useState({
@@ -27,7 +28,6 @@ function UpdateArtist() {
     setIsError(false);
 
     try {
-
       const response = await axios.put('http://localhost:8080/artist', artist);
       console.log('Response:', response.data);
       setMessage('Artist entry has been updated successfully');
@@ -39,67 +39,63 @@ function UpdateArtist() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <h1>Update an Artist Entry</h1>
-        <div>
-          <label>
-            Artist ID:
-            <input
-              type="number"
-              name="id"
-              value={artist.id}
-              onChange={handleChange}
-            />
-          </label>
+    <div className="ArtistHome">
+      <h1 className="PageHeader">Update an Artist Entry</h1>
+      <form onSubmit={handleSubmit} className="formStyle">
+        <div className="inputContainer">
+          <label>Artist ID:</label>
+          <input
+            type="number"
+            name="id"
+            value={artist.id}
+            onChange={handleChange}
+            className="inputStyle"
+          />
         </div>
-        <div>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="name"
-              value={artist.name}
-              onChange={handleChange}
-            />
-          </label>
+        <div className="inputContainer">
+          <label>Name:</label>
+          <input
+            type="text"
+            name="name"
+            value={artist.name}
+            onChange={handleChange}
+            className="inputStyle"
+          />
         </div>
-        <div>
-          <label>
-            Date of Birth and Death:
-            <input
-              type="text"
-              name="dobAndDod"
-              value={artist.dobAndDod}
-              onChange={handleChange}
-            />
-          </label>
+        <div className="inputContainer">
+          <label>Date of Birth and Death:</label>
+          <input
+            type="text"
+            name="dobAndDod"
+            value={artist.dobAndDod}
+            onChange={handleChange}
+            className="inputStyle"
+          />
         </div>
-        <div>
-          <label>
-            Birthplace:
-            <input
-              type="text"
-              name="birthplace"
-              value={artist.birthplace}
-              onChange={handleChange}
-            />
-          </label>
+        <div className="inputContainer">
+          <label>Birthplace:</label>
+          <input
+            type="text"
+            name="birthplace"
+            value={artist.birthplace}
+            onChange={handleChange}
+            className="inputStyle"
+          />
         </div>
-        <div>
-          <label>
-            Bio:
-            <textarea
-              name="bio"
-              value={artist.bio}
-              onChange={handleChange}
-            />
-          </label>
+        <div className="inputContainer">
+          <label>Bio:</label>
+          <textarea
+            name="bio"
+            value={artist.bio}
+            onChange={handleChange}
+            className="inputStyle"
+            style={{ height: '100px' }}
+          />
         </div>
-        <button type="submit">Update Entry</button>
+        <button type="submit" className="buttonStyle">Update Entry</button>
       </form>
       {message && (
-        <p style={{ color: isError ? 'red' : 'green' }}>{message}</p>
+        <p className={isError ? 'errorMessage' : 'successMessage'}>{message}</p>
       )}
     </div>
   );

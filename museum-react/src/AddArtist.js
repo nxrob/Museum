@@ -90,7 +90,7 @@ function AddArtist() {
               value={artist.bio}
               onChange={handleChange}
               className="inputStyle"
-              style={{height: '100px'}}
+              // style={{height: '100px'}}
             />
           </div>
           <button type="submit" className="buttonStyle">Add Artist</button>
