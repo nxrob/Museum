@@ -66,7 +66,7 @@ public class MuseumController {
     }
 
     @DeleteMapping("/museum/{id}")
-    void deleteMuseum(int id){
+    void deleteMuseum(@PathVariable int id){
         museumService.deleteById(id);
     }
 

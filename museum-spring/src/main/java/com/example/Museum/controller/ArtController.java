@@ -84,4 +84,9 @@ public class ArtController {
         return artService.saveArt(artDto,new Sculpture());
     }
 
+    @DeleteMapping("/art/{id}")
+    void deleteArt(@PathVariable int id){
+        artService.deleteById(id);
+    }
+
 }

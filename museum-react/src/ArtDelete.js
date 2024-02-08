@@ -1,11 +1,12 @@
 import React, {useState, useEffect, useRef} from "react";
 import DisplayArt from "./DisplayArt";
+import  "./ArtDelete.css"
 
 const ArtDelete = () => {
     const [submitClicked, setSubmitClicked] = useState(0)
     const hasPageBeenRendered = useRef(false);
     const [artData,  setArtData] = useState(null)
-    const [chosenId, setChosenId] = useState(1)
+    const [chosenId, setChosenId] = useState(0)
 
     const fetchData = async () => {
         try{
@@ -45,7 +46,8 @@ const ArtDelete = () => {
 
 
     return(
-       <div>
+       <div className="container">
+        <div className="leftSide">
         <h1> Careful, you're deleting art from our catalog</h1>
         <b> What's the id of the art you want to delete?</b>
         <input
@@ -59,10 +61,12 @@ const ArtDelete = () => {
             Submit
         </button>
       </p>
-      <c>
+        </div>
+        
+      <div className="rigthSide">
         For  your reference,  
         {DisplayArt(artData)}
-      </c>
+      </div>
       
        </div>
     )
