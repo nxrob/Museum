@@ -16,6 +16,8 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+/idea
+./idea
 
 # Package Files #
 *.jar
@@ -34,3 +36,4 @@ replay_pid*
 data/
 museum-react/package-lock.json
 museum-react/package-lock.json
+*.iml

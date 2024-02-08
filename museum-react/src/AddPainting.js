@@ -43,7 +43,7 @@ function AddArt() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h1>Add a painting based on ID</h1>
+        <h1>Add a Painting</h1>
         <div>
           <label>
             Art ID:

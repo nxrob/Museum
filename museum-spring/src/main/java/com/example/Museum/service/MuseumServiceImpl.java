@@ -4,14 +4,17 @@ import com.example.Museum.dto.MuseumDto;
 import com.example.Museum.dto.ArtDto;
 import com.example.Museum.model.Art;
 import com.example.Museum.model.Artist;
+import com.example.Museum.model.Guide;
 import com.example.Museum.model.Museum;
 import com.example.Museum.repository.ArtistRepository;
+import com.example.Museum.repository.GuideRepository;
 import com.example.Museum.repository.MuseumRepository;
 import com.example.Museum.util.MuseumDtoConverter;
 import com.example.Museum.util.ArtDtoConverter;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +24,7 @@ public class MuseumServiceImpl implements MuseumService {
 
     private MuseumRepository museumRepository;
     private ArtistRepository artistRepository;
+    private GuideRepository guideRepository;
 
     @Override
     public Museum saveMuseum(Museum museum) {
@@ -44,7 +48,7 @@ public class MuseumServiceImpl implements MuseumService {
         List<Museum> tempList = museumRepository.findAll();
         List<MuseumDto> museums = new ArrayList<>();
 
-        for(Museum museum : tempList) {
+        for (Museum museum : tempList) {
             museums.add(converter.convertToMuseumStandardDto(museum));
         }
         return museums;
@@ -56,7 +60,12 @@ public class MuseumServiceImpl implements MuseumService {
     }
 
     @Override
-    public List<ArtDto> getWorksInMuseum(String museumName) {
+    public Museum getMuseum(String museumName) {
+        return museumRepository.findByNameContains(museumName);
+    }
+
+    @Override
+    public List<ArtDto> getMuseumWorks(String museumName) {
         ArtDtoConverter converter = new ArtDtoConverter();
 
         Museum museum = museumRepository.findByNameContains(museumName);
@@ -64,7 +73,7 @@ public class MuseumServiceImpl implements MuseumService {
         List<Art> collectionTemp = museum.getCollection();
         List<ArtDto> collectionInDto = new ArrayList<>();
 
-        for(Art art : collectionTemp) {
+        for (Art art : collectionTemp) {
             collectionInDto.add(converter.convertArtToStandardDto(art));
         }
         return collectionInDto;
@@ -76,12 +85,28 @@ public class MuseumServiceImpl implements MuseumService {
         Museum museum = museumRepository.findByNameContains(museumName);
         List<Art> worksByArtistInMuseum = new ArrayList<>();
         List<Art> collection = museum.getCollection();
-        for(Art art : collection) {
-            if(art.getArtist().equals(artist)) {
+        for (Art art : collection) {
+            if (art.getArtist().equals(artist)) {
                 worksByArtistInMuseum.add(art);
             }
         }
         return worksByArtistInMuseum;
+    }
+
+    @Override
+    public List<MuseumDto> findMuseumByName(String name) {
+        return museumRepository.findMuseumByName(name);
+    }
+
+    public void deleteById(int id) {
+        museumRepository.deleteById(id);
+
+    }
+
+    @Override
+    public double getMuseumRating(String museumName) {
+        DecimalFormat numberFormat = new DecimalFormat("#.0");
+        return Double.parseDouble(numberFormat.format(museumRepository.getMuseumRating(museumName)));
     }
 
 }

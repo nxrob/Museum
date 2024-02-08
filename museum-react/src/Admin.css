@@ -1,0 +1,67 @@
+.adminContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  background-color: lightblue;
+  padding: 10px;
+  margin:0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-links li {
+  margin: 10px;
+  width: 25%; /* Adjust the width of each list item */
+  text-align: center; /* Center the content horizontally */
+}
+
+.nav-links img {
+  width: 100%; /* Make the image fill its container */
+  height: auto; /* Ensures the aspect ratio is maintained */
+}
+
+.image-container {
+  border: 20px solid #010b0f;
+  width: 300px; /* Set a fixed width for the container */
+  height: 480px; /* Set a fixed height for the container */
+  border-radius: 20px;
+  padding: px;
+  margin: 10px; /* Add margin for spacing between containers */
+  background-color: #95b38f;
+}
+
+
+.artworkImage {
+  max-height: 380px; 
+}
+
+.museumImage {
+  max-height: 380px; 
+}
+
+.artistText, .artworkText,  .museumText{
+  text-align:center;
+  margin-top: 10px;
+  color: black;
+}
+
+body {
+  background-color: #f5f5dc;
+}
+
+
+
+
+

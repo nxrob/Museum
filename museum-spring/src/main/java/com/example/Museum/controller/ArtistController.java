@@ -1,5 +1,6 @@
 package com.example.Museum.controller;
 
+import com.example.Museum.dto.ArtDto;
 import com.example.Museum.dto.ArtistDto;
 import com.example.Museum.model.Art;
 import com.example.Museum.model.Artist;
@@ -25,12 +26,17 @@ public class ArtistController {
     }
 
     @GetMapping("/artist/{name}")
-    public List<Art> getObjectsByArtist(@PathVariable String name) {
+    public List<ArtDto> getObjectsByArtist(@PathVariable String name) {
         return artistService.findObjectsByArtist(name);
     }
 
+    @GetMapping("/artist/{name}/info")
+    public Artist getArtistInfo(@PathVariable String name) {
+        return artistService.getArtistInfo(name);
+    }
+
     @GetMapping("/artist/{name}/mostworks")
-    public String getMuseumWithMostWorksByArtist(@PathVariable String name) {
+    public Museum getMuseumWithMostWorksByArtist(@PathVariable String name) {
         return artistService.getMuseumWithMostWorksByArtist(name);
     }
 

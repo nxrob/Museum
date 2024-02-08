@@ -18,6 +18,7 @@ public class Museum {
 
     private String name;
     private String location;
+    private String description;
 
     @JsonManagedReference(value = "collectionReference")
     @OneToMany(mappedBy = "museum")

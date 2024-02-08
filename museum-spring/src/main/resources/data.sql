@@ -1,24 +1,22 @@
 -- MUSEUMS --
 
-INSERT IGNORE INTO MUSEUM (id, name, location) VALUES
-(100001, 'Museo Nacional del Prado', 'Madrid, Spain'),
-(100002, 'National Gallery', 'London, UK'),
-(100003, 'Tate Modern', 'London, UK'),
-(100004, 'Metropolitan Museum of Art', 'New York City, USA'),
-(100005, 'Los Angeles County Museum of Modern Art', 'Los Angeles, USA'),
-(100006, 'Louvre Museum', 'Paris, France'),
-(100007, 'Art Institute of Chicago', 'Chicago, USA'),
-(100008, 'Hermitage Museum', 'St. Petersburg, Russia'),
-(100009, 'Van Gogh Museum', 'Amsterdam, Netherlands'),
-(100010, 'National Gallery of Art', 'Washington D.C., USA'),
-(100011, 'Museum of Modern Art', 'New York City, USA'),
-(100012, 'Guggenheim Museum', 'New York City, USA'),
-(100013, 'Centre Pompidou', 'Paris, France'),
-(100014, 'Uffizi Gallery', 'Florence, Italy'),
-(100015, 'Vatican Museums', 'Florence, Italy')
+INSERT IGNORE INTO MUSEUM (id, name, location, description) VALUES
+(100001, 'Museo Nacional del Prado', 'Madrid, Spain', 'Situated in Madrid, the Museo Nacional del Prado is a treasure trove of European art, showcasing an extensive collection of masterpieces. Founded in 1819, it features works by iconic artists like Velázquez, Goya, and El Greco, offering a profound journey through Spanish art history. The museum''s diverse exhibits span from the Renaissance to the 20th century, making it a cultural beacon for art enthusiasts worldwide, while its architectural grandeur adds to the allure of this artistic haven, drawing millions of visitors annually to marvel at the timeless beauty within its hallowed halls.'),
+(100002, 'The National Gallery, London', 'London, UK', 'Nestled in the heart of London, The National Gallery stands as a testament to Western European art, housing an unparalleled collection of paintings. Established in 1824, this cultural gem boasts an extensive array of masterpieces from the likes of Van Gogh, Rembrandt, and Leonardo da Vinci. The museum''s architectural elegance complements the richness of its artistic offerings, inviting visitors to embark on a visual journey through centuries of creativity. With its commitment to accessibility and education, The National Gallery serves as a dynamic hub for art appreciation, inspiring generations to connect with the timeless beauty of human expression.'),
+(100003, 'Tate Modern', 'London, UK', 'Transformed from a former power station into a contemporary art powerhouse, Tate Modern is a dynamic force in the global art scene. Located on the banks of the Thames, it houses an extraordinary collection of modern and contemporary art. From Picasso and Warhol to cutting-edge installations, the museum pushes boundaries and sparks dialogue. Its industrial-chic architecture provides a fitting backdrop for groundbreaking exhibitions, making Tate Modern a vibrant cultural destination. As a symbol of London''s creative spirit, the museum invites visitors to explore and engage with the ever-evolving landscape of artistic expression in the 21st century.'),
+(100004, 'Metropolitan Museum of Art', 'New York City, USA', 'The Metropolitan Museum of Art, colloquially known as "The Met," stands as a cultural titan on New York City''s Fifth Avenue. Since its founding in 1870, The Met has become a global beacon of art and culture, boasting a vast and diverse collection spanning 5,000 years. From ancient Egyptian artifacts to European masterpieces and American decorative arts, the museum''s galleries offer a comprehensive journey through the history of human creativity. Its iconic facade and central location in Central Park make The Met an enduring symbol of artistic excellence and a must-visit destination for art connoisseurs and casual enthusiasts alike.'),
+(100005, 'Los Angeles County Museum of Modern Art', 'Los Angeles, USA', 'Located in the heart of Los Angeles, the Los Angeles County Museum of Art (LACMA) is a dynamic cultural institution that celebrates the diversity of modern and contemporary art. With a collection spanning centuries and continents, LACMA showcases a kaleidoscope of artistic expressions, from European masterpieces to innovative installations. The museum''s commitment to accessibility and community engagement fosters a vibrant cultural hub in Southern California. LACMA''s iconic Urban Light installation and innovative exhibitions make it a must-visit destination for art lovers seeking to explore the ever-evolving landscape of global creativity in a sprawling metropolis.'),
+(100006, 'Louvre Museum', 'Paris, France', 'Nestled on the banks of the Seine, the Louvre Museum is a cultural icon and the world''s largest art museum. Housed in the Louvre Palace, this historic monument invites visitors on a journey through time and artistry. Home to the enigmatic Mona Lisa, the majestic Venus de Milo, and countless other masterpieces, the Louvre is a testament to human creativity spanning from ancient civilizations to the Renaissance and beyond. Its grandiose architecture, marked by the iconic glass pyramid, adds to the allure of this Parisian treasure trove, attracting millions of art enthusiasts and curious minds from around the globe.'),
+(100007, 'Art Institute of Chicago', 'Chicago, USA', 'The Art Institute of Chicago, located in Grant Park, is a cultural cornerstone celebrated for its rich collection and educational initiatives. Founded in 1879, the museum houses an extensive array of artworks, including the iconic "American Gothic" by Grant Wood and Claude Monet''s enchanting "Water Lilies." The institute''s commitment to fostering artistic appreciation and scholarship is reflected in its diverse exhibitions and educational programs. Its neoclassical Beaux-Arts building, adorned with bronze lion statues, stands as a testament to Chicago''s cultural heritage and the enduring power of art to inspire and enrich lives.'),
+(100008, 'Hermitage Museum', 'St. Petersburg, Russia', 'Situated in the opulent Winter Palace, the State Hermitage Museum in St. Petersburg is a cultural jewel, showcasing the grandeur of Russian art and history. Founded in 1764 by Catherine the Great, the museum''s vast collection spans diverse civilizations, featuring works by Da Vinci, Michelangelo, and Rembrandt. The Hermitage''s sumptuous interiors and architectural splendor serve as a testament to imperial Russia''s cultural legacy, drawing visitors into a world of artistic magnificence. As one of the world''s foremost museums, the Hermitage continues to captivate with its rich tapestry of art, history, and the splendor of the Russian Empire.'),
+(100009, 'Van Gogh Museum', 'Amsterdam, Netherlands', 'Nestled in the cultural heart of Amsterdam, the Van Gogh Museum pays homage to the iconic Dutch painter Vincent van Gogh. Housing the world''s largest collection of his works, the museum provides an intimate journey through the artist''s life and masterpieces. From the vibrant "Sunflowers" to the poignant "Starry Night," Van Gogh''s brilliance is on full display, offering visitors a profound connection to the artist''s emotions and creative genius. The museum''s modern architecture and immersive exhibits make it a must-visit destination for art enthusiasts seeking to delve into the soul-stirring world of one of history''s most celebrated painters.'),
+(100010, 'National Gallery of Art', 'Washington D.C., USA', 'Located on the National Mall in the heart of the U.S. capital, the National Gallery of Art is a cultural beacon showcasing a vast collection of European and American masterpieces. Established in 1937, the museum''s neoclassical architecture sets the stage for a diverse array of artworks, from Renaissance paintings to contemporary sculptures. With highlights including Leonardo da Vinci''s ''Ginevra de'' Benci'' and Vermeer''s ''A Lady Writing'', the National Gallery invites visitors to explore the richness and diversity of human creativity, making it a pivotal institution in the nation''s capital and a destination for art aficionados.'),
+(100011, 'MoMA', 'New York City, USA', ' The Museum of Modern Art, or MoMA, located in the heart of Midtown Manhattan, is a global hub for contemporary art. Since its founding in 1929, MoMA has been at the forefront of artistic innovation, housing an extensive collection of modern and contemporary masterpieces. From Picasso and Warhol to cutting-edge installations, the museum continually pushes artistic boundaries. Its commitment to education and accessibility makes MoMA a dynamic cultural space, inspiring visitors to engage with the ever-evolving landscape of 20th and 21st-century art in one of the world''s most iconic cultural institutions.'),
+(100012, 'Guggenheim Museum', 'New York City, USA', 'Designed by Frank Lloyd Wright, the Solomon R. Guggenheim Museum in New York City is an architectural masterpiece and a pioneering force in modern art. Since its opening in 1959, the Guggenheim has showcased avant-garde and contemporary works in its spiraling rotunda. The museum''s iconic architecture, characterized by its unique spiral design, provides a visually stunning backdrop for the diverse collection of art within. From Kandinsky to Koons, the Guggenheim continues to captivate audiences, offering a distinctive and immersive experience that seamlessly fuses architecture and art in the heart of Manhattan.'),
+(100013, 'Centre Pompidou', 'Paris, France', 'Situated in the heart of Paris, the Centre Pompidou is a cultural landmark celebrated for its avant-garde architecture and commitment to contemporary art. Designed by Renzo Piano and Richard Rogers, the museum''s inside-out aesthetic houses a diverse collection of modern and contemporary works. From Picasso to Kandinsky, the Centre Pompidou is a dynamic space that challenges artistic norms and engages visitors in a dialogue about the ever-evolving nature of creativity. With its vibrant cultural programming and striking architectural presence, the Centre Pompidou stands as a testament to Paris''s role as a global capital of art and innovation.'),
+(100014, 'Uffizi Gallery', 'Florence, Italy', 'The Uffizi Gallery, nestled in the heart of Florence, is a Renaissance masterpiece housing one of the world''s finest art collections. Established in 1581, the museum''s rich holdings include works by Botticelli, Michelangelo, and Leonardo da Vinci. Its opulent galleries and iconic Vasari Corridor showcase the evolution of Italian art and culture. From the ethereal beauty of "The Birth of Venus" to the power of Michelangelo''s sculptures, the Uffizi captivates visitors with the brilliance of the Renaissance. As a cultural treasure trove, the gallery continues to enchant art lovers seeking to immerse themselves in the timeless allure of Italian art.'),
+(100015, 'Vatican Museums', 'Florence, Italy', 'The Vatican Museums, located within Vatican City, are a testament to the grandeur of the Catholic Church''s artistic legacy. With origins dating back to the Renaissance, the museums house an unparalleled collection of art, including Michelangelo''s iconic Sistine Chapel ceiling. From classical sculptures to Raphael''s masterpieces, the Vatican Museums offer a journey through centuries of artistic achievement. The museums'' opulent halls, adorned with frescoes and sculptures, create a transcendent atmosphere, inviting visitors to explore the intersection of faith and art in one of the world''s most significant cultural institutions.')
 ;
-
-
 
 
 -- PAINTINGS --
@@ -177,3 +175,54 @@ INSERT IGNORE INTO SCULPTURE (id, museum_id, artist_id, title, year_of, medium, 
 
 --INSERT IGNORE INTO ART SELECT * FROM PAINTING;
 --INSERT IGNORE INTO ART SELECT * FROM SCULPTURE;
+
+
+INSERT IGNORE INTO GUIDE (id, name, summary) VALUES (30001, 'The Works of Da Vinci', 'A guide, which showcases world renowned museums containing works by the Renaissance artist Leonardo da Vinci.');
+INSERT IGNORE INTO GUIDE_LOOKUP(id,guide_id, museum_id, rating) VALUES
+(40001, 30001, 100001, 8),
+(40002, 30001, 100003, 7),
+(40003, 30001, 100005, 6),
+(40004, 30001, 100006, 10),
+(40005, 30001, 100008, 8);
+
+
+INSERT IGNORE INTO GUIDE (id, name, summary) VALUES (30002, 'Western Europe\s Finest', 'The biggest and best of Western Europe');
+INSERT IGNORE INTO GUIDE_LOOKUP(id,guide_id, museum_id, rating) VALUES
+(40006, 30002, 100001, 7),
+(40007, 30002, 100002, 8),
+(40008, 30002, 100003, 9),
+(40009, 30002, 100006, 6),
+(40010, 30002, 100009, 5),
+(40011, 30002, 100013, 10),
+(40012, 30002, 100014, 7),
+(40013, 30002, 100015, 8);
+
+
+INSERT IGNORE INTO GUIDE (id, name, summary) VALUES (30003, 'US Tour', 'A collection of America\'s most well known museums, from East coast to West!');
+INSERT IGNORE INTO GUIDE_LOOKUP (id, guide_id, museum_id, rating) VALUES
+(40014, 30003, 100004, 8),
+(40015, 30003, 100005, 9),
+(40016, 30003, 100007, 3),
+(40017, 30003, 100010, 5),
+(40018, 30003, 100011, 8),
+(40019, 30003, 100012, 5);
+
+INSERT IGNORE INTO GUIDE (id, name, summary) VALUES (30004, 'Modern Institutes','A collection of museums and galleries, all founded within the last century');
+INSERT IGNORE INTO GUIDE_LOOKUP (id, guide_id, museum_id, rating) VALUES
+(40021, 30004, 100005, 6),
+(40022, 30004, 100009, 3),
+(40023, 30004, 100010, 5),
+(40024, 30004, 100011, 8),
+(40025, 30004, 100012, 9),
+(40026, 30004, 100013, 7);
+
+INSERT IGNORE INTO GUIDE (id, name, summary) VALUES (30005, 'Globetrotter','Institutes from all corners of the world');
+INSERT IGNORE INTO GUIDE_LOOKUP (id, guide_id, museum_id, rating) VALUES
+(40027, 30005, 100001, 6),
+(40028, 30005, 100003, 9),
+(40029, 30005, 100005, 5),
+(40030, 30005, 100006, 7),
+(40031, 30005, 100008, 10),
+(40032, 30005, 100009, 5),
+(40033, 30005, 100012, 6),
+(40034, 30005, 100015, 8);

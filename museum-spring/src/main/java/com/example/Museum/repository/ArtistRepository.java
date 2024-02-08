@@ -20,4 +20,11 @@ public interface ArtistRepository extends CrudRepository<Artist, Integer> {
     @Query("SELECT new com.example.Museum.dto.ArtistDto(a.id, a.name) FROM Artist a WHERE a.name LIKE %:name%")
     List<ArtistDto> findArtistDtoByName(String name);   //Returns the ArtistDto object for a specific artist, with fields specified above
 
+
+    void deleteById(int id);
+
+
+    @Query("SELECT new com.example.Museum.dto.ArtistDto(a) FROM Artist a WHERE a.name LIKE %:name%")
+    List<ArtistDto> getArtistsByName(String name);
+
 }

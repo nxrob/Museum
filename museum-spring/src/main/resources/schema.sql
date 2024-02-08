@@ -1,7 +1,8 @@
 CREATE TABLE IF NOT EXISTS MUSEUM (
    id INT PRIMARY KEY,
    name VARCHAR(250) NOT NULL,
-   location VARCHAR(250) NOT NULL
+   location VARCHAR(250) NOT NULL,
+   description VARCHAR(2000) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS ARTIST (
@@ -49,4 +50,17 @@ CREATE TABLE IF NOT EXISTS ART (
      description VARCHAR(1000) NOT NULL,
      FOREIGN KEY (museum_id) references MUSEUM(id),
      FOREIGN KEY (artist_id) references ARTIST(id)
+);
+
+CREATE TABLE IF NOT EXISTS GUIDE (
+    id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    summary VARCHAR(2000) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS GUIDE_LOOKUP (
+    id INT PRIMARY KEY,
+    guide_id INT NOT NULL,
+    museum_id INT NOT NULL,
+    rating INT NOT NULL
 );

@@ -40,7 +40,7 @@ function UpdateMuseum() {
     <div>
       <form onSubmit={handleSubmit}>
         <div>
-          <h1>Update a Museum Entry based on ID</h1>
+          <h1>Update a Museum Entry</h1>
           <label>
             Museum ID:
             <input

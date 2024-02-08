@@ -44,7 +44,7 @@ function AddSculpture() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h1>Add a sculpture based on ID</h1>
+        <h1>Add a Sculpture</h1>
         <div>
           <label>
             Art ID:
