@@ -18,6 +18,7 @@ target/
 !**/src/test/**/target/
 /idea
 ./idea
+/.idea
 
 # Package Files #
 *.jar
