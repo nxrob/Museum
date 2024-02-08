@@ -36,4 +36,6 @@ public interface MuseumRepository extends CrudRepository<Museum, Integer> {
 
     @Query("SELECT AVG(l.rating) FROM GuideLookup l JOIN Museum m on l.museum_id = m.id WHERE m.name LIKE %:museumName%")
     double getMuseumRating(String museumName);
+
+    Museum getMuseumById(Long id);
 }

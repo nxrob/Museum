@@ -33,4 +33,5 @@ public interface MuseumService {
 
     double getMuseumRating(String museumName);
 
+    Museum getMuseumById(Long id);
 }

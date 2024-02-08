@@ -102,5 +102,10 @@ public class ArtistServiceImpl implements ArtistService {
         return artistRepository.save(artist);
     }
 
+    @Override
+    public Artist getArtistById(Long id) {
+        return artistRepository.getArtistById(id);
+    }
+
 
 }

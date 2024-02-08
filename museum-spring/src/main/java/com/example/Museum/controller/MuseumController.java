@@ -55,6 +55,11 @@ public class MuseumController {
         return museumService.getWorksByArtistInMuseum(museumName, artistName);
     }
 
+    @GetMapping("/museum/id/{id}")
+    public Museum getMuseumById(@PathVariable Long id){
+        return museumService.getMuseumById(id);
+    }
+
     @PostMapping("/museum")
     public Museum createMuseum(@RequestBody Museum museum) {
         return museumService.saveMuseum(museum);

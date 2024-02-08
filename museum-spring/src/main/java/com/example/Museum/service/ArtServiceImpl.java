@@ -110,4 +110,10 @@ public class ArtServiceImpl implements ArtService {
         artRepository.deleteById(id);
     }
 
+    @Override
+    public ArtDto getArtById(Long id) {
+        return artRepository.getArtById(id);
+
+    }
+
 }

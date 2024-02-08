@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./Admin.css"; // Ensure your CSS file is correctly imported
 
@@ -17,6 +17,9 @@ function AddSculpture() {
 
     const [message, setMessage] = useState('');
     const [isError, setIsError] = useState(false);
+    const [newId, setNewId] = useState('');
+    const [newInfo, setNewInfo] = useState([]);
+    const [isSuccessful, setIsSuccessful] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -30,17 +33,81 @@ function AddSculpture() {
         e.preventDefault();
         setMessage('');
         setIsError(false);
+        setIsSuccessful(false);
 
         try {
             const response = await axios.post('http://localhost:8080/sculpture', art);
             console.log('Response:', response.data);
             setMessage('Sculpture entry has been added successfully');
+            setIsSuccessful(true);
+            setNewId(response.data.id);
         } catch (error) {
             console.error('Error adding sculpture entry:', error);
             setMessage('Error adding sculpture entry');
             setIsError(true);
         }
     };
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                console.log(newId)
+                const response = await fetch('http://localhost:8080/art/' + newId);
+                const data = await response.json();
+                console.log(data);
+                setNewInfo(data);
+            } catch (error) {
+                console.error('Error fetching artist, ', error);
+            }
+        };
+        fetchData();
+    }, [newId])
+
+    function displayNewInfo() {
+        console.log(isSuccessful);
+        if (isSuccessful) {
+            return (
+                <ul className="list-group" style={{ width: "100%" }}>
+                    <li className="list-group-item" >
+                        <b>New Sculpture Information:</b>
+                    </li>
+                    <ul class="py-3">
+                        <li className="list-group">
+                            <span><b>ID: </b>{newInfo.id}</span>
+                        </li>
+                        <li className="list-group">
+                            <span><b>Title: </b>{newInfo.name}</span>
+                        </li>
+                        <li className="list-group">
+                            <span><b>Artist Name: </b>{newInfo.location}</span>
+                        </li>
+                        <li className="list-group">
+                            <span><b>Year: </b>{newInfo.description}</span>
+                        </li>
+                        <li className="list-group">
+                            <span><b>Medium: </b>{newInfo.description}</span>
+                        </li>
+                        <li className="list-group">
+                            <span><b>Location: </b>{newInfo.description}</span>
+                        </li>
+                        <li className="list-group">
+                            <span><b>Location ID: </b>{newInfo.description}</span>
+                        </li>
+                        <li className="list-group">
+                            <span><b>Description: </b>{newInfo.description}</span>
+                        </li>
+                        <li className="list-group">
+                            <span><b>Style: </b>{newInfo.description}</span>
+                        </li>
+                    </ul>
+                </ul>
+            );
+        }
+        else {
+            return "";
+        };
+    };
+
 
     return (
         <div className="ArtistHome">
@@ -128,9 +195,14 @@ function AddSculpture() {
                 </div>
                 <button type="submit" className="buttonStyle">Add Sculpture</button>
             </form>
-            {message && (
-                <p className={isError ? 'errorMessage' : 'successMessage'}>{message}</p>
-            )}
+            <div>
+                {message && (
+                    <p className={isError ? 'errorMessage' : 'successMessage'}>{message}</p>
+                )}
+            </div>
+            <div>
+                {displayNewInfo()}
+            </div>
         </div>
     );
 }
