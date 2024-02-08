@@ -39,7 +39,7 @@ public class GuideServiceImpl implements GuideService {
         List<Guide> allGuides = guideRepository.findAll();
         List<Guide> guidesMentioningMuseum = new ArrayList<>();
         for(Guide guide : allGuides) {
-            for(MuseumDto museum : getMuseumsInGuide(Math.toIntExact(guide.getId()))) {
+            for(MuseumDto museum : getMuseumsInGuide(guide.getName())) {
                 if(museum.getName().equals(museumName)) {
                     guidesMentioningMuseum.add(guide);
                 }
