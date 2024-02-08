@@ -14,4 +14,5 @@ public interface GuideService {
 
     Guide getGuideByName(String name);
 
+    int getIndividualRating(String guideName, String museumName);
 }

@@ -5,10 +5,10 @@ html, body {
   .adminContainer {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure adminContainer takes up at least the full height of the viewport */
+    min-height: 100vh;
   }
   
-  /* Adjust margin-top of footer to push it away from the content */
+ 
   footer {
-    margin-top: auto; /* Push footer to the bottom of the page */
+    margin-top: auto; 
   }

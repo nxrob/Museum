@@ -18,6 +18,8 @@ target/
 !**/src/test/**/target/
 /idea
 ./idea
+/.idea
+museum-spring/.idea
 
 # Package Files #
 *.jar

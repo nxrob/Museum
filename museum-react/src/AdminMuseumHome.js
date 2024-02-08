@@ -1,10 +1,15 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import Footer from "./Footer";
+import Header from "./Header";
+
 
 
 const AdminMuseumHome = () => {
     return(
         <div>
+          <div className="adminContainer"> 
+          <Header/>
             <h1>Museum Catalog Admin Site</h1>
             <nav>
             <ul>
@@ -26,6 +31,8 @@ const AdminMuseumHome = () => {
              
             </ul>
           </nav>
+          </div>
+          <Footer/>
         </div>
     )
 }

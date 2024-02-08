@@ -4,6 +4,7 @@ import SearchBar from './SearchBar';
 
 import Museum from './Museum';
 import Header from './Header';
+import Footer from './Footer';
 
 const MuseumAll = () => {
 
@@ -74,7 +75,7 @@ const MuseumAll = () => {
 
 	return (
 		<div class="container w-75">
-			<Header pageTitle={"Museums"} setSearchMuseums={setSearchMuseums} toggleMuseum={true} />
+			<Header pageTitle={"Museums"} setSearchMuseums={setSearchMuseums} toggleMuseum={true} toggleSearch={true} />
 				{museums ? (
                 <div class="row row-cols-1 row-cols-md-2 g-4 my-2">
                     {museums.map((museum) => (
@@ -97,6 +98,7 @@ const MuseumAll = () => {
                 <p>Loading museums...</p>
             )
             }
+			<Footer/>
 		</div>
 	);
 
