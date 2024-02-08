@@ -35,7 +35,7 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, toggleArt
             if (location != null) {
                 tempArtists.forEach(async element => {
                     var isPresent = false;
-                    const response = await fetch("http://localhost:8080?filter=" + element.name)
+                    const response = await fetch("http://localhost:8080/art?filter=" + element.name)
                     const data = await response.json();
                     data.forEach(element => {
                         if ((element.location).includes(location)) {
@@ -59,7 +59,7 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, toggleArt
             let tempArtworks = new Array;
            
             try {
-                const response = await fetch("http://localhost:8080");
+                const response = await fetch("http://localhost:8080/art");
                 const data = await response.json();
                 tempArtworks = data;
             } catch (error) {
@@ -141,7 +141,7 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, toggleArt
         }
         if (toggleArt) {
             try {
-                const response = await fetch("http://localhost:8080?filter=" + input);
+                const response = await fetch("http://localhost:8080/art?filter=" + input);
                 const data = await response.json();
 
                 if (location != null) {

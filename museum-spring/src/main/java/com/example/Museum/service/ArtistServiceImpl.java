@@ -93,7 +93,14 @@ public class ArtistServiceImpl implements ArtistService {
     }
 
     @Override
+    public Artist getArtistInfo(String name) {
+        return artistRepository.findByName(name);
+    }
+
+    @Override
     public Artist saveArtist(Artist artist) {
         return artistRepository.save(artist);
     }
+
+
 }

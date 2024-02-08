@@ -30,6 +30,11 @@ public class ArtistController {
         return artistService.findObjectsByArtist(name);
     }
 
+    @GetMapping("/artist/{name}/info")
+    public Artist getArtistInfo(@PathVariable String name) {
+        return artistService.getArtistInfo(name);
+    }
+
     @GetMapping("/artist/{name}/mostworks")
     public Museum getMuseumWithMostWorksByArtist(@PathVariable String name) {
         return artistService.getMuseumWithMostWorksByArtist(name);
