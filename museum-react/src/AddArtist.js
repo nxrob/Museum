@@ -30,7 +30,7 @@ function AddArtist() {
   useEffect(() => {
     async function fetchData() {
       try {
-        console.log(newId);
+        console.log(newId)
         const response = await fetch('http://localhost:8080/artist/id/' + newId);
         const data = await response.json();
         console.log(data);

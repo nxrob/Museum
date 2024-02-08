@@ -17,4 +17,6 @@ public interface ArtService {
     ArtDto saveArt(ArtDto art);
 
     ArtDto saveArt(ArtDto artDto, Art art);
+
+    ArtDto getArtById(Long id);
 }

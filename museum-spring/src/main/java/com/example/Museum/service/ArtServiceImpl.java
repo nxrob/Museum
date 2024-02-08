@@ -105,4 +105,9 @@ public class ArtServiceImpl implements ArtService {
         return artDtoConverter.convertArtToStandardDto(art);
     }
 
+    @Override
+    public ArtDto getArtById(Long id) {
+        return artRepository.getArtById(id);
+    }
+
 }

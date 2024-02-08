@@ -25,7 +25,10 @@ public class ArtController {
         this.artService = artService;
     }
 
-
+    @GetMapping("/art/{id}")
+    public ArtDto getArtById(@PathVariable Long id) {
+        return artService.getArtById(id);
+    }
     @GetMapping("/art")
     public List<ArtDto> getAllArt(@RequestParam(value = "filter",required = false) String filter) {
         List<ArtDto> allArt = Collections.emptyList();
@@ -73,6 +76,8 @@ public class ArtController {
     public ArtDto updatePainting(@RequestBody ArtDto artDto) {
         return artService.saveArt(artDto,new Painting());
     }
+
+
 
     @PostMapping("/sculpture")
     public ArtDto createSculpture(@RequestBody ArtDto artDto) {

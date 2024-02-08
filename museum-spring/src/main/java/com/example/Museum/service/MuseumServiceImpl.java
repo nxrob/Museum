@@ -109,4 +109,9 @@ public class MuseumServiceImpl implements MuseumService {
         return Double.parseDouble(numberFormat.format(museumRepository.getMuseumRating(museumName)));
     }
 
+    @Override
+    public Museum getMuseumById(Long id) {
+        return museumRepository.getMuseumById(id);
+    }
+
 }
