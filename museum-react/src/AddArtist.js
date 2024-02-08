@@ -26,7 +26,16 @@ function AddArtist() {
   };
 
 
-  useEffect(() => {
+  useEffect(async () => {
+
+    try {
+      const response = await fetch('http://localhost:8080/artist/' + newId);
+      const data = await response.json();
+      setNewInfo(data);
+    } catch (error) {
+      console.error('Error fetching artist, ', error);
+    }
+
 
   }, [newId])
 
@@ -47,68 +56,94 @@ function AddArtist() {
     }
   };
 
-  
-    return (
-      <div className="ArtistHome">
-        <h1 className="PageHeader">Create an Artist Entry</h1>
-        <form onSubmit={handleSubmit} className="formStyle">
-          <div className="inputContainer">
-            <label>Artist ID:</label>
-            <input
-              type="number"
-              name="id"
-              value={artist.id}
-              onChange={handleChange}
-              className="inputStyle artistIdInput" 
-            />
-          </div>
-          <div className="inputContainer">
-            <label>Name:</label>
-            <input
-              type="text"
-              name="name"
-              value={artist.name}
-              onChange={handleChange}
-              className="inputStyle"
-            />
-          </div>
-          <div className="inputContainer">
-            <label>Date of Birth and Death:</label>
-            <input
-              type="text"
-              name="dobAndDod"
-              value={artist.dobAndDod}
-              onChange={handleChange}
-              className="inputStyle"
-            />
-          </div>
-          <div className="inputContainer">
-            <label>Birthplace:</label>
-            <input
-              type="text"
-              name="birthplace"
-              value={artist.birthplace}
-              onChange={handleChange}
-              className="inputStyle"
-            />
-          </div>
-          <div className="inputContainer">
-            <label>Bio:</label>
-            <textarea
-              name="bio"
-              value={artist.bio}
-              onChange={handleChange}
-              className="inputStyle"
-              // style={{height: '100px'}}
-            />
-          </div>
-          <button type="submit" className="buttonStyle">Add Artist</button>
-        </form>
+
+  return (
+    <div className="ArtistHome">
+      <h1 className="PageHeader">Create an Artist Entry</h1>
+      <form onSubmit={handleSubmit} className="formStyle">
+        <div className="inputContainer">
+          <label>Artist ID:</label>
+          <input
+            type="number"
+            name="id"
+            value={artist.id}
+            onChange={handleChange}
+            className="inputStyle artistIdInput"
+          />
+        </div>
+        <div className="inputContainer">
+          <label>Name:</label>
+          <input
+            type="text"
+            name="name"
+            value={artist.name}
+            onChange={handleChange}
+            className="inputStyle"
+          />
+        </div>
+        <div className="inputContainer">
+          <label>Date of Birth and Death:</label>
+          <input
+            type="text"
+            name="dobAndDod"
+            value={artist.dobAndDod}
+            onChange={handleChange}
+            className="inputStyle"
+          />
+        </div>
+        <div className="inputContainer">
+          <label>Birthplace:</label>
+          <input
+            type="text"
+            name="birthplace"
+            value={artist.birthplace}
+            onChange={handleChange}
+            className="inputStyle"
+          />
+        </div>
+        <div className="inputContainer">
+          <label>Bio:</label>
+          <textarea
+            name="bio"
+            value={artist.bio}
+            onChange={handleChange}
+            className="inputStyle"
+          // style={{height: '100px'}}
+          />
+        </div>
+        <button type="submit" className="buttonStyle">Add Artist</button>
+      </form>
+      <div>
         {message && (
           <p className={isError ? 'errorMessage' : 'successMessage'}>{message}</p>
         )}
       </div>
-    );
-  }
-  
+      <div>
+      <ul className="list-group" style={{ width: "100%" }}>
+        <li className="list-group-item" >
+          <b>New Artist Information:</b>
+        </li>
+        <ul class="py-3">
+          <li className="list-group">
+            <span><b>ID: </b>{newInfo.id}</span>
+          </li>
+          <li className="list-group">
+            <span><b>Name: </b>{newInfo.name}</span>
+          </li>
+          <li className="list-group">
+            <span><b>Date of Birth and Date of Death: </b>{newInfo.dobAndDod}</span>
+          </li>
+          <li className="list-group">
+            <span><b>Birthplace: </b>{newInfo.birthplace}</span>
+          </li>
+          <li className="list-group">
+            <span><b>Bio: </b>{newInfo.bio}</span>
+          </li>
+        </ul>
+      </ul>
+      </div>
+    </div>
+  );
+}
+
 export default AddArtist;
