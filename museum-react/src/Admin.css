@@ -4,14 +4,6 @@
   align-items: center;
 }
 
-.header {
-  background-color: lightblue;
-  padding: 10px;
-  margin:0;
-  width: 100%;
-  box-sizing: border-box;
-}
-
 .nav-links {
   list-style-type: none;
   padding: 0;
@@ -33,7 +25,7 @@
 }
 
 .image-container {
-  border: 20px solid #010b0f;
+  border: 20px solid #dce3e6;
   width: 300px; /* Set a fixed width for the container */
   height: 480px; /* Set a fixed height for the container */
   border-radius: 20px;
@@ -56,12 +48,5 @@
   margin-top: 10px;
   color: black;
 }
-
-body {
-  background-color: #f5f5dc;
-}
-
-
-
 
 

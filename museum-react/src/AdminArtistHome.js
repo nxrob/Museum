@@ -1,16 +1,15 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
-import "./AdminArtistHome.css"
 
 
 const AdminArtistHome = () => {
     return(
-        <div className="ArtistHome">
-            <h1 className="ArtistHeader"> Artist Catalog Admin Site</h1>
+        <div>
+            <h1>Artist Catalog Admin Site</h1>
             <nav>
-            <ul >
+            <ul>
               
-              <li className="image-container">
+              <li>
                  <Link to = "/Admin/Artist/Create">Create</Link> 
               </li>
               

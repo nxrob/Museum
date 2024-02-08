@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from "react";
 import DisplayMuseum from "./DisplayMuseum";
-import Museum from "./Museum";
-import MuseumAll from "./MuseumAll"
 
 const ReadMuseum = () => {
     const [museumData, setMuseumData] = useState(null);
@@ -26,7 +24,7 @@ return (
         <h1>
             This is  a list of all of our museums!
         </h1>
-        <MuseumAll/>
+        {DisplayMuseum(museumData)}
     </div>
 )
 

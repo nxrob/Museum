@@ -39,8 +39,3 @@ l
 <src/main/java/com/example/Museum/service/ArtServiceImpl.java,d\8\d8b35d0f91f51bc37ae0349eb56a1322eb97001e
 h
 8src/main/java/com/example/Museum/service/ArtService.java,9\1\91cd579076bebdeb5dac1c5a0e94e66e7238b6e7
-:
-
-Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
-d
-4src/main/java/com/example/Museum/model/Painting.java,c\1\c1d3aa4a120dcf4c25f0a734c6a67f16104f6cad
