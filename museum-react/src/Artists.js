@@ -25,6 +25,9 @@ const Artists = () => {
         getArtistInfo();
     }, []);
 
+
+    
+
     return (
         <div class="container w-50">
             <Header pageTitle={"Artists"}/>
