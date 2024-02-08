@@ -42,7 +42,7 @@ const MuseumAll = () => {
 			  try {
 				const response = await fetch('http://localhost:8080/museum/' + museum.name + '/rating');
 				const data = await response.json();
-				museum.rating = data;
+				museum.rating = data;	
 				return museum;
 			  } catch (error) {
 				console.error('Error fetching data: ', error);

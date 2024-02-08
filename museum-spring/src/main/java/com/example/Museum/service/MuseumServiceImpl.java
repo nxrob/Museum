@@ -106,7 +106,13 @@ public class MuseumServiceImpl implements MuseumService {
     @Override
     public double getMuseumRating(String museumName) {
         DecimalFormat numberFormat = new DecimalFormat("#.0");
-        return Double.parseDouble(numberFormat.format(museumRepository.getMuseumRating(museumName)));
+        double rating;
+        try {
+            rating = museumRepository.getMuseumRating(museumName);
+        } catch(Exception e){
+            rating = 0;
+        }
+        return Double.parseDouble(numberFormat.format(rating));
     }
 
     @Override

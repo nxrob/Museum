@@ -18,7 +18,7 @@ const Museum = () => {
     const [museumRating, setMuseumRating] = useState("");
 
     const images = require.context('../images/museum/', true);
-    const museumImage = images(`./${museumName}.jpeg`)
+    //const museumImage = images(`./${museumName}.jpeg`)
 
     console.log("Rendering... (museumInfo = " + museumInfo + ")")
 
