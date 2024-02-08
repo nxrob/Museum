@@ -1,4 +1,5 @@
 import React from "react"
+import "./DisplayArt.css"
 
 
 function DisplayArt(artwork) {
@@ -7,7 +8,7 @@ function DisplayArt(artwork) {
             <div>
                 <div>
                     {artwork.map((art) => (
-                        <div key= {art.id}>
+                        <div key= {art.id} className="artBox">
                       
                             <p>Id: : {art.id}</p>
                             <p>Title: : {art.title}</p>
