@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Header from './Header';
+import Footer from './Footer';
 
 const Artists = () => {
 
     const { artistName } = useParams();
     const navigate = useNavigate();
+    const [searchArtists,setSearchArtists] = useState([]);
 
     const [artistInfo, setArtistInfo] = useState();
 
@@ -45,7 +47,7 @@ const Artists = () => {
 
     return (
         <div class="container w-75">
-            <Header pageTitle={"Artists"}/>
+            <Header pageTitle={"Artists"} toggleSearch={true} toggleArtist={true} setSearchArtists={setSearchArtists}/>
 
             {artistInfo ? (
                 <div class="row row-cols-md-1 row-cols-lg-2 row-cols-xl-3 row-cols-xxl-4 g-4 my-3">
@@ -69,6 +71,7 @@ const Artists = () => {
                 <p>Loading artist's works...</p>
             )
             }
+            <Footer/>
         </div >
     );
 };

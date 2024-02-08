@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Header from './Header';
 import SearchBar from './SearchBar';
+import Footer from './Footer';
 
 
 const Museum = () => {
@@ -101,7 +102,7 @@ const Museum = () => {
 
     return (
         <div class="container w-75">
-            <Header pageTitle={"Museums"} setSearchArt={setSearchArt} toggleArt={true} toggleArtist={true} location={museumName} />
+            <Header pageTitle={"Museums"} setSearchArt={setSearchArt} toggleArt={true} toggleArtist={true} location={museumName} toggleSearch={true}/>
             <div id="content">
                 
                 {/* MUSEUM INFO */}
@@ -145,7 +146,7 @@ const Museum = () => {
                                 <b>{museumInfo.name}</b> appears in the following guides: <br />
                                 {guidesMentioningMuseum.map((guide) => (
                                     <div>
-                                        <Link to={""}>{guide.name}</Link>
+                                        <Link to={"/guides/" + guide.name}>{guide.name}</Link>
                                     </div>
                                 ))}
                             </div>
@@ -178,6 +179,7 @@ const Museum = () => {
                     <p>Loading works of art...</p>
                 )}
             </div>
+            <Footer/>
         </div >
     );
 };

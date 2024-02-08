@@ -35,6 +35,11 @@ public class GuideServiceImpl implements GuideService {
     }
 
     @Override
+    public int getIndividualRating(String guideName, String museumName) {
+        return guideRepository.getIndividualRating(guideName, museumName);
+    }
+
+    @Override
     public List<Guide> getGuidesMentioningMuseum(String museumName) {
         List<Guide> allGuides = guideRepository.findAll();
         List<Guide> guidesMentioningMuseum = new ArrayList<>();

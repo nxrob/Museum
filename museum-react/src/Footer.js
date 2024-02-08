@@ -7,7 +7,7 @@ const Footer = () => {
         <div className = "container-fluid p-0">
             <div className="row">
                 <div className='col'>
-                <p className='m-0'>&copy; 2024 GitGod</p>
+                <p className='m-0'>&copy; 2024 GitGood</p>
                 </div>
             </div>
         

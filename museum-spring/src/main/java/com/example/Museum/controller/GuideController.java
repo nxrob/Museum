@@ -32,6 +32,11 @@ public class GuideController {
         return guideService.getGuideByName(guideName);
     }
 
+    @GetMapping("/guide/{guideName}/{museumName}")
+    public int getIndividualRating(@PathVariable String guideName, @PathVariable String museumName){
+        return guideService.getIndividualRating(guideName, museumName);
+    }
+
     @GetMapping("/guide/{guideName}/list")
         public List<MuseumDto> getMuseumsInGuide(@PathVariable String guideName) {
         return guideService.getMuseumsInGuide(guideName);
