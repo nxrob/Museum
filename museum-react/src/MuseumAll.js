@@ -58,6 +58,18 @@ const MuseumAll = () => {
 		}
 	  }, [searchMuseums]);
 
+	  function getMuseumImage(museumName){
+		let imageSource = "";
+
+		try {
+			imageSource = './' + museumName + '.jpeg'
+			let src = images(imageSource);
+		} catch (error) {
+			console.error('Error, museum image not found: ', error);
+			imageSource = './Default.jpeg';
+		}
+	  }
+
 	return (
 		<div class="container w-50">
 			<Header pageTitle={"Museums"} setSearchMuseums={setSearchMuseums} toggleMuseum={true} />
@@ -67,7 +79,8 @@ const MuseumAll = () => {
                         <div class="col">
                             <Link to={museum.name} class="text-decoration-none">
                                 <div class="card bg-light m-auto" style={{ width: "35rem" }}>
-                                    <img src={images(`./${museum.name}.jpeg`)} class="card-img-top" style={{ maxHeight: "200px", objectFit: "cover" }} />
+                                    {/* <img src={images(`./${museum.name}.jpeg`)} class="card-img-top" style={{ maxHeight: "200px", objectFit: "cover" }} /> */}
+									<img src={images(getMuseumImage(museum.name))} class="card-img-top" style={{ maxHeight: "200px", objectFit: "cover" }} />
                                     <div class="card-body">
                                         <p class="card-text">{museum.name} ({museum.rating} ★)</p>
                                     </div>
