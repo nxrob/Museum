@@ -16,6 +16,7 @@ function AddArtist() {
 
   const [message, setMessage] = useState('');
   const [isError, setIsError] = useState(false);
+  const [isSuccessful, setIsSuccessful] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,18 +44,52 @@ function AddArtist() {
     e.preventDefault();
     setMessage('');
     setIsError(false);
+    setIsSuccessful(false);
 
     try {
       const response = await axios.post('http://localhost:8080/artist', artist);
       console.log('Response:', response.data);
       setMessage('Artist entry has been added successfully');
-      setNewId(data.id);
+      setIsSuccessful(true);
+      setNewId(response.data.id);
     } catch (error) {
       console.error('Error updating data:', error);
       setMessage('Error updating artist entry');
       setIsError(true);
     }
   };
+
+  function displayNewInfo() {
+    if (isSuccessful) {
+      return (
+        <ul className="list-group" style={{ width: "100%" }}>
+          <li className="list-group-item" >
+            <b>New Artist Information:</b>
+          </li>
+          <ul class="py-3">
+            <li className="list-group">
+              <span><b>ID: </b>{newInfo.id}</span>
+            </li>
+            <li className="list-group">
+              <span><b>Name: </b>{newInfo.name}</span>
+            </li>
+            <li className="list-group">
+              <span><b>Date of Birth and Date of Death: </b>{newInfo.dobAndDod}</span>
+            </li>
+            <li className="list-group">
+              <span><b>Birthplace: </b>{newInfo.birthplace}</span>
+            </li>
+            <li className="list-group">
+              <span><b>Bio: </b>{newInfo.bio}</span>
+            </li>
+          </ul>
+        </ul>
+      );
+    }
+    else {
+      return "";
+    }
+  }
 
 
   return (
@@ -119,28 +154,7 @@ function AddArtist() {
         )}
       </div>
       <div>
-      <ul className="list-group" style={{ width: "100%" }}>
-        <li className="list-group-item" >
-          <b>New Artist Information:</b>
-        </li>
-        <ul class="py-3">
-          <li className="list-group">
-            <span><b>ID: </b>{newInfo.id}</span>
-          </li>
-          <li className="list-group">
-            <span><b>Name: </b>{newInfo.name}</span>
-          </li>
-          <li className="list-group">
-            <span><b>Date of Birth and Date of Death: </b>{newInfo.dobAndDod}</span>
-          </li>
-          <li className="list-group">
-            <span><b>Birthplace: </b>{newInfo.birthplace}</span>
-          </li>
-          <li className="list-group">
-            <span><b>Bio: </b>{newInfo.bio}</span>
-          </li>
-        </ul>
-      </ul>
+            {displayNewInfo}
       </div>
     </div>
   );
