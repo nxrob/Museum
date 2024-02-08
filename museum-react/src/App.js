@@ -40,6 +40,9 @@ function App() {
           <Route path = "/Admin/Art" element = {<AdminArtHome/>}/>
           <Route path = "/Admin/Art/Delete" element = {<ArtDelete/>}/>
           <Route path = "/Admin/Art/Read" element = {<ReadArt/>}/>
+          <Route path = "/Admin/Art/Create" element = {<CreateArt/>}/>
+          
+          
 
           
           <Route path = "/Admin/Museum" element = {<AdminMuseumHome/>}/>
