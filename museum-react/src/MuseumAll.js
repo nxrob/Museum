@@ -59,14 +59,14 @@ const MuseumAll = () => {
 	  }, [searchMuseums]);
 
 	return (
-		<div class="container w-50">
+		<div class="container w-75">
 			<Header pageTitle={"Museums"} setSearchMuseums={setSearchMuseums} toggleMuseum={true} />
 				{museums ? (
                 <div class="row row-cols-1 row-cols-md-2 g-4 my-2">
                     {museums.map((museum) => (
                         <div class="col">
                             <Link to={museum.name} class="text-decoration-none">
-                                <div class="card bg-light m-auto" style={{ width: "35rem" }}>
+                                <div class="card bg-light m-auto" style={{ width: "" }}>
                                     <img src={images(`./${museum.name}.jpeg`)} class="card-img-top" style={{ maxHeight: "200px", objectFit: "cover" }} />
                                     <div class="card-body">
                                         <p class="card-text">{museum.name} ({museum.rating} ★)</p>
