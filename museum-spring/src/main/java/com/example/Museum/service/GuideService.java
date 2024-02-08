@@ -11,4 +11,7 @@ public interface GuideService {
     List<MuseumDto> getMuseumsInGuide(int id);
 
     List<Guide> getGuidesMentioningMuseum(String museumName);
+
+    Guide getGuideByName(String name);
+
 }

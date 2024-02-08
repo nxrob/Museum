@@ -28,8 +28,11 @@ public interface MuseumRepository extends CrudRepository<Museum, Integer> {
 
     void deleteById(int id);
 
-    @Query("SELECT new com.example.Museum.dto.MuseumDto(m) FROM Museum m join GuideLookup l on l.museum_id = m.id where l.guide_id = :id")
-    List<MuseumDto> getMuseumsInGuide(int id);
+//    @Query("SELECT new com.example.Museum.dto.MuseumDto(m) FROM Museum m join GuideLookup l on l.museum_id = m.id where l.guide_id = :id")
+//    List<MuseumDto> getMuseumsInGuide(int id);
+
+    @Query("SELECT new com.example.Museum.dto.MuseumDto(m) FROM Museum m JOIN GuideLookup l ON l.museum_id = m.id JOIN Guide g ON l.guide_id = g.id WHERE g.name LIKE %:name%")
+    List<MuseumDto> getMuseumsInGuide(String name);
 
     @Query("SELECT AVG(l.rating) FROM GuideLookup l JOIN Museum m on l.museum_id = m.id WHERE m.name LIKE %:museumName%")
     double getMuseumRating(String museumName);
