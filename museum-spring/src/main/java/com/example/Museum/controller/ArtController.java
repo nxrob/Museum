@@ -56,6 +56,7 @@ public class ArtController {
 //    public ArtDto createArt(@RequestBody ArtDto art) {
 //        return artService.saveArt(art, new Painting());
 //    }
+//    Comment
 
     @PutMapping("/art")
     public ArtDto editArt(@RequestBody ArtDto art) {
