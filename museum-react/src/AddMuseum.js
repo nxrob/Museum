@@ -28,12 +28,12 @@ function AddMuseum() {
     async function fetchData() {
       try {
         console.log(newId)
-        const response = await fetch('http://localhost:8080/artist/' + newId);
+        const response = await fetch('http://localhost:8080/museum/id/' + newId);
         const data = await response.json();
         console.log(data);
         setNewInfo(data);
       } catch (error) {
-        console.error('Error fetching artist, ', error);
+        console.error('Error fetching museum, ', error);
       }
     };
     fetchData();
