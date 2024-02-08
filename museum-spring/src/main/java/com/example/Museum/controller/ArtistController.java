@@ -30,7 +30,7 @@ public class ArtistController {
         return artistService.findObjectsByArtist(name);
     }
 
-    @GetMapping("/artist/{id}")
+    @GetMapping("/artist/id/{id}")
     public Artist getArtistById(@PathVariable Long id){
         return artistService.getArtistById(id);
     }

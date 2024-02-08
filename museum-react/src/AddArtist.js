@@ -16,7 +16,7 @@ function AddArtist() {
 
   const [message, setMessage] = useState('');
   const [isError, setIsError] = useState(false);
-  const [isSuccessful, setIsSuccessful] = useState("");
+  const [isSuccessful, setIsSuccessful] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,15 +27,19 @@ function AddArtist() {
   };
 
 
-  useEffect(async () => {
-
-    try {
-      const response = await fetch('http://localhost:8080/artist/' + newId);
-      const data = await response.json();
-      setNewInfo(data);
-    } catch (error) {
-      console.error('Error fetching artist, ', error);
-    }
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        console.log(newId);
+        const response = await fetch('http://localhost:8080/artist/id/' + newId);
+        const data = await response.json();
+        console.log(data);
+        setNewInfo(data);
+      } catch (error) {
+        console.error('Error fetching artist, ', error);
+      }
+    };
+    fetchData();
 
 
   }, [newId])
@@ -49,6 +53,7 @@ function AddArtist() {
     try {
       const response = await axios.post('http://localhost:8080/artist', artist);
       console.log('Response:', response.data);
+
       setMessage('Artist entry has been added successfully');
       setIsSuccessful(true);
       setNewId(response.data.id);
@@ -60,6 +65,7 @@ function AddArtist() {
   };
 
   function displayNewInfo() {
+    console.log(isSuccessful);
     if (isSuccessful) {
       return (
         <ul className="list-group" style={{ width: "100%" }}>
@@ -88,8 +94,8 @@ function AddArtist() {
     }
     else {
       return "";
-    }
-  }
+    };
+  };
 
 
   return (
@@ -154,7 +160,7 @@ function AddArtist() {
         )}
       </div>
       <div>
-            {displayNewInfo}
+        {displayNewInfo()}
       </div>
     </div>
   );
