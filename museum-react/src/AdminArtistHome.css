@@ -64,89 +64,88 @@
     background-color: #f5f5dc;
   }
 
-  /* New CSS class for positioning the header text */
+
 .PageHeader {
   text-align: left;
   width: 100%;
-  padding: 10px 20px; /* Adjust padding as needed */
+  padding: 10px 20px;
   margin-top: 0;
-  background-color: lightblue; /* Or any other color */
+  background-color: lightblue; 
   box-sizing: border-box;
 }
 
 
-/* Styles for the form itself for additional alignment and spacing */
+
 .formStyle {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px; /* Adjust gap for spacing between form items */
-  width: 100%; /* Adjust width as needed */
-  max-width: 500px; /* Set a max-width for larger screens */
+  gap: 20px; 
+  width: 100%; 
+  max-width: 500px; 
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
-  border-radius: 8px; /* Optional: rounds the corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  border-radius: 8px; 
 }
 
 .inputContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; /* This ensures the container takes full width */
+  width: 100%; 
 
-  max-width: 500px; /* Adjust this value based on your design */
+  max-width: 500px; 
 }
 
-/* Uniform style for all labels */
+
 .inputContainer > label {
   width: 100%;
-  margin-bottom: 5px; /* Adds a little space between label and input */
+  margin-bottom: 5px; 
 }
 
 .inputStyle, .buttonStyle {
-  width: 100%; /* Ensures inputs and button take full width of their container */
+  width: 100%; 
   padding: 10px;
-  margin: 5px 0; /* Adds a little space above and below each input/button */
+  margin: 5px 0; 
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-/* Uniform style for input fields and textarea */
+
 .inputStyle, .inputContainer > textarea {
-  width: 100%; /* Ensures inputs and textarea take full width of their container */
+  width: 100%; 
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box; /* Ensures padding doesn't affect the final width */
+  box-sizing: border-box; 
 }
 
 .buttonStyle {
-  width: auto; /* Adjust if you want the button width to match inputs */
+  width: auto; 
   padding: 10px 20px;
-  margin-top: 10px; /* Adds space above the button */
+  margin-top: 10px; 
   background-color: #007bff;
   color: #ffffff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  align-self: center; /* Centers the button in the form */
+  align-self: center; 
 }
 
-/* Adjusts the spacing and styles for error or success messages */
+
 .errorMessage, .successMessage {
-  color: #d9534f; /* Red for error messages */
+  color: #d9534f; 
   padding: 10px;
   margin-top: 20px;
 }
 
 .successMessage {
-  color: #5cb85c; /* Green for success messages */
+  color: #5cb85c; 
 }
   
-/* Admin.css */
+
 .artistIdInput {
-  width: 100%; /* Ensures it matches other inputs */
-  /* Other styling as needed, but it should inherit from inputStyle */
+  width: 100%; 
 }
 
   
