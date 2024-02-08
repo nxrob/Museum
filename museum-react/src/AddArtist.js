@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import "./Admin.css"; // Ensure your CSS file is correctly imported
 
 function AddArtist() {
   const [artist, setArtist] = useState({
@@ -37,71 +38,68 @@ function AddArtist() {
     }
   };
 
-  return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <h1>Create an Artist Entry</h1>
-        <div>
-          <label>
-            Artist ID:
+  
+    return (
+      <div className="ArtistHome">
+        <h1 className="PageHeader">Create an Artist Entry</h1>
+        <form onSubmit={handleSubmit} className="formStyle">
+          <div className="inputContainer">
+            <label>Artist ID:</label>
             <input
               type="number"
               name="id"
               value={artist.id}
               onChange={handleChange}
+              className="inputStyle artistIdInput" 
             />
-          </label>
-        </div>
-        <div>
-          <label>
-            Name:
+          </div>
+          <div className="inputContainer">
+            <label>Name:</label>
             <input
               type="text"
               name="name"
               value={artist.name}
               onChange={handleChange}
+              className="inputStyle"
             />
-          </label>
-        </div>
-        <div>
-          <label>
-            Date of Birth and Death:
+          </div>
+          <div className="inputContainer">
+            <label>Date of Birth and Death:</label>
             <input
               type="text"
               name="dobAndDod"
               value={artist.dobAndDod}
               onChange={handleChange}
+              className="inputStyle"
             />
-          </label>
-        </div>
-        <div>
-          <label>
-            Birthplace:
+          </div>
+          <div className="inputContainer">
+            <label>Birthplace:</label>
             <input
               type="text"
               name="birthplace"
               value={artist.birthplace}
               onChange={handleChange}
+              className="inputStyle"
             />
-          </label>
-        </div>
-        <div>
-          <label>
-            Bio:
+          </div>
+          <div className="inputContainer">
+            <label>Bio:</label>
             <textarea
               name="bio"
               value={artist.bio}
               onChange={handleChange}
+              className="inputStyle"
+              // style={{height: '100px'}}
             />
-          </label>
-        </div>
-        <button type="submit">Add Artist</button>
-      </form>
-      {message && (
-        <p style={{ color: isError ? 'red' : 'green' }}>{message}</p>
-      )}
-    </div>
-  );
-}
-
+          </div>
+          <button type="submit" className="buttonStyle">Add Artist</button>
+        </form>
+        {message && (
+          <p className={isError ? 'errorMessage' : 'successMessage'}>{message}</p>
+        )}
+      </div>
+    );
+  }
+  
 export default AddArtist;

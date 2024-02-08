@@ -20,13 +20,16 @@ public class MuseumDto {
     private String location;
     private List<Art> collection;
     private Integer collectionSize;
+    private String description;
     private Integer numberOfPaintingsBySpecificArtist;
 
     public MuseumDto(Museum museum) {
         this.id = museum.getId();
         this.name = museum.getName();
         this.location = museum.getLocation();
+        this.description = museum.getDescription();
         this.collectionSize = museum.getCollection().size();
+
     }
 
     public MuseumDto(Long id, String name) {

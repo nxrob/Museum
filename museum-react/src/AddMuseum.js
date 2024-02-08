@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import "./Admin.css"; // Ensure your CSS file is correctly imported
 
 function AddMuseum() {
   const [museum, setMuseum] = useState({
     id: '',
     name: '',
-    location: ''
+    location: '',
+    description: ''
   });
 
   const [message, setMessage] = useState('');
   const [isError, setIsError] = useState(false);
 
-
-const handleChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setMuseum(prevState => ({
       ...prevState,
-      [name]: name === 'id' ? parseInt(value, 10) || '' : value
+      [name]: name === 'id' ? parseInt(value, 10) || '' : value // Ensures ID is handled correctly
     }));
   };
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,153 +35,59 @@ const handleChange = (e) => {
       setMessage('Error creating museum entry');
       setIsError(true);
     }
-  
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <h1>Add a New Museum Entry</h1>
-          <div>
-            <label>
-              ID
-              <input
-                type="number"
-                name="id"
-                value={museum.id}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          <div>
-            <label>
-              Museum Name:
-              <input
-                type="text"
-                name="name"
-                value={museum.name}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          <div>
-            <label>
-              Location:
-              <input
-                type="text"
-                name="location"
-                value={museum.location}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          <button type="submit">Create Entry</button>
+    <div className="ArtistHome"> {/* Use the same class for consistent styling */}
+      <h1 className="PageHeader">Add a New Museum Entry</h1>
+      <form onSubmit={handleSubmit} className="formStyle">
+        <div className="inputContainer">
+          <label>Museum ID:</label>
+          <input
+            type="number"
+            name="id"
+            value={museum.id}
+            onChange={handleChange}
+            className="inputStyle"
+          />
         </div>
+        <div className="inputContainer">
+          <label>Museum Name:</label>
+          <input
+            type="text"
+            name="name"
+            value={museum.name}
+            onChange={handleChange}
+            className="inputStyle"
+          />
+        </div>
+        <div className="inputContainer">
+          <label>Location:</label>
+          <input
+            type="text"
+            name="location"
+            value={museum.location}
+            onChange={handleChange}
+            className="inputStyle"
+          />
+        </div>
+        <div className="inputContainer">
+          <label>Description:</label>
+          <input
+            type="text"
+            name="description"
+            value={museum.description}
+            onChange={handleChange}
+            className="inputStyle"
+          />
+        </div>
+        <button type="submit" className="buttonStyle">Create Entry</button>
       </form>
       {message && (
-        <p style={{ color: isError ? 'red' : 'green' }}>{message}</p>
+        <p className={isError ? 'errorMessage' : 'successMessage'}>{message}</p>
       )}
     </div>
   );
 }
 
 export default AddMuseum;
-
-// import React, { useState } from 'react';
-
-// function AddMuseum() {
-//   const [museum, setMuseum] = useState({
-//     id: '',
-//     name: '',
-//     location: ''
-//   });
-
-//   const [message, setMessage] = useState('');
-//   const [isError, setIsError] = useState(false);
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setMuseum(prevState => ({
-//       ...prevState,
-//       [name]:  value
-//     }));
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setMessage('');
-//     setIsError(false);
-
-//     try {
-//       const response = await fetch('http://localhost:8080/museum', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(museum),
-//       });
-
-//       if (!response.ok) {
-//         throw new Error(`HTTP error! status: ${response.status}`);
-//       }
-
-//       const data = await response.json();
-//       console.log('Response:', data);
-//       setMessage('Museum entry has been created successfully');
-//     } catch (error) {
-//       console.error('Error posting data:', error);
-//       setMessage('Error creating museum entry');
-//       setIsError(true);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <form onSubmit={handleSubmit}>
-//         <div>
-//           <h1>Add a New Museum Entry</h1>
-//           <div>
-//             <label>
-//               ID:
-//               <input
-//                 type="number"
-//                 name="id"
-//                 value={museum.id}
-//                 onChange={handleChange}
-//               />
-//             </label>
-//           </div>
-//           <div>
-//             <label>
-//               Museum Name:
-//               <input
-//                 type="text"
-//                 name="name"
-//                 value={museum.name}
-//                 onChange={handleChange}
-//               />
-//             </label>
-//           </div>
-//           <div>
-//             <label>
-//               Location:
-//               <input
-//                 type="text"
-//                 name="location"
-//                 value={museum.location}
-//                 onChange={handleChange}
-//               />
-//             </label>
-//           </div>
-//           <button type="submit">Create Entry</button>
-//         </div>
-//       </form>
-//       {message && (
-//         <p style={{ color: isError ? 'red' : 'green' }}>{message}</p>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default AddMuseum;
