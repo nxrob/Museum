@@ -16,7 +16,7 @@ const Artist = () => {
     const [museumWithMostWorks, setMuseumWithMostWorks] = useState();
 
     const images = require.context('../images/artist/', true);
-    const artistImage = images(`./${artistName}/artist.jpeg`)
+    ///const artistImage = images(`./${artistName}/artist.jpeg`)
 
 
     useEffect(() => {
@@ -64,6 +64,20 @@ const Artist = () => {
 
     }, []);
 
+    function getArtistImage() {
+
+        let imageSource = "";
+        try {
+            imageSource = './'+{artistName}+'/artist.jpeg'
+            let src = images(imageSource);
+        } catch (error) {
+            console.error('Error, artist image not found, ', error);
+            imageSource = './Default/artist.jpeg';
+        }
+        return imageSource;
+
+    }
+
     return (
         <div class="container w-50">
             <Header pageTitle={"Artists"} setSearchArt={setSearchArt} toggleArt={true} artist={artistName} />
@@ -93,7 +107,8 @@ const Artist = () => {
                     </div>
                 </div>
                 <div class="col my-3">
-                    <img src={artistImage} class="img-fluid float-end" />
+                    {/* <img src={artistImage} class="img-fluid float-end" /> */}
+                    <img src={images(getArtistImage())} class="img-fluid float-end" />
                 </div>
             </div>
 
