@@ -27,6 +27,7 @@ import UpdateMuseum from './UpdateMuseum';
 import UpdateArt from './UpdateArt';
 import GuideAll from './GuideAll';
 import Guide from './Guide';
+import ArtTypeSelection from './ArtTypeSelection';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
           <Route path = "/Admin/Artist/Read" element = {<ReadArtist/>}/>
 
           <Route path = "/Admin/Art" element = {<AdminArtHome/>}/>
+          <Route path=  "/Admin/Art/Create" element={<ArtTypeSelection />} />
           <Route path = "/Admin/Art/Delete" element = {<ArtDelete/>}/>
           <Route path = "/Admin/Art/Read" element = {<ReadArt/>}/>
 
