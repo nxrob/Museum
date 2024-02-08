@@ -87,7 +87,7 @@ const Museum = () => {
     }, []);
 
     return (
-        <div class="container w-50">
+        <div class="container w-75">
             <Header pageTitle={"Museums"} setSearchArt={setSearchArt} toggleArt={true} toggleArtist={true} location={museumName} />
             <div id="content">
                 
@@ -127,7 +127,7 @@ const Museum = () => {
                         <div class="col">
 
                             {/* GUIDES */}
-                            <div class="py-3 ps-3 float-sm-end rounded border" style={{ backgroundColor: "#EFF6F9", width: "49%" }}>
+                            <div class="py-3 ps-3 float-sm-end rounded border" style={{ backgroundColor: "#EFF6F9", width: "49.1%" }}>
                                 <b>{museumInfo.name}</b> appears in the following guides: <br />
                                 {guidesMentioningMuseum.map((guide) => (
                                     <div>

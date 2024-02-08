@@ -25,16 +25,19 @@ const Artists = () => {
         getArtistInfo();
     }, []);
 
+
+    
+
     return (
-        <div class="container w-50">
+        <div class="container w-75">
             <Header pageTitle={"Artists"}/>
 
             {artistInfo ? (
-                <div class="row row-cols-1 row-cols-md-4 g-4 my-3">
+                <div class="row row-cols-md-1 row-cols-lg-2 row-cols-xl-3 row-cols-xxl-4 g-4 my-3">
                     {artistInfo.map((artist) => (
-                        <div class="col">
+                        <div class="col px-4">
                             <Link to={artist.name} class="text-decoration-none">
-                                <div class="card bg-light" style={{ width: "18rem" }}>
+                                <div class="card bg-light" style={{ width: "" }}>
                                     <img src={images(`./${artist.name}/artist.jpeg`)} class="card-img-top" style={{ maxHeight: "200px", objectFit: "cover" }} />
                                     <div class="card-body">
                                         <p class="card-text">{artist.name}</p>
