@@ -97,16 +97,6 @@ function AddSculpture() {
                     />
                 </div>
                 <div className="inputContainer">
-                    <label>Location:</label>
-                    <input
-                        type="text"
-                        name="location"
-                        value={art.location}
-                        onChange={handleChange}
-                        className="inputStyle"
-                    />
-                </div>
-                <div className="inputContainer">
                     <label>Location ID:</label>
                     <input
                         type="text"

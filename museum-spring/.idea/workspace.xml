@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e25b7848-ca14-4677-aca1-5817ad89f281" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../museum-react/src/AddArtist.js" beforeDir="false" afterPath="$PROJECT_DIR$/../museum-react/src/AddArtist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../museum-react/src/AddMuseum.js" beforeDir="false" afterPath="$PROJECT_DIR$/../museum-react/src/AddMuseum.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../museum-react/src/AddPainting.js" beforeDir="false" afterPath="$PROJECT_DIR$/../museum-react/src/AddPainting.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../museum-react/src/AddSculpture.js" beforeDir="false" afterPath="$PROJECT_DIR$/../museum-react/src/AddSculpture.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../museum-react/src/UpdateArtist.js" beforeDir="false" afterPath="$PROJECT_DIR$/../museum-react/src/UpdateArtist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../museum-react/src/UpdateMuseum.js" beforeDir="false" afterPath="$PROJECT_DIR$/../museum-react/src/UpdateMuseum.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/4/b40c4562b2e9119b5cbeea4857d9327195884f23" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/4/b40c4562b2e9119b5cbeea4857d9327195884f23" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Museum/dto/MuseumDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Museum/dto/MuseumDto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

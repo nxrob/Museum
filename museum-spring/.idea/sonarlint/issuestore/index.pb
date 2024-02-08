@@ -26,3 +26,5 @@ _
 /src/main/java/com/example/Museum/model/Art.java,7/2/727aa731c366117a6654f264429f66c88819024e
 c
 3src/main/java/com/example/Museum/dto/MuseumDto.java,1/9/1913279573200000302a15c5f2aa6e1418091906
+e
+5src/main/java/com/example/Museum/model/Sculpture.java,f/e/fe728633a2155b1bbb88e19fc874cc914529fb84
