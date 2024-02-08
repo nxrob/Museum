@@ -50,11 +50,11 @@ function App() {
           <Route path = "/Admin/Art" element = {<AdminArtHome/>}/>
           <Route path = "/Admin/Art/Delete" element = {<ArtDelete/>}/>
           <Route path = "/Admin/Art/Read" element = {<ReadArt/>}/>
+
           <Route path = "/Admin/Art/Create/Painting" element = {<AddPainting/>}/>
           <Route path = "/Admin/Art/Create/Sculpture" element = {<AddSculpture/>}/>
           <Route path = "/Admin/Art/Update" element = {<UpdateArt/>}/>
-        
-
+      
           
           <Route path = "/Admin/Museum" element = {<AdminMuseumHome/>}/>
           <Route path = "/Admin/Museum/Delete" element = {<MuseumDelete />}/>
