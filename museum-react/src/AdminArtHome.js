@@ -2,38 +2,34 @@ import React from "react"
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import "./AdminArtHome.css"
+import ImageGallery from "./ImageGallery";
 
 
 
 const AdminArtHome = () => {
     return(
-      <div className="adminContainer">
-    
-       <Header/>
-        <div className="ArtistHome">
-         
-            <h1 className="ArtworkHeader">Artwork Catalog Admin Site</h1>
-            <nav>
-            <ul>
-              
-              <li>
-                 <Link to = "/Admin/Art/Create">Create</Link> 
-              </li>
-              
-              <li>
-                <Link to = "/Admin/Art/Update">Update</Link>
-              </li>
-              <li>
-                <Link to = "/Admin/Art/Delete">Delete</Link>
-              </li>
+      // <div className="adminContainer">
+         <div class="container w-75">
         
-              <li>
-                <Link to = "/Admin/Art/Read">Read</Link>
-              </li>
+    
+       <Header className="header"  pageTitle={"Artwork"} toggleSearch={false}/>
+    
+         
+           
+            <nav className = "navLinks">
+           
+                <Link to = "/Admin/Art/Create">Create</Link> 
+              
+                <Link to = "/Admin/Art/Update">Update</Link>
+              
+                <Link to = "/Admin/Art/Delete">Delete</Link>
              
-            </ul>
+                <Link to = "/Admin/Art/Read">Read</Link>
+            
           </nav>
-          </div>
+      
+          <ImageGallery/>
           <Footer/>
         </div>
     )

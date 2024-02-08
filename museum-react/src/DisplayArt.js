@@ -27,7 +27,7 @@ function DisplayArt(artwork) {
                 <div key= {art.id} className="artBox">
                       
                 <p>Id: : {art.id}</p>
-                <p>Title: : {art.title}</p>
+                <p>Title : {art.title}</p>
 
                  </div>
                 
