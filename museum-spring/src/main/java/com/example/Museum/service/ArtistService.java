@@ -19,4 +19,6 @@ public interface ArtistService {
 
     Artist getArtistInfo(String name);
     Artist saveArtist(Artist artist);
+
+    Artist getArtistById(Long id);
 }

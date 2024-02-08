@@ -1,0 +1,10 @@
+
+z
+java:S1488Y"dImmediately return this expression instead of assigning it to the temporary variable "oldestNewest".(Ê´¨ò
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ô«„Áþÿÿÿÿ
+T
+java:S1854E">Remove this useless assignment to local variable "repertoire".(³€¢ó
+E
+java:S1481E"/Remove this unused "repertoire" local variable.(³€¢ó
+Q	java:S125G"<This block of commented-out lines of code should be removed.(±™÷Í
+V	java:S125Z"<This block of commented-out lines of code should be removed.(®›ƒ’ýÿÿÿÿ

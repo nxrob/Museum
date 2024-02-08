@@ -6,16 +6,44 @@
   <component name="ChangeListManager">
     <list default="true" id="e25b7848-ca14-4677-aca1-5817ad89f281" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../museum-react/src/AddArtist.js" beforeDir="false" afterPath="$PROJECT_DIR$/../museum-react/src/AddArtist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../museum-react/src/AddMuseum.js" beforeDir="false" afterPath="$PROJECT_DIR$/../museum-react/src/AddMuseum.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../museum-react/src/AddPainting.js" beforeDir="false" afterPath="$PROJECT_DIR$/../museum-react/src/AddPainting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../museum-react/src/AddSculpture.js" beforeDir="false" afterPath="$PROJECT_DIR$/../museum-react/src/AddSculpture.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../museum-react/src/UpdateArtist.js" beforeDir="false" afterPath="$PROJECT_DIR$/../museum-react/src/UpdateArtist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../museum-react/src/UpdateMuseum.js" beforeDir="false" afterPath="$PROJECT_DIR$/../museum-react/src/UpdateMuseum.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/4/b40c4562b2e9119b5cbeea4857d9327195884f23" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/4/b40c4562b2e9119b5cbeea4857d9327195884f23" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Museum/dto/MuseumDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Museum/dto/MuseumDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/b/0be31635c474fc170baf7bb8ab479a491b5fa36b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/190b7dd91263cadd205f2069fdb032e5a156e4bd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/1913279573200000302a15c5f2aa6e1418091906" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/5/350fea85143530444f81a54070a9184933ae6a2f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/9/498d21dc1b2b28c72496d3d09bfcb103d87c593f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/5/65c02451f8a9620220102c5007c9cf84a7b98224" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/2/727aa731c366117a6654f264429f66c88819024e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/e/7e9835a32aae9f5db60b68ed6a6c5276b9424064" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/b/8bb11ad3c016c95156b9e1eb1e5cedb76f67f846" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/1/91cd579076bebdeb5dac1c5a0e94e66e7238b6e7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/4/b40c4562b2e9119b5cbeea4857d9327195884f23" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/8/d8b35d0f91f51bc37ae0349eb56a1322eb97001e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/a/ea10b7beb40adeb10d88bb34ddb3e258febe6708" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/e/fe5115ad23a3dfc081bd7f8e1dffba072e74f746" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/b/0be31635c474fc170baf7bb8ab479a491b5fa36b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/9/190b7dd91263cadd205f2069fdb032e5a156e4bd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/9/1913279573200000302a15c5f2aa6e1418091906" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/5/350fea85143530444f81a54070a9184933ae6a2f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/9/498d21dc1b2b28c72496d3d09bfcb103d87c593f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/5/65c02451f8a9620220102c5007c9cf84a7b98224" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/2/727aa731c366117a6654f264429f66c88819024e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/e/7e9835a32aae9f5db60b68ed6a6c5276b9424064" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/b/8bb11ad3c016c95156b9e1eb1e5cedb76f67f846" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/1/91cd579076bebdeb5dac1c5a0e94e66e7238b6e7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/4/b40c4562b2e9119b5cbeea4857d9327195884f23" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/8/d8b35d0f91f51bc37ae0349eb56a1322eb97001e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/a/ea10b7beb40adeb10d88bb34ddb3e258febe6708" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/e/fe5115ad23a3dfc081bd7f8e1dffba072e74f746" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +77,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.MuseumApplication.executor": "Run",
-    "git-widget-placeholder": "DannysBranch",
+    "git-widget-placeholder": "Display-updated-info",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

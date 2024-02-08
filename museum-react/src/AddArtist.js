@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "./Admin.css"; // Ensure your CSS file is correctly imported
 
@@ -11,6 +11,9 @@ function AddArtist() {
     bio: ''
   });
 
+  const [newId, setNewId] = useState('');
+  const [newInfo, setNewInfo] = useState([]);
+
   const [message, setMessage] = useState('');
   const [isError, setIsError] = useState(false);
 
@@ -22,6 +25,11 @@ function AddArtist() {
     }));
   };
 
+
+  useEffect(() => {
+
+  }, [newId])
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage('');
@@ -31,6 +39,7 @@ function AddArtist() {
       const response = await axios.post('http://localhost:8080/artist', artist);
       console.log('Response:', response.data);
       setMessage('Artist entry has been added successfully');
+      setNewId(data.id);
     } catch (error) {
       console.error('Error updating data:', error);
       setMessage('Error updating artist entry');
