@@ -13,6 +13,7 @@ function SearchParent() {
             <SearchBar setSearchMuseums={setSearchMuseums} setSearchArt={setSearchArt} setSearchArtists={setSearchArtists}/>
             <MuseumAll searchMuseums={searchMuseums} searchArt={searchArt} searchArtists={searchArtists}/>
             <Artist searchArt={searchArt}/>
+            <Museum searchArt={searchArt} searchArtists ={searchArtists}/>
         </div>
     );
 }

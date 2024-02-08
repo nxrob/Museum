@@ -2,5 +2,3 @@
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(öÌ¡b
 W
 java:S1128"<Remove this unused import 'com.example.Museum.model.Museum'.(ãÚ²µûÿÿÿÿ
-S
-java:S1128"7Remove this unused import 'jakarta.persistence.Column'.(Ó‰ÙE8 †ì¡Ø1
