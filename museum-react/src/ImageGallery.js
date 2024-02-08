@@ -5,13 +5,15 @@ import image3 from "./images/IMG20230209122950.jpg"
 import image4 from "./images/Skye-Canvas-painting-prints-art-Scotland-Scottish-Artist-Peutherer-scaled.jpg"
 import image5 from "./images/cute-dog-paintings-on-canvas-1024x814.jpg"
 import image6 from "./images/van-gogh-starry-night-min.jpg"
+import image7 from "./images/1000_F_259692993_uUOLDS9ISn2FRljd9LpI6YYKEx2HM4v7.jpg"
+import image8 from "./images/IMG20230209122950.jpg"
 import './ImageGallery.css'
 
 const ImageGallery = () => {
 
     const [currentPic, setCurrentPic] = useState(image2)
 
-    const imgGallery = [image1, image2, image3, image4, image5, image6]
+    const imgGallery = [image1, image2, image3, image4, image5, image6, image7, image8]
 
     useEffect(() => {
         const intervalId = setInterval(() => {
