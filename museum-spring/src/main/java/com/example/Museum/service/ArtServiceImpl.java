@@ -105,4 +105,9 @@ public class ArtServiceImpl implements ArtService {
         return artDtoConverter.convertArtToStandardDto(art);
     }
 
+    @Override
+    public void deleteById(int id) {
+        artRepository.deleteById(id);
+    }
+
 }

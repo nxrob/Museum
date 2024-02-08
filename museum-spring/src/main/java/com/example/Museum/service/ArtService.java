@@ -17,4 +17,6 @@ public interface ArtService {
     ArtDto saveArt(ArtDto art);
 
     ArtDto saveArt(ArtDto artDto, Art art);
+
+    void deleteById(int id);
 }

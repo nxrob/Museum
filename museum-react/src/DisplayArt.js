@@ -10,7 +10,7 @@ function DisplayArt(artwork) {
                         <div key= {art.id}>
                       
                             <p>Id: : {art.id}</p>
-                            <p>Name: : {art.name}</p>
+                            <p>Title: : {art.title}</p>
                            
                                              
                         </div>

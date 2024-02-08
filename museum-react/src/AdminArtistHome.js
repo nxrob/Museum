@@ -1,6 +1,7 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import "./AdminArtistHome.css"
+import Footer from "./Footer";
 
 
 const AdminArtistHome = () => {
@@ -27,6 +28,7 @@ const AdminArtistHome = () => {
              
             </ul>
           </nav>
+          <Footer/>
         </div>
     )
 }

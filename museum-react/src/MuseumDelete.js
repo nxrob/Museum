@@ -59,10 +59,10 @@ const MuseumDelete = () => {
             Submit
         </button>
       </p>
-      <c>
+      <div>
         For  your reference,  
         {DisplayMuseum(museumData)}
-      </c>
+      </div>
       
        </div>
     )
