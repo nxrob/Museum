@@ -2,7 +2,7 @@ import React from "react"
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
-import "./AdminArtHome.css";
+
 
 
 const AdminMuseumHome = () => {
