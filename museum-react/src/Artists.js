@@ -25,7 +25,22 @@ const Artists = () => {
         getArtistInfo();
     }, []);
 
-
+    function getArtistImage(artistName) {
+        let imageSource = "";
+        
+       
+        console.log(artistName);
+        try {
+            imageSource = './'+artistName+'/artist.jpeg'
+            let src = images(imageSource);
+        } catch (error) {
+            console.error('Error, artist not found: ', error);
+            imageSource = './Default/artist.jpeg';
+            
+        }
+        console.log(imageSource, 'image source');
+        return imageSource;
+    }
     
 
     return (
@@ -37,8 +52,11 @@ const Artists = () => {
                     {artistInfo.map((artist) => (
                         <div class="col px-4">
                             <Link to={artist.name} class="text-decoration-none">
+
                                 <div class="card bg-light" style={{ width: "" }}>
-                                    <img src={images(`./${artist.name}/artist.jpeg`)} class="card-img-top" style={{ maxHeight: "200px", objectFit: "cover" }} />
+                                    <img src={images(getArtistImage(artist.name))} class="card-img-top" style={{ maxHeight: "200px", objectFit: "cover" }} />
+
+                       
                                     <div class="card-body">
                                         <p class="card-text">{artist.name}</p>
                                     </div>
