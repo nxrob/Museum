@@ -20,6 +20,7 @@ import ReadMuseum from './ReadMuseum';
 import ReadArt from './ReadArt';
 import Artists from './Artists';
 import DataAnalysisPage from './DataAnalysisPage';
+import { TrendIdentifierPage } from './TrendIdentifier';
 import AddMuseum from './AddMuseum';
 import AddPainting from './AddPainting';
 import AddSculpture from './AddSculpture';
@@ -41,6 +42,7 @@ function App() {
           <Route path="/artists/:artistName" element={<Artist />} />
           <Route path="/Admin" element={<Admin />} />
           <Route path="/Admin/data-analysis" Component={DataAnalysisPage} />
+          <Route path="/Admin/TrendIdentifier" Component={TrendIdentifierPage} />
 
           <Route path = "/Admin/Artist" element = {<AdminArtistHome/>}/>
           <Route path = "/Admin/Artist/Create" element = {<AddArtist />}/>

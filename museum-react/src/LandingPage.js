@@ -72,8 +72,15 @@ const LandingPage = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      
       setResults(data); 
+      
+      const searches = JSON.parse(localStorage.getItem('searches')) || { location: [], theme: [], artist: [], guideRating: [] };
+      Object.keys(preferences).forEach(key => {
+        if (preferences[key]) { 
+          searches[key] = [...searches[key], preferences[key]];
+        }
+      });
+      localStorage.setItem('searches', JSON.stringify(searches));
       
       if (isLoggedIn) {
         console.log('Recording search:', preferences);
@@ -83,6 +90,7 @@ const LandingPage = () => {
     }
     setIsSearching(false);
   };
+  
 
   const handleLogin = (e) => {
     e.preventDefault();
