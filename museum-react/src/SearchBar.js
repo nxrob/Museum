@@ -27,6 +27,7 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, toggleArt
                 const response = await fetch("http://localhost:8080/artist");
                 const data = await response.json();
                 tempArtists = data;
+                
             }
             catch (error) {
                 console.error('Error fetching data: ', error);
@@ -131,7 +132,7 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, toggleArt
 
         if (toggleArtist) {
             try {
-                const response = await fetch("http://localhost:8080/artist?name=" + input);
+                const response = await fetch("http://localhost:8080/artist/name/" +input);
                 const data = await response.json();
                 setSearchArtists(data);
             }

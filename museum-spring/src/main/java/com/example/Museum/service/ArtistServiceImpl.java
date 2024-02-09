@@ -107,5 +107,10 @@ public class ArtistServiceImpl implements ArtistService {
         return artistRepository.getArtistById(id);
     }
 
+    @Override
+    public List<ArtistDto> getArtistByName(String name) {
+        return artistRepository.getArtistsByName(name);
+    }
+
 
 }
