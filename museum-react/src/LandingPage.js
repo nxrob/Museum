@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ImageGallery from './ImageGallery';
-
 
 const LandingPage = () => {
   const [location, setLocation] = useState('');
@@ -21,7 +20,7 @@ const LandingPage = () => {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState('');
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     const isLoginField = ['username', 'password'].includes(name);
@@ -64,32 +63,33 @@ const LandingPage = () => {
   
   const handleSearch = async () => {
     setIsSearching(true);
+    
+    const allSearches = JSON.parse(localStorage.getItem('allSearches')) || [];
+    allSearches.push(preferences);
+    localStorage.setItem('allSearches', JSON.stringify(allSearches));
+    
     try {
-      const queryParams = new URLSearchParams(preferences).toString();
-      const response = await fetch(`http://localhost:8080/museum?${queryParams}`);
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      setResults(data); 
-      
-      const searches = JSON.parse(localStorage.getItem('searches')) || { location: [], theme: [], artist: [], guideRating: [] };
-      Object.keys(preferences).forEach(key => {
-        if (preferences[key]) { 
-          searches[key] = [...searches[key], preferences[key]];
+      if (preferences.artist === 'El Greco') {
+        navigate('/artists/El%20Greco');
+      } else if (preferences.artist === 'Picasso') {
+        navigate('/artists/Pablo%20Picasso');
+      } else {
+        const queryParams = new URLSearchParams(preferences).toString();
+        const response = await fetch(`http://localhost:8080/museum?${queryParams}`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
-      });
-      localStorage.setItem('searches', JSON.stringify(searches));
-      
-      if (isLoggedIn) {
-        console.log('Recording search:', preferences);
+        const data = await response.json();
+        setResults(data);
       }
     } catch (error) {
       console.error('Search failed:', error);
+    } finally {
+      setIsSearching(false);
     }
-    setIsSearching(false);
   };
+  
+  
   
 
   const handleLogin = (e) => {

@@ -5,15 +5,15 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const TrendIdentifierPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState('location'); // Default to 'location'
-  const searches = JSON.parse(localStorage.getItem('searches')) || { location: [], theme: [], artist: [], guideRating: [] };
+  const [selectedCategory, setSelectedCategory] = useState('location'); 
+  const allSearches = JSON.parse(localStorage.getItem('allSearches')) || [];
   
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
   };
 
   const getCategoryData = () => {
-    const categorySearches = searches[selectedCategory] || [];
+    const categorySearches = allSearches.map(search => search[selectedCategory]).filter(Boolean);
     const searchCounts = categorySearches.reduce((acc, term) => {
       acc[term] = (acc[term] || 0) + 1;
       return acc;
