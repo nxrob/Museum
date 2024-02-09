@@ -11,7 +11,7 @@ const LandingPage = () => {
     location: '',
     theme: '',
     artist: '',
-    guideRating: '',
+    guideRating: '9',
   });
   const [loginInfo, setLoginInfo] = useState({
     username: '',
@@ -63,24 +63,32 @@ const LandingPage = () => {
   
   const handleSearch = async () => {
     setIsSearching(true);
-    
+    console.log('Current search preferences:', preferences); 
+  
     const allSearches = JSON.parse(localStorage.getItem('allSearches')) || [];
     allSearches.push(preferences);
     localStorage.setItem('allSearches', JSON.stringify(allSearches));
-    
+  
     try {
+      console.log('Guide Rating:', preferences.guideRating); 
       if (preferences.artist === 'El Greco') {
         navigate('/artists/El%20Greco');
       } else if (preferences.artist === 'Picasso') {
         navigate('/artists/Pablo%20Picasso');
+      } else if (preferences.guideRating === '9') {
+        console.log('Redirecting to Hermitage Museum'); 
+        navigate('/museums/Hermitage%20Museum');
       } else {
+        const response = await fetch('http://localhost:8080/museum');
+        let museums = await response.json();
         const queryParams = new URLSearchParams(preferences).toString();
-        const response = await fetch(`http://localhost:8080/museum?${queryParams}`);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        const fetchURL = `http://localhost:8080/museum?${queryParams}`;
+        const generalResponse = await fetch(fetchURL);
+        if (!generalResponse.ok) {
+          throw new Error(`HTTP error! status: ${generalResponse.status}`);
         }
-        const data = await response.json();
-        setResults(data);
+        const generalData = await generalResponse.json();
+        setResults(generalData);
       }
     } catch (error) {
       console.error('Search failed:', error);
@@ -88,6 +96,8 @@ const LandingPage = () => {
       setIsSearching(false);
     }
   };
+  
+  
   
   
   
