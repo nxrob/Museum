@@ -76,28 +76,28 @@ function AddArt() {
               <span><b>ID: </b>{newInfo.id}</span>
             </li>
             <li className="list-group">
-              <span><b>Title: </b>{newInfo.name}</span>
+              <span><b>Title: </b>{newInfo.title}</span>
             </li>
             <li className="list-group">
-              <span><b>Artist Name: </b>{newInfo.location}</span>
+              <span><b>Artist Name: </b>{newInfo.artistName}</span>
             </li>
             <li className="list-group">
-              <span><b>Year: </b>{newInfo.description}</span>
+              <span><b>Year: </b>{newInfo.yearOf}</span>
             </li>
             <li className="list-group">
-              <span><b>Medium: </b>{newInfo.description}</span>
+              <span><b>Medium: </b>{newInfo.medium}</span>
             </li>
             <li className="list-group">
-              <span><b>Location: </b>{newInfo.description}</span>
+              <span><b>Location: </b>{newInfo.location}</span>
             </li>
             <li className="list-group">
-              <span><b>Location ID: </b>{newInfo.description}</span>
+              <span><b>Location ID: </b>{newInfo.locationId}</span>
             </li>
             <li className="list-group">
               <span><b>Description: </b>{newInfo.description}</span>
             </li>
             <li className="list-group">
-              <span><b>Style: </b>{newInfo.description}</span>
+              <span><b>Style: </b>{newInfo.style}</span>
             </li>
           </ul>
         </ul>

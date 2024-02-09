@@ -27,7 +27,7 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, toggleArt
                 const response = await fetch("http://localhost:8080/artist");
                 const data = await response.json();
                 tempArtists = data;
-                
+
             }
             catch (error) {
                 console.error('Error fetching data: ', error);
@@ -58,7 +58,7 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, toggleArt
         if (toggleArt) {
 
             let tempArtworks = new Array;
-           
+
             try {
                 const response = await fetch("http://localhost:8080/art");
                 const data = await response.json();
@@ -68,7 +68,7 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, toggleArt
             }
 
             if (location != null) {
-                
+
                 tempArtworks.forEach(element => {
                     var isPresent = false;
                     if ((element.location).includes(location)) {
@@ -80,7 +80,7 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, toggleArt
                 });
             }
 
-            else if(artist != null) {
+            else if (artist != null) {
                 tempArtworks.forEach(element => {
                     var isPresent = false;
                     if ((element.artistName) == (artist)) {
@@ -132,7 +132,7 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, toggleArt
 
         if (toggleArtist) {
             try {
-                const response = await fetch("http://localhost:8080/artist/name/" +input);
+                const response = await fetch("http://localhost:8080/artist/name/" + input);
                 const data = await response.json();
                 setSearchArtists(data);
             }
@@ -162,15 +162,15 @@ const SearchBar = ({ setSearchArtists, setSearchArt, setSearchMuseums, toggleArt
                     setSearchArt(tempData);
                 }
 
-                else if(artist != null){
+                else if (artist != null) {
                     let tempData = new Array;
                     data.forEach(element => {
                         var isPresent = false;
 
-                        if((element.artistName) == artist){
+                        if ((element.artistName) == artist) {
                             isPresent = true;
                         }
-                        if(isPresent){
+                        if (isPresent) {
                             tempData.push(element);
                         }
                     });
