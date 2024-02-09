@@ -1,91 +1,135 @@
-
 import React, { useState } from 'react';
-import { Line } from 'react-chartjs-2';
-import './DataAnalysisPage.css';
+import { Pie, Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement } from 'chart.js';
 
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement);
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
-
-const categories = ['Museum', 'Artist', 'Painting', 'Sculpture']; 
-const dummySearchData = { 
-  'Location': {'Louvre Museum': 5, 'Van Gogh Museum': 3},
-  'Artist': {'El Greco': 7, 'Leonardo da Vinci': 4}
+const categoriesData = {
+  Museums: {
+    labels: ['Spain', 'UK', 'USA', 'France', 'Russia', 'Netherlands', 'Italy'],
+    data: [1, 2, 6, 2, 1, 1, 2],
+    total: 15
+  },
+  Artists: {
+    century: {
+      labels: ['15th', '16th', '19th', '20th'],
+      data: [1, 1, 4, 2],
+      total: 8
+    },
+    country: {
+      labels: ['Greece', 'Italy', 'Netherlands', 'Ireland', 'USA', 'Spain', 'France', 'Mexico'],
+      data: [1, 1, 1, 1, 1, 1, 1, 1],
+      total: 8
+    }
+  },
+  Sculptors: {
+    century: {
+      labels: ['15th', '19th', '20th'],
+      data: [1, 4, 3],
+      total: 8
+    },
+    country: {
+      labels: ['Lithuania', 'UK', 'USA', 'France', 'Romania', 'Italy'],
+      data: [1, 2, 1, 2, 1, 1],
+      total: 8
+    }
+  }
 };
 
 const DataAnalysisPage = () => {
-  const [selectedCategoryX, setSelectedCategoryX] = useState(categories[0]);
-  const [selectedCategoryY, setSelectedCategoryY] = useState(categories[1]);
+  const [selectedCategory, setSelectedCategory] = useState('Museums');
 
-  const chartData = {
-    labels: Object.keys(dummySearchData[selectedCategoryX] ?? {}),
-    datasets: [
-      {
-        label: `Searches for ${selectedCategoryY}`,
-        data: Object.keys(dummySearchData[selectedCategoryX] ?? {}).map(key => dummySearchData[selectedCategoryY]?.[key] || 0),
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1,
-      }
-    ],
+  const getChartData = (data, isPieChart = true) => ({
+    labels: data.labels.map(label => isPieChart ? label : `${label} century`),
+    datasets: [{
+      label: `${selectedCategory} Data`,
+      data: data.data,
+      backgroundColor: [
+        '#FF6384',
+        '#36A2EB',
+        '#FFCD56',
+        '#4BC0C0',
+        '#F77825',
+        '#9966FF',
+        '#00A86B'
+      ],
+      hoverOffset: 4
+    }]
+  });
+
+  const pieOptions = {
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            let label = context.label || '';
+            let value = context.parsed;
+            if (value !== null) {
+              label += `: ${value}%`;
+            }
+            return label;
+          }
+        }
+      },
+      title: {
+        display: true,
+        text: selectedCategory,
+      },
+    },
   };
-  
-  
-  const options = {
+
+  const barOptions = {
+    plugins: {
+      title: {
+        display: true,
+        text: 'Year of birth of artists',
+      },
+    },
     scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Century',
+        },
+      },
       y: {
+        title: {
+          display: true,
+          text: 'Number of Artists',
+        },
         beginAtZero: true,
       },
     },
   };
-  
 
   return (
     <div className="data-analysis-container">
-      <h2>Data Analysis</h2>
-      <div className="category-selection">
-        <label htmlFor="category-x-select">X-Axis Category: </label>
-        <select
-          id="category-x-select"
-          value={selectedCategoryX}
-          onChange={(e) => setSelectedCategoryX(e.target.value)}
-        >
-          {categories.map((category, index) => (
-            <option key={index} value={category}>{category}</option>
-          ))}
-        </select>
+      <h1>Data Analysis</h1>
+      <select onChange={(e) => setSelectedCategory(e.target.value)} value={selectedCategory}>
+        {Object.keys(categoriesData).map((category) => (
+          <option key={category} value={category}>{category}</option>
+        ))}
+      </select>
 
-        <label htmlFor="category-y-select">Y-Axis Category: </label>
-        <select
-          id="category-y-select"
-          value={selectedCategoryY}
-          onChange={(e) => setSelectedCategoryY(e.target.value)}
-        >
-          {categories.map((category, index) => (
-            <option key={index} value={category}>{category}</option>
-          ))}
-        </select>
+      <div className="charts-container">
+        {selectedCategory === 'Museums' && (
+          <Pie data={getChartData(categoriesData.Museums)} options={pieOptions} />
+        )}
+
+        {selectedCategory === 'Artists' && (
+          <>
+            <Bar data={getChartData(categoriesData.Artists.century, false)} options={barOptions} />
+            <Pie data={getChartData(categoriesData.Artists.country)} options={pieOptions} />
+          </>
+        )}
+
+        {selectedCategory === 'Sculptors' && (
+          <>
+            <Bar data={getChartData(categoriesData.Sculptors.century, false)} options={barOptions} />
+            <Pie data={getChartData(categoriesData.Sculptors.country)} options={pieOptions} />
+          </>
+        )}
       </div>
-
-      <Line data={chartData} options={options} />
     </div>
   );
 };

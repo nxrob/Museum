@@ -1,15 +1,46 @@
 .data-analysis-container {
-    padding: 20px;
+    font-family: Arial, sans-serif;
   }
   
-  .category-selection {
+  h1.data-analysis-heading {
+    color: black;
+    margin-top: 20px;
     margin-bottom: 20px;
+    font-size: 24px;
   }
   
-  .category-selection label,
-  .category-selection select {
-    margin-right: 10px;
+  .data-analysis-dropdown {
+    display: block;
+    width: 100%;
+    max-width: 320px; 
+    padding: 8px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
   
+  .charts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px; 
+  }
   
+  .chart-container {
+    width: 100%;
+    max-width: 400px; 
+    margin-bottom: 30px;
+  }
+  
+  @media (min-width: 768px) {
+    .chart-container {
+      width: 45%; 
+    }
+  }
   
