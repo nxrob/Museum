@@ -21,4 +21,6 @@ public interface ArtistService {
     Artist saveArtist(Artist artist);
 
     Artist getArtistById(Long id);
+
+    List<ArtistDto> getArtistByName(String name);
 }

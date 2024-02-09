@@ -6,7 +6,7 @@ import Footer from './Footer';
 
 const Artists = () => {
 
-    const { artistName } = useParams();
+    // const { artistName } = useParams();
     const navigate = useNavigate();
     const [searchArtists,setSearchArtists] = useState([]);
 
@@ -20,6 +20,7 @@ const Artists = () => {
                 const response = await fetch('http://localhost:8080/artist  ');
                 const data = await response.json();
                 setArtistInfo(data);
+                setSearchArtists(data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -27,11 +28,17 @@ const Artists = () => {
         getArtistInfo();
     }, []);
 
+    useEffect(() => {
+        setArtistInfo(searchArtists);
+        console.log("searching");
+        console.log(searchArtists);
+    }, [searchArtists])
+
     function getArtistImage(artistName) {
         let imageSource = "";
         
        
-        console.log(artistName);
+        // console.log(artistName);
         try {
             imageSource = './'+artistName+'/artist.jpeg'
             let src = images(imageSource);
@@ -40,7 +47,7 @@ const Artists = () => {
             imageSource = './Default/artist.jpeg';
             
         }
-        console.log(imageSource, 'image source');
+        // console.log(imageSource, 'image source');
         return imageSource;
     }
     
