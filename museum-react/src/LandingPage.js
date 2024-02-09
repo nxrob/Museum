@@ -10,7 +10,7 @@ const LandingPage = () => {
     location: '',
     theme: '',
     artist: '',
-    guideRating: '9',
+    guideRating: '',
   });
   const [loginInfo, setLoginInfo] = useState({
     username: '',
@@ -35,23 +35,8 @@ const LandingPage = () => {
         [name]: value,
       }));
     }
-    const handleLogin = (e) => {
-      e.preventDefault();
-      if (loginInfo.username === adminCredentials.username && loginInfo.password === adminCredentials.password) {
-        setIsLoggedIn(true);
-        setIsAdmin(true);
-        setCurrentUser(loginInfo.username);
-        console.log('Logged in as admin:', loginInfo.username);
-      } else if (loginInfo.username && loginInfo.password) {
-        setIsLoggedIn(true);
-        setIsAdmin(false); 
-        setCurrentUser(loginInfo.username);
-        console.log('Logged in with:', loginInfo);
-      } else {
-        console.log('Login failed: Username or password is missing');
-      }
-      
-    };
+    
+
   };
   const [isAdmin, setIsAdmin] = useState(false);
   const adminCredentials = [
@@ -103,9 +88,15 @@ const LandingPage = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const isAdminUser = adminCredentials.some(cred => cred.username === loginInfo.username && cred.password === loginInfo.password);
+    
+    let isValidLogin = false;
+  
+    const isAdminUser = adminCredentials.some(cred => 
+      cred.username === loginInfo.username && cred.password === loginInfo.password
+    );
   
     if (isAdminUser) {
+      isValidLogin = true; 
       setIsLoggedIn(true);
       setIsAdmin(true);
       setCurrentUser(loginInfo.username);
@@ -113,18 +104,46 @@ const LandingPage = () => {
       localStorage.setItem('isAdmin', 'true');
       localStorage.setItem('currentUser', loginInfo.username);
       console.log('Logged in as admin:', loginInfo.username);
-    } else if (loginInfo.username && loginInfo.password) {
+    } else if (loginInfo.username === 'a' && loginInfo.password !== 'b') {
+      console.log('Incorrect password entered. Unauthorized login attempt logged.');
+      const now = new Date().toISOString().slice(0, 10);
+      const failedAttempts = JSON.parse(localStorage.getItem('failedLoginAttempts')) || [];
+      const attemptIndex = failedAttempts.findIndex(attempt => attempt.date === now);
+      if (attemptIndex > -1) {
+        failedAttempts[attemptIndex].count += 1;
+      } else {
+        failedAttempts.push({ date: now, count: 1 });
+      }
+      localStorage.setItem('failedLoginAttempts', JSON.stringify(failedAttempts));
+    } else if (loginInfo.username === 'Joe Bloggs' && loginInfo.password === '1234') {
+      isValidLogin = true; 
       setIsLoggedIn(true);
       setIsAdmin(false);
-      setCurrentUser(loginInfo.username);
+      setCurrentUser(loginInfo.username); 
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('isAdmin', 'false');
       localStorage.setItem('currentUser', loginInfo.username);
-      console.log('Logged in with:', loginInfo);
-    } else {
-      console.log('Login failed: Username or password is missing');
+      console.log('Logged in with:', loginInfo.username);
+    }
+  
+    if (!isValidLogin) {
+      console.log('Login failed: Incorrect username or password');
     }
   };
+  
+  const incrementHackingAttempts = () => {
+    const now = new Date().toISOString().slice(0, 10); // Gets today's date in YYYY-MM-DD format
+    const failedAttempts = JSON.parse(localStorage.getItem('failedLoginAttempts')) || [];
+    const attemptIndex = failedAttempts.findIndex(attempt => attempt.date === now);
+    if (attemptIndex > -1) {
+      failedAttempts[attemptIndex].count += 1;
+    } else {
+      failedAttempts.push({ date: now, count: 1 });
+    }
+    localStorage.setItem('failedLoginAttempts', JSON.stringify(failedAttempts));
+  };
+
+  
   
 
   const handleLogout = () => {
@@ -222,7 +241,7 @@ useEffect(() => {
             <td><Link to="/admin/trend-identifier">Trend Identifier</Link></td>
           </tr>
           <tr>
-            <td><Link to="/admin/hacking-attempts">Hacking Attempts</Link></td>
+            <td><Link to="/admin/hacking-attempts" onClick={incrementHackingAttempts}>Hacking Attempts</Link></td>
           </tr>
         </tbody>
       </table>

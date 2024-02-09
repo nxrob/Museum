@@ -29,6 +29,7 @@ import UpdateArt from './UpdateArt';
 import GuideAll from './GuideAll';
 import Guide from './Guide';
 import ArtTypeSelection from './ArtTypeSelection';
+import HackingAttempts from './HackingAttempts';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="/Admin" element={<Admin />} />
           <Route path="/Admin/data-analysis" Component={DataAnalysisPage} />
           <Route path="/Admin/trend-identifier" element={<TrendIdentifierPage />} />  
+          <Route path="/admin/hacking-attempts" element={<HackingAttempts />} />
                   <Route path = "/Admin/Artist" element = {<AdminArtistHome/>}/>
           <Route path = "/Admin/Artist/Create" element = {<AddArtist />}/>
           <Route path = "/Admin/Artist/Update" element = {<UpdateArtist/>}/>
